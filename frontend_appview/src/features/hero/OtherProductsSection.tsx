@@ -17,7 +17,7 @@ interface OtherProductItem {
 const OTHER_PRODUCTS: OtherProductItem[] = [
   {
     id: 'op-1',
-    title: 'Botanical Soy Candles',
+    title: 'Botanical soy candles',
     category: 'Aromatics & Decor',
     description: 'Hand-poured pure soy wax infused with clean botanical oils in heavy amber glass.',
     image: '/images/Product_images/CRAFTED IN-HOUSE/candle_120.png',
@@ -25,7 +25,7 @@ const OTHER_PRODUCTS: OtherProductItem[] = [
   },
   {
     id: 'op-2',
-    title: 'Raw Truffle Honey & Nuts',
+    title: 'Raw truffle honey & nuts',
     category: 'Artisanal Delicacies',
     description: 'Pure wildflower truffle honey paired with dry-roasted saffron pistachios.',
     image: '/images/Category_image/Classics/thumb.jpeg',
@@ -33,7 +33,7 @@ const OTHER_PRODUCTS: OtherProductItem[] = [
   },
   {
     id: 'op-3',
-    title: 'Wooden Keepsake Trays',
+    title: 'Wooden keepsake trays',
     category: 'Heirloom Accessories',
     description: 'Handcrafted solid teakwood trays lined with soft burgundy velvet lining.',
     image: '/images/Product_images/CRAFTED IN-HOUSE/keepsake_small.png',
@@ -52,7 +52,7 @@ export const OtherProductsSection: React.FC = () => {
               Bespoke Additions
             </span>
             <h2 className="font-serif-luxury text-3xl md:text-4xl font-bold text-[#2C3228] tracking-tight">
-              Other Products
+              Other products
             </h2>
           </div>
           <p className="text-xs md:text-sm text-[#7A8275] max-w-md font-normal leading-relaxed">

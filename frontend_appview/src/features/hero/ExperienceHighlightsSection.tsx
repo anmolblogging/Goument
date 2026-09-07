@@ -70,7 +70,7 @@ export const ExperienceHighlightsSection: React.FC = () => {
           {/* Left Highlights Content */}
           <div className="lg:col-span-6 space-y-8 text-left">
             <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-[#2C3228] tracking-tight">
-              Why It Feels Different
+              Why it feels different
             </h2>
 
             <div className="space-y-6">
@@ -81,7 +81,7 @@ export const ExperienceHighlightsSection: React.FC = () => {
                 </div>
                 <div className="space-y-1">
                   <h3 className="font-serif-luxury text-xl font-bold text-[#2C3228]">
-                    Thoughtfully Chosen
+                    Thoughtfully chosen
                   </h3>
                   <p className="text-xs md:text-sm text-[#7A8275] leading-relaxed font-normal">
                     Every gift is selected around the person, the occasion and what you want them to feel.

@@ -16,7 +16,7 @@ export const GiftBoxingCards: React.FC<GiftBoxingCardsProps> = ({ cards }) => {
     <section id="gift-boxing-cards" className="px-4 py-6 space-y-4 bg-[#FAF8FC]">
       <div className="flex items-center justify-between px-1">
         <h2 className="font-serif-luxury text-xl font-bold text-[#3A2342]">
-          Signature Collections
+          Signature collections
         </h2>
         <span className="text-xs font-semibold text-[#6B427B]">
           3 Packaging Types

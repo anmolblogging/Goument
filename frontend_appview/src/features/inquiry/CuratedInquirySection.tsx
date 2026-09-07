@@ -133,16 +133,19 @@ export default function CuratedInquirySection() {
         </span>
       </div>
 
-      <div className="max-w-[1000px] mx-auto space-y-6 sm:space-y-8 relative z-10">
+      <div className="max-w-[1000px] mx-auto relative z-10">
 
         {/* ─── SECTION HEADER ─── */}
         <ScrollReveal animation="fadeUp">
-          <div className="text-center max-w-3xl mx-auto px-2 space-y-1.5 sm:space-y-2">
+          <div className="text-center max-w-3xl mx-auto px-2 space-y-1.5 sm:space-y-2 mb-8 sm:mb-10 md:mb-12">
             <h2
-              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontWeight: 300,
+              }}
             >
-              Bespoke Curation Enquiry
+              Bespoke curation enquiry
             </h2>
             <p className="text-xs md:text-sm text-[#78746D] font-light max-w-2xl mx-auto leading-normal">
               Share your gifting vision and our concierge team will prepare a tailored proposal within 24 hours.

@@ -23,16 +23,19 @@ export default function PrivacyPage() {
           </Link>
           <ChevronRight className="w-3 h-3 text-[#B5AFA6]" />
           <span className="text-[#1A1A18] font-medium">
-            Privacy &amp; Terms
+            Privacy &amp; terms
           </span>
         </nav>
 
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+            style={{
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
+              fontWeight: 300,
+            }}
           >
-            Client Confidentiality &amp; Terms
+            Client confidentiality &amp; terms
           </h1>
           <p className="text-xs sm:text-sm text-[#78746D] font-light leading-relaxed">
             How we protect your corporate gifting briefs, employee data, and brand assets.
@@ -49,7 +52,7 @@ export default function PrivacyPage() {
             <div className="flex items-center gap-2.5 text-[#8C6228]">
               <ShieldCheck className="w-5 h-5 shrink-0" />
               <h2 className="text-base sm:text-lg font-semibold text-[#1A1A18] tracking-tight">
-                1. Corporate Data Protection &amp; NDA Compliance
+                1. Corporate data protection &amp; NDA compliance
               </h2>
             </div>
             <p className="text-xs sm:text-[13.5px] text-[#5C564E] font-light leading-relaxed pl-7">
@@ -62,7 +65,7 @@ export default function PrivacyPage() {
             <div className="flex items-center gap-2.5 text-[#8C6228]">
               <Lock className="w-5 h-5 shrink-0" />
               <h2 className="text-base sm:text-lg font-semibold text-[#1A1A18] tracking-tight">
-                2. Recipient Addresses &amp; Logistics Data
+                2. Recipient addresses &amp; logistics data
               </h2>
             </div>
             <p className="text-xs sm:text-[13.5px] text-[#5C564E] font-light leading-relaxed pl-7">
@@ -75,7 +78,7 @@ export default function PrivacyPage() {
             <div className="flex items-center gap-2.5 text-[#8C6228]">
               <FileText className="w-5 h-5 shrink-0" />
               <h2 className="text-base sm:text-lg font-semibold text-[#1A1A18] tracking-tight">
-                3. Proposals, Customisation &amp; Invoicing
+                3. Proposals, customisation &amp; invoicing
               </h2>
             </div>
             <p className="text-xs sm:text-[13.5px] text-[#5C564E] font-light leading-relaxed pl-7">
@@ -88,7 +91,7 @@ export default function PrivacyPage() {
             <div className="flex items-center gap-2.5 text-[#8C6228]">
               <Mail className="w-5 h-5 shrink-0" />
               <h2 className="text-base sm:text-lg font-semibold text-[#1A1A18] tracking-tight">
-                4. Concierge Desk &amp; Inquiries
+                4. Concierge desk &amp; inquiries
               </h2>
             </div>
             <p className="text-xs sm:text-[13.5px] text-[#5C564E] font-light leading-relaxed pl-7">

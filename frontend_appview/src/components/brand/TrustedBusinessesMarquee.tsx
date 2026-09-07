@@ -121,10 +121,13 @@ export const TrustedBusinessesMarquee: React.FC = () => {
       {/* ─── SECTION HEADING (SERIF THEMED & PROMINENT) ─── */}
       <div className="max-w-[1440px] mx-auto px-4 text-center mb-8 sm:mb-12 space-y-2">
         <h3
-          className="text-2xl sm:text-3xl md:text-4xl font-light text-[#1A1A18] tracking-tight"
-          style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+          className="text-2xl sm:text-3xl md:text-4xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+          style={{
+            fontFamily: 'var(--font-cormorant), Georgia, serif',
+            fontWeight: 300,
+          }}
         >
-          Trusted by India&apos;s Leading Enterprises
+          Trusted by India&apos;s leading enterprises
         </h3>
         <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-md mx-auto">
           Delivering bespoke keepsakes and executive gifting programs across 250+ institutions.

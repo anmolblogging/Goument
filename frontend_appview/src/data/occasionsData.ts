@@ -2,11 +2,13 @@ export interface ValuePillar {
   title: string;
   description: string;
   iconName: string;
+  imageIcon?: string;
 }
 
 export interface OccasionMoment {
   title: string;
   iconName: string;
+  imageIcon?: string;
 }
 
 export interface BudgetTier {
@@ -114,7 +116,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       {
         title: 'Makes Moments Memorable',
         description: 'From a first day to a five-year milestone, the right gift can turn an ordinary company moment into one people remember.',
-        iconName: 'Sparkles',
+        iconName: 'Arch',
+        imageIcon: '/icons/arch.png',
       },
     ],
 
@@ -797,7 +800,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       {
         title: 'Creates Memorable Guest Experiences',
         description: 'From welcome moments to take-home keepsakes, gifting adds warmth and meaning to the experience.',
-        iconName: 'Sparkles',
+        iconName: 'Arch',
+        imageIcon: '/icons/arch.png',
       },
       {
         title: 'Adds Beauty to the Celebration',
@@ -817,7 +821,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       { title: 'Wedding Welcome Gifts', iconName: 'Users' },
       { title: 'Guest Favours & Return Gifts', iconName: 'Gift' },
       { title: 'Family Wedding Gifting', iconName: 'Heart' },
-      { title: 'Bridesmaid & Groomsmen Gifts', iconName: 'Sparkles' },
+      { title: 'Bridesmaid & Groomsmen Gifts', iconName: 'Arch', imageIcon: '/icons/arch.png' },
       { title: 'Engagements & Pre-Wedding Celebrations', iconName: 'HeartHandshake' },
       { title: 'Birthdays & Personal Celebrations', iconName: 'Cake' },
       { title: 'Housewarmings & Home Visits', iconName: 'Home' },

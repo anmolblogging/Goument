@@ -50,13 +50,16 @@ export const GiftingProcessSection: React.FC = () => {
       <div className="relative z-10 max-w-[1580px] mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* ─── SECTION HEADER (DESKTOP) ─── */}
-        <div className="hidden md:block text-center max-w-4xl mx-auto px-2 mb-3 sm:mb-4 md:mb-4">
+        <div className="hidden md:block text-center max-w-4xl mx-auto px-2 mb-8 sm:mb-10 md:mb-12">
           <ScrollReveal animation="fadeUp">
             <h2
-              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontWeight: 300,
+              }}
             >
-              How It Comes Together
+              How it comes together
             </h2>
           </ScrollReveal>
         </div>

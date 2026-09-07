@@ -45,17 +45,20 @@ function CataloguePresentation({
           </Link>
           <ChevronRight className="w-3 h-3 text-[#B5AFA6]" />
           <span className="text-[#1A1A18] font-medium truncate max-w-[160px] sm:max-w-none">
-            {activeCategoryMeta?.label || 'All Items'}
+            {activeCategoryMeta?.label || 'All items'}
           </span>
         </nav>
 
         {/* Centered Title & Subtitle */}
         <div className="text-center max-w-2xl mx-auto py-1">
           <h1
-            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#1A1A18] tracking-tight leading-tight"
-            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+            style={{
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
+              fontWeight: 300,
+            }}
           >
-            {activeCategoryMeta?.label || 'Curated Catalogue'}
+            {activeCategoryMeta?.label || 'Curated catalogue'}
           </h1>
           {activeCategoryMeta?.subtitle && (
             <p className="text-xs sm:text-sm text-[#78746D] font-light mt-1 max-w-lg mx-auto leading-relaxed">

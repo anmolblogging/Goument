@@ -6,23 +6,23 @@ import { PackageCheck, Gift, ShieldCheck, Truck } from 'lucide-react';
 const VALUE_PROPS = [
   {
     icon: PackageCheck,
-    title: 'Curated Elegance',
+    title: 'Curated elegance',
   },
   {
     icon: Gift,
-    title: 'Signature Personalisation',
+    title: 'Signature personalisation',
   },
   {
     icon: PackageCheck,
-    title: 'Artisan Presentation',
+    title: 'Artisan presentation',
   },
   {
     icon: ShieldCheck,
-    title: 'Exceptional Quality',
+    title: 'Exceptional quality',
   },
   {
     icon: Truck,
-    title: 'Express Pan-India Dispatch',
+    title: 'Express pan-India dispatch',
   },
 ];
 

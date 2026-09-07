@@ -177,15 +177,18 @@ export default function CustomGiftBoxesSection() {
 
   return (
     <section id="boxes" className="pt-2 sm:pt-8 md:pt-12 pb-10 sm:pb-14 md:pb-16 px-2 sm:px-4 lg:px-6 bg-[#FAF8F5] text-[#1A1A18] relative overflow-hidden scroll-mt-20">
-      <div className="max-w-[1580px] mx-auto space-y-5 sm:space-y-7">
+      <div className="max-w-[1580px] mx-auto">
 
         {/* ─── SECTION HEADER (CENTERED TITLE + BALANCED SUBTITLE) ─── */}
-        <div className="px-4 sm:px-6 lg:px-8 py-2 sm:py-4 flex flex-col items-center text-center relative max-w-4xl mx-auto space-y-1.5 sm:space-y-2">
+        <div className="px-4 sm:px-6 lg:px-8 py-2 sm:py-4 flex flex-col items-center text-center relative max-w-4xl mx-auto space-y-1.5 sm:space-y-2 mb-8 sm:mb-10 md:mb-12">
           <h2
-            className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight whitespace-normal md:whitespace-nowrap"
-            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+            className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04] whitespace-normal md:whitespace-nowrap"
+            style={{
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
+              fontWeight: 300,
+            }}
           >
-            Designed to Delight, Made to Impress.
+            Designed to delight, made to impress.
           </h2>
 
           <p className="text-xs sm:text-sm text-[#78746D] font-light leading-relaxed max-w-xl mx-auto whitespace-normal md:whitespace-nowrap">

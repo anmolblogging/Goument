@@ -18,13 +18,16 @@ export const WhyChooseSection: React.FC = () => {
           <ScrollReveal animation="fadeUp" delay={0.04}>
             <div className="bg-white border border-[#E8E2D8] p-6 sm:p-8 rounded-2xl space-y-2.5">
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] font-bold text-[#7A8B6F] block">
-                THE GOURMET GIFTS STANDARD
+                The Gourmet Gifts standard
               </span>
               <h2
-                className="text-2xl sm:text-3xl font-bold text-[#1A1A18] tracking-tight leading-[1.1]"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-2xl sm:text-3xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
-                Why Choose The Gourmet Gifts?
+                Why choose The Gourmet Gifts?
               </h2>
               <p className="text-xs sm:text-sm text-[#78746D] leading-relaxed font-light pt-1">
                 We bring together thoughtful curation, beautiful presentation and effortless execution to create gifts people genuinely remember.
@@ -39,7 +42,7 @@ export const WhyChooseSection: React.FC = () => {
                 className="text-lg sm:text-xl font-medium tracking-tight text-white leading-snug"
                 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
               >
-                Curated Beyond the Ordinary
+                Curated beyond the ordinary
               </h3>
               <p className="text-xs text-white/80 leading-relaxed font-light">
                 From regional gourmet discoveries and elegant keepsakes to useful everyday objects, every gift is selected to feel thoughtful, relevant and memorable.
@@ -54,7 +57,7 @@ export const WhyChooseSection: React.FC = () => {
                 className="text-lg sm:text-xl font-medium tracking-tight text-[#1A1A18] leading-snug"
                 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
               >
-                Made to Work Beautifully at Scale
+                Made to work beautifully at scale
               </h3>
               <p className="text-xs text-[#78746D] leading-relaxed font-light">
                 From intimate gifting requirements to large corporate programmes, we manage sourcing, customisation, packaging and pan-India delivery with equal attention to detail.
@@ -75,7 +78,7 @@ export const WhyChooseSection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A18]/80 via-transparent to-black/20" />
               <div className="absolute bottom-5 left-5 right-5 text-white space-y-1">
                 <span className="text-[9.5px] uppercase tracking-[0.24em] font-bold text-[#DFC299] block">
-                  CURATED WITH INTENT
+                  Curated with intent
                 </span>
                 <p 
                   className="text-base sm:text-lg font-light text-white leading-snug drop-shadow-sm"
@@ -94,7 +97,7 @@ export const WhyChooseSection: React.FC = () => {
                 className="text-lg sm:text-xl font-medium text-white leading-snug"
                 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
               >
-                Bespoke to Your Brand
+                Bespoke to your brand
               </h3>
               <p className="text-xs text-white/80 leading-relaxed font-light">
                 Custom boxes, branded merchandise, personalised stationery, apparel, bags, keepsakes, festive elements and more — tailored around your identity, audience and budget.
@@ -109,7 +112,7 @@ export const WhyChooseSection: React.FC = () => {
                 className="text-lg sm:text-xl font-medium text-[#1A1A18] leading-snug"
                 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
               >
-                One Partner. Endless Possibilities.
+                One partner. Endless possibilities.
               </h3>
               <p className="text-xs text-[#6B665E] leading-relaxed font-light">
                 Corporate gifting, festive hampers, employee rewards, client gifts, wedding gifting and bespoke occasions — thoughtfully managed from concept to delivery.
@@ -134,7 +137,7 @@ export const WhyChooseSection: React.FC = () => {
                   className="text-xl sm:text-2xl font-medium tracking-tight text-white leading-snug line-clamp-2"
                   style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
                 >
-                  Curated Beyond the Ordinary
+                  Curated beyond the ordinary
                 </h3>
                 <p className="text-xs text-white/80 leading-relaxed font-light line-clamp-3">
                   From regional gourmet discoveries and elegant keepsakes to useful everyday objects, every gift is selected to feel thoughtful, relevant and memorable.
@@ -149,7 +152,7 @@ export const WhyChooseSection: React.FC = () => {
                   className="text-xl sm:text-2xl font-medium tracking-tight text-[#1A1A18] leading-snug line-clamp-2"
                   style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
                 >
-                  Made to Work Beautifully at Scale
+                  Made to work beautifully at scale
                 </h3>
                 <p className="text-xs text-[#78746D] leading-relaxed font-light line-clamp-3">
                   From intimate gifting requirements to large corporate programmes, we manage sourcing, customisation, packaging and pan-India delivery with equal attention to detail.
@@ -172,7 +175,7 @@ export const WhyChooseSection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A18]/70 via-transparent to-black/20" />
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                 <span className="text-[9.5px] uppercase tracking-[0.24em] font-bold text-[#DFC299] block">
-                  CURATED WITH INTENT
+                  Curated with intent
                 </span>
                 <p 
                   className="text-lg sm:text-xl font-light text-white leading-snug drop-shadow-sm"
@@ -191,13 +194,16 @@ export const WhyChooseSection: React.FC = () => {
             <ScrollReveal animation="fadeUp" delay={0.12} className="h-full">
               <div className="bg-white border border-[#E8E2D8] p-6 sm:p-8 md:p-10 rounded-tr-3xl space-y-3 h-full flex flex-col justify-center">
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] font-bold text-[#7A8B6F] block">
-                  THE GOURMET GIFTS STANDARD
+                  The Gourmet Gifts standard
                 </span>
                 <h2
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-bold text-[#1A1A18] tracking-tight leading-[1.06]"
-                  style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                  style={{
+                    fontFamily: 'var(--font-cormorant), Georgia, serif',
+                    fontWeight: 300,
+                  }}
                 >
-                  Why Choose <br className="hidden sm:inline" />
+                  Why choose <br className="hidden sm:inline" />
                   The Gourmet Gifts?
                 </h2>
                 <p className="text-xs sm:text-sm text-[#78746D] leading-relaxed font-light pt-1">
@@ -216,7 +222,7 @@ export const WhyChooseSection: React.FC = () => {
                     className="text-lg sm:text-xl font-medium text-white leading-snug line-clamp-2"
                     style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
                   >
-                    Bespoke to Your Brand
+                    Bespoke to your brand
                   </h3>
                   <p className="text-[11px] text-white/80 leading-relaxed font-light line-clamp-3">
                     Custom boxes, branded merchandise, personalised stationery, apparel, bags, keepsakes, festive elements and more — tailored around your identity, audience and budget.
@@ -231,7 +237,7 @@ export const WhyChooseSection: React.FC = () => {
                     className="text-lg sm:text-xl font-medium text-[#1A1A18] leading-snug line-clamp-2"
                     style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
                   >
-                    One Partner. Endless Possibilities.
+                    One partner. Endless possibilities.
                   </h3>
                   <p className="text-[11px] text-[#6B665E] leading-relaxed font-light line-clamp-3">
                     Corporate gifting, festive hampers, employee rewards, client gifts, wedding gifting and bespoke occasions — thoughtfully managed from concept to delivery.

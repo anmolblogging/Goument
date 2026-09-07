@@ -25,16 +25,19 @@ const MOBILE_ORDER_CLASSES = [
 export default function KeepsakeEcommerceSection() {
   return (
     <section id="catalogue" className="pt-6 sm:pt-10 md:pt-14 pb-6 sm:pb-8 md:pb-7 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5] text-[#1A1A18] scroll-mt-20">
-      <div className="max-w-[1580px] mx-auto space-y-6 sm:space-y-8">
+      <div className="max-w-[1580px] mx-auto">
         
         {/* ─── SECTION HEADER ─── */}
         <ScrollReveal animation="fadeUp">
-          <div className="text-center max-w-4xl mx-auto px-2 space-y-1.5 sm:space-y-2 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+          <div className="text-center max-w-4xl mx-auto px-2 space-y-1.5 sm:space-y-2 mb-8 sm:mb-10 md:mb-12">
             <h2
-              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontWeight: 300,
+              }}
             >
-              What We Can Curate
+              What we can curate
             </h2>
             <p className="text-xs md:text-sm text-[#78746D] font-light max-w-3xl mx-auto leading-normal">
               <span className="inline sm:hidden">

@@ -47,15 +47,18 @@ export default function Scrapbook() {
       </div>
 
       {/* ─── SECTION HEADER ─── */}
-      <div className="relative z-10 max-w-[800px] mx-auto text-center mb-8 sm:mb-12 space-y-2">
+      <div className="relative z-10 max-w-[800px] mx-auto text-center mb-8 sm:mb-10 md:mb-12 space-y-2">
         <span className="type-meta text-[#7A8B6F] block tracking-widest uppercase text-xs font-bold">
-          The Living Archive • Real Stories &amp; Moments
+          The living archive • Real stories &amp; moments
         </span>
         <h2 
-          className="text-3xl sm:text-4xl md:text-5xl text-[#1A1A18] tracking-tight leading-[1.08] font-light"
-          style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+          className="text-3xl sm:text-4xl md:text-5xl text-[#1A1A18] font-light tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+          style={{
+            fontFamily: 'var(--font-cormorant), Georgia, serif',
+            fontWeight: 300,
+          }}
         >
-          The Keepsake Scrapbook
+          The keepsake scrapbook
         </h2>
         <p className="text-[#78746D] text-xs sm:text-sm max-w-lg mx-auto leading-relaxed font-light">
           Candid snapshots, workshop notes, and handwritten memoirs from celebrations across the country.

@@ -36,7 +36,7 @@ export default function StoryPage() {
           <ScrollReveal animation="fadeUp">
             <span className="type-meta text-[#B5AFA6] block mb-4">About</span>
             <h1 className="type-display text-[#1A1A18]" style={{ fontSize: 'clamp(42px, 7vw, 80px)' }}>
-              Our Story
+              Our story
             </h1>
           </ScrollReveal>
         </div>

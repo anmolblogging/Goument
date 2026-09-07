@@ -14,13 +14,16 @@ export default function EditorialSpread() {
       <ScrollReveal animation="fadeUp">
         <div className="mx-auto mb-10 sm:mb-14 md:mb-16 max-w-xl text-center px-6">
           <span className="type-meta text-[#8A8680] text-[9.5px] sm:text-[10.5px] tracking-[0.32em] uppercase font-semibold block mb-3">
-            Keepsake Archive
+            Keepsake archive
           </span>
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light tracking-[-0.02em] text-[#1A1A18] leading-[1.05]"
-            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+            className="text-3xl sm:text-4xl md:text-5xl font-light tracking-[-0.02em] text-[#1A1A18] leading-[1.08] sm:leading-[1.04]"
+            style={{
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
+              fontWeight: 300,
+            }}
           >
-            The Art of the Keepsake
+            The art of the keepsake
           </h2>
         </div>
       </ScrollReveal>

@@ -153,12 +153,15 @@ export const PackagingExperienceSection: React.FC = () => {
 
 export const PackagingHeader = () => {
   return (
-    <div className="text-center max-w-4xl mx-auto px-2 space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
+    <div className="text-center max-w-4xl mx-auto px-2 space-y-1.5 sm:space-y-2 mb-8 sm:mb-10 md:mb-12">
       <h2
-        className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+        className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+        style={{
+          fontFamily: 'var(--font-cormorant), Georgia, serif',
+          fontWeight: 300,
+        }}
       >
-        Packaging That Completes the Experience
+        Packaging that completes the experience
       </h2>
       <p className="text-xs md:text-sm text-[#78746D] font-light max-w-3xl mx-auto leading-normal">
         Bespoke handcrafted boxes for unforgettable unboxing moments.

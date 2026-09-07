@@ -166,8 +166,11 @@ export default function OccasionGiftingCarousel() {
         <ScrollReveal animation="fadeUp">
           <div className="text-center max-w-4xl mx-auto px-2 space-y-2.5 sm:space-y-3.5 mb-8 sm:mb-10 md:mb-12">
             <h2
-              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight whitespace-nowrap"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04] whitespace-nowrap"
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontWeight: 300,
+              }}
             >
               <span>For every occasion</span>{' '}
               <span>that matters</span>

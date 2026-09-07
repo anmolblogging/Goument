@@ -167,7 +167,7 @@ export const SpottedSection: React.FC = () => {
             Real Gifting Moments
           </span>
           <h2 className="font-serif-luxury text-2xl sm:text-4xl md:text-5xl font-bold text-[#2C3228] tracking-tight text-center">
-            Made for Moments That Matter
+            Made for moments that matter
           </h2>
         </div>
 

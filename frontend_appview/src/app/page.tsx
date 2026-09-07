@@ -153,11 +153,14 @@ export default function HomePage() {
           <div className="max-w-[760px] mx-auto space-y-5 relative z-10">
             <ScrollReveal animation="fadeUp">
               <span className="type-meta text-[#DFC299] text-[10.5px] sm:text-[11.5px] tracking-[0.32em] uppercase font-bold block mb-2.5">
-                Private Concierge
+                Private concierge
               </span>
               <h2
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-[-0.02em] leading-[1.08]"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
                 For those who give at scale.
               </h2>

@@ -187,14 +187,17 @@ const IndustryCard: React.FC<{ industry: IndustryItem }> = ({ industry }) => {
 export const IndustriesSection: React.FC = () => {
   return (
     <section className="pt-6 sm:pt-10 md:pt-14 px-3.5 sm:px-6 lg:px-8 bg-[#FAF8F5] text-[#1A1A18] relative overflow-hidden">
-      <div className="max-w-[1480px] mx-auto space-y-6 sm:space-y-8">
+      <div className="max-w-[1480px] mx-auto">
 
         {/* ─── SECTION TITLE ─── */}
         <ScrollReveal animation="fadeUp">
-          <div className="text-center max-w-4xl mx-auto px-2 space-y-1.5 sm:space-y-2">
+          <div className="text-center max-w-4xl mx-auto px-2 space-y-1.5 sm:space-y-2 mb-8 sm:mb-10 md:mb-12">
             <h2
-              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontWeight: 300,
+              }}
             >
               Gifting, built around your industry
             </h2>

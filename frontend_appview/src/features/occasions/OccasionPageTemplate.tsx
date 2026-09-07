@@ -37,9 +37,19 @@ import { OccasionPageData } from '@/data/occasionsData';
 import { openWhatsAppInquiry } from '@/lib/whatsapp';
 import toast from 'react-hot-toast';
 
+const WeddingArchIcon = ({ className }: { className?: string }) => (
+  <img
+    src="/icons/arch.png"
+    alt="Wedding celebration"
+    className={`${className || 'w-7 h-7'} object-contain`}
+  />
+);
+
 // Dynamic Lucide Icon Mapper
 const IconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Sparkles,
+  Arch: WeddingArchIcon,
+  WeddingArch: WeddingArchIcon,
   HeartHandshake,
   Building,
   TrendingUp,
@@ -225,9 +235,10 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
         {/* Main Copy */}
         <div className="max-w-2xl">
           <h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-light text-[#1A1A18] tracking-tight leading-[1.06]"
+            className="text-[28px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
             style={{
               fontFamily: 'var(--font-cormorant), Georgia, serif',
+              fontWeight: 300,
             }}
           >
             {data.title}
@@ -319,8 +330,11 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
     <ScrollReveal animation="fadeUp">
       <div className="text-center max-w-4xl mx-auto px-2">
         <h2
-          className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-          style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+          className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+          style={{
+            fontFamily: 'var(--font-cormorant), Georgia, serif',
+            fontWeight: 300,
+          }}
         >
           {toSentenceCase(data.solvesTitle)}
         </h2>
@@ -363,7 +377,15 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
             <div className="flex flex-col items-start text-left space-y-3.5 h-full">
               {/* Icon */}
               <div className="w-10 h-10 flex items-center justify-start text-[#1A1A18]">
-                <Icon className="w-7 h-7 stroke-[1.35] text-[#1A1A18]" />
+                {pillar.imageIcon ? (
+                  <img
+                    src={pillar.imageIcon}
+                    alt={pillar.title}
+                    className="w-7 h-7 object-contain"
+                  />
+                ) : (
+                  <Icon className="w-7 h-7 stroke-[1.35] text-[#1A1A18]" />
+                )}
               </div>
 
               {/* Title */}
@@ -393,8 +415,11 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
           <ScrollReveal animation="fadeUp">
             <div className="text-center space-y-2 max-w-3xl mx-auto">
               <h2
-                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
                 {toSentenceCase(data.budgetTitle || 'Thoughtfully curated around your budget')}
               </h2>
@@ -502,8 +527,11 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
             <div className="bg-[#F5EFEB] border border-[#E6DDCF] rounded-3xl p-8 sm:p-12 md:p-16 text-center space-y-6 max-w-4xl mx-auto shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
               <div className="space-y-3 max-w-2xl mx-auto">
                 <h2
-                  className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-                  style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                  className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                  style={{
+                    fontFamily: 'var(--font-cormorant), Georgia, serif',
+                    fontWeight: 300,
+                  }}
                 >
                   Not sure what to gift? That’s where we come in.
                 </h2>
@@ -541,8 +569,11 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
           <ScrollReveal animation="fadeUp">
             <div className="text-center space-y-2">
               <h2
-                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
                 Enquire for {toSentenceCase(data.title)}
               </h2>

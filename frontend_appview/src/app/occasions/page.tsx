@@ -28,8 +28,11 @@ export default function OccasionsIndexPage() {
         {/* Hero Title & Subtitle */}
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3.5">
           <h1
-            className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight whitespace-nowrap"
-            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+            className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04] whitespace-nowrap"
+            style={{
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
+              fontWeight: 300,
+            }}
           >
             For every occasion that matters
           </h1>
@@ -148,13 +151,16 @@ export default function OccasionsIndexPage() {
         <div className="bg-[#38493B] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 text-center space-y-4 shadow-xl relative overflow-hidden">
           <ScrollReveal animation="fadeUp">
             <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#DFC299] block mb-1">
-              Bespoke Curation Service
+              Bespoke curation service
             </span>
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight leading-tight"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+              className="text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontWeight: 300,
+              }}
             >
-              Need a Custom Gifting Concept?
+              Need a custom gifting concept?
             </h2>
             <p className="text-xs sm:text-sm text-white/85 font-light max-w-lg mx-auto leading-relaxed pt-1">
               From company offsites to executive partner hampers, we curate custom keepsake gifts tailored to your exact milestone, brand identity, and budget.

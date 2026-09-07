@@ -130,8 +130,11 @@ export default function HamperDetailPage({ params }: { params: Promise<{ slug: s
                 {hamper.categoryLabel}
               </span>
               <h1
-                className="text-3xl sm:text-4xl md:text-5xl text-[#1A1A18] font-light leading-[1.08] tracking-tight"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-3xl sm:text-4xl md:text-5xl text-[#1A1A18] font-light tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
                 {hamper.name}
               </h1>
@@ -231,20 +234,23 @@ export default function HamperDetailPage({ params }: { params: Promise<{ slug: s
         <div className="flex items-end justify-between mb-8">
           <div>
             <span className="type-meta text-[#7A8B6F] text-[10px] tracking-[0.25em] uppercase font-bold block mb-1">
-              You May Also Admire
+              You may also admire
             </span>
             <h2
-              className="text-2xl sm:text-3xl text-[#1A1A18] font-light"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+              className="text-2xl sm:text-3xl md:text-4xl text-[#1A1A18] font-light tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontWeight: 300,
+              }}
             >
-              Complementary Hampers
+              Complementary hampers
             </h2>
           </div>
           <Link
             href="/#catalogue"
             className="text-xs uppercase font-semibold text-[#9E7B35] hover:text-[#7A1C29] flex items-center gap-1 transition-colors"
           >
-            <span>View All</span>
+            <span>View all</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

@@ -237,13 +237,16 @@ export default function HouseOfSatraPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <span className="type-meta text-[#8A8680] text-[9px] tracking-[0.3em] uppercase block mb-1">
-                Portals of the Maison
+                Portals of the maison
               </span>
               <h2
-                className="text-3xl sm:text-4xl text-[#1A1A18] font-light"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-3xl sm:text-4xl text-[#1A1A18] font-light tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
-                Our Specialized Houses
+                Our specialized houses
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#78746D] max-w-md">
@@ -394,13 +397,16 @@ export default function HouseOfSatraPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[#E0DDD6] mb-10">
             <div>
               <span className="type-meta text-[#8A8680] text-[9px] tracking-[0.3em] uppercase block mb-1">
-                Maison Catalog
+                Maison catalog
               </span>
               <h2
-                className="text-3xl sm:text-4xl text-[#1A1A18] font-light"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-3xl sm:text-4xl text-[#1A1A18] font-light tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
-                Heirloom Creations
+                Heirloom creations
               </h2>
             </div>
 
@@ -531,10 +537,13 @@ export default function HouseOfSatraPage() {
               </div>
 
               <h2
-                className="text-3xl sm:text-5xl font-light tracking-tight leading-[1.1] text-white"
-                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                className="text-3xl sm:text-5xl font-light tracking-[-0.02em] leading-[1.08] sm:leading-[1.04] text-white"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
               >
-                Master Guilds Across India
+                Master guilds across India
               </h2>
 
               <p className="text-sm text-[#B5AFA6] leading-relaxed font-light">
