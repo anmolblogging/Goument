@@ -93,8 +93,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     secondaryCta: 'EXPLORE EMPLOYEE GIFTING',
     trustPoints: ['Thoughtful Curation', 'Brand Personalisation', 'End-to-End Execution'],
 
-    solvesTitle: 'Why Thoughtful Employee Gifting Matters',
-    solvesSubtitle: '',
+    solvesTitle: 'Why thoughtful employee gifting matters',
+    solvesSubtitle: 'We look past generic corporate merchandise to curate gifts that reflect your culture, celebrate genuine contributions, and make every employee feel genuinely valued.',
     pillars: [
       {
         title: 'Makes People Feel Valued',
@@ -118,7 +118,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       },
     ],
 
-    momentsTitle: 'Curated For Every Employee Moment',
+    momentsTitle: 'Curated for every employee moment',
     momentsSubtitle: '',
     moments: [
       { title: 'Welcome & Onboarding', iconName: 'Users' },
@@ -131,7 +131,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       { title: 'Team Celebrations', iconName: 'Users' },
     ],
 
-    budgetTitle: 'Thoughtfully Curated Around Your Budget',
+    budgetTitle: 'Thoughtfully curated around your budget',
     budgetSubtitle: '',
     budgetTiers: [
       {
@@ -192,7 +192,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     secondaryCta: 'EXPLORE CLIENT GIFTING',
     trustPoints: ['Curated Around the Recipient', 'Customised to Your Brand', 'Handled End-to-End'],
 
-    solvesTitle: 'Why Thoughtful Client Gifting Matters',
+    solvesTitle: 'Why thoughtful client gifting matters',
     solvesSubtitle: 'The right gift can strengthen a relationship, mark an important moment and say what a routine email cannot. We curate around who the client is, the occasion, your relationship and your brand — so every gesture feels considered.',
     pillars: [
       {
@@ -217,7 +217,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       },
     ],
 
-    momentsTitle: 'Curated For Every Client Moment',
+    momentsTitle: 'Curated for every client moment',
     momentsSubtitle: 'From the first conversation to years of partnership, every relationship gives you a different reason to gift.',
     moments: [
       { title: 'New Client Welcomes', iconName: 'Users' },
@@ -230,7 +230,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       { title: 'Leadership & Executive Gifting', iconName: 'Building' },
     ],
 
-    budgetTitle: 'Curated Around Your Budget',
+    budgetTitle: 'Curated around your budget',
     budgetSubtitle: 'Whether it’s a thoughtful gesture for 50 clients or a signature experience for your most important relationships, we curate to make every budget feel intentional.',
     budgetTiers: [
       {

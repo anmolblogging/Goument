@@ -64,6 +64,22 @@ const IconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Headphones,
 };
 
+// Helper to remove camel case and convert to natural sentence case across titles
+function toSentenceCase(str: string): string {
+  if (!str) return '';
+  const words = str.trim().split(/\s+/);
+  if (words.length === 0) return '';
+  return words
+    .map((word, idx) => {
+      if (/^[A-Z0-9]{2,}$/.test(word)) return word; // Preserve B2B, CX, VIP
+      if (idx === 0) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }
+      return word.toLowerCase();
+    })
+    .join(' ');
+}
+
 export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ data }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -172,7 +188,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
       {/* ══════════════════════════════════════════════════════════════════
     1. HERO SECTION
     ══════════════════════════════════════════════════════════════════ */}
-<section className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 md:pt-32 pb-10 sm:pb-16">
+<section className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 md:pt-32 pb-6 sm:pb-10">
   <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center">
 
     {/* Left Column: Breadcrumb, Typography, CTAs & Trust Points */}
@@ -294,34 +310,46 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
 
 
 {/* ══════════════════════════════════════════════════════════════════
-    2. VALUE PILLARS
+    2. ROADBLOCKS / SOLVES & MOMENTS SECTION (IMG 1 LAYOUT)
     ══════════════════════════════════════════════════════════════════ */}
-<section className="pt-10 sm:pt-16 pb-10 sm:pb-14 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5]">
-  <div className="max-w-[1280px] mx-auto">
+<section className="pt-2 sm:pt-4 md:pt-6 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-12 bg-[#FAF8F5]">
+  <div className="max-w-[1320px] mx-auto">
 
-    {/* Section Heading */}
+    {/* Centered Main Heading & Subtitle */}
     <ScrollReveal animation="fadeUp">
-      <div className="max-w-3xl mb-10 sm:mb-14">
+      <div className="text-center max-w-4xl mx-auto px-2">
         <h2
           className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
-          style={{
-            fontFamily: 'var(--font-cormorant), Georgia, serif',
-          }}
+          style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
         >
-          {data.solvesTitle}
+          {toSentenceCase(data.solvesTitle)}
         </h2>
 
-        {data.solvesSubtitle && (
-          <p className="mt-3 text-xs sm:text-sm text-[#78746D] font-light max-w-2xl leading-normal">
-            {data.solvesSubtitle}
-          </p>
-        )}
+        <p className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base text-[#78746D] font-light max-w-2xl mx-auto leading-relaxed">
+          {data.solvesSubtitle ||
+            'We look past generic corporate merchandise to curate gifts that reflect your culture, celebrate genuine contributions, and make every recipient feel genuinely valued.'}
+        </p>
       </div>
     </ScrollReveal>
 
-    {/* Editorial 2 × 2 Pillar Layout */}
-    <div className="grid grid-cols-1 sm:grid-cols-2">
+    {/* Centered Moments Pill Badges Cluster */}
+    {data.moments && data.moments.length > 0 && (
+      <ScrollReveal animation="fadeUp" delay={0.06}>
+        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-2.5 md:gap-3 max-w-3xl sm:max-w-4xl mx-auto my-10 sm:my-14 md:my-16 px-2">
+          {data.moments.map((moment, idx) => (
+            <span
+              key={idx}
+              className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#EFE9DF] hover:bg-[#E5DDCF] text-[#332E27] hover:text-[#1A1A18] text-xs sm:text-[13.5px] font-normal tracking-wide transition-all duration-200 border border-[#DFD7CA]/70 shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default select-none hover:scale-[1.02]"
+            >
+              {moment.title}
+            </span>
+          ))}
+        </div>
+      </ScrollReveal>
+    )}
 
+    {/* Bottom 4-Column Editorial Features */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 xl:gap-12 mt-8 sm:mt-12 md:mt-16">
       {data.pillars.map((pillar, idx) => {
         const Icon = IconMap[pillar.iconName] || ShieldCheck;
 
@@ -332,144 +360,27 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
             delay={0.05 * (idx + 1)}
             className="h-full"
           >
-            <div
-              className={[
-                "group relative h-full py-7 sm:py-8",
-                idx % 2 === 0
-                  ? "sm:pr-8 lg:pr-12"
-                  : "sm:pl-8 lg:pl-12",
-                idx < 2
-                  ? "border-b border-[#EAE5DC]"
-                  : "",
-              ].join(" ")}
-            >
-
-              {/* Number + Icon */}
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[11px] font-mono tracking-[0.16em] text-[#B5AFA6]">
-                  0{idx + 1}
-                </span>
-
-                <div className="text-[#8C6228]">
-                  <Icon className="w-5 h-5 stroke-[1.5]" />
-                </div>
+            <div className="flex flex-col items-start text-left space-y-3.5 h-full">
+              {/* Icon */}
+              <div className="w-10 h-10 flex items-center justify-start text-[#1A1A18]">
+                <Icon className="w-7 h-7 stroke-[1.35] text-[#1A1A18]" />
               </div>
 
               {/* Title */}
-              <h3 className="text-base sm:text-lg font-semibold text-[#1A1A18] tracking-tight leading-snug group-hover:text-[#8C6228] transition-colors duration-300">
+              <h3 className="text-base sm:text-lg font-semibold text-[#1A1A18] tracking-tight leading-snug">
                 {pillar.title}
               </h3>
 
               {/* Description */}
-              <p className="mt-3 max-w-lg text-xs sm:text-[13px] text-[#6B655E] font-light leading-relaxed">
+              <p className="text-xs sm:text-[13px] text-[#6B655E] font-light leading-relaxed">
                 {pillar.description}
               </p>
-
-              {/* Subtle Bottom Rule */}
-              <div className="mt-6 flex items-center gap-3">
-                <span className="w-8 h-px bg-[#DCD5CA] group-hover:w-12 group-hover:bg-[#8C6228] transition-all duration-300" />
-              </div>
-
             </div>
           </ScrollReveal>
         );
       })}
-
     </div>
-  </div>
-</section>
 
-
-{/* ══════════════════════════════════════════════════════════════════
-    3. CURATED FOR EVERY MOMENT
-    ══════════════════════════════════════════════════════════════════ */}
-<section className="pt-10 sm:pt-16 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5]">
-  <div className="max-w-[1280px] mx-auto">
-
-    {/* Heading */}
-    <ScrollReveal animation="fadeUp">
-      <div className="max-w-4xl mb-10 sm:mb-14">
-        <h2
-          className="text-3xl sm:text-5xl md:text-6xl font-light text-[#1A1A18] tracking-tight leading-[1.02]"
-          style={{
-            fontFamily: 'var(--font-cormorant), Georgia, serif',
-          }}
-        >
-          {data.momentsTitle}
-        </h2>
-
-        {data.momentsSubtitle && (
-          <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#78746D] font-light max-w-2xl leading-normal">
-            {data.momentsSubtitle}
-          </p>
-        )}
-      </div>
-    </ScrollReveal>
-
-    {/* Large Editorial Composition */}
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 xl:gap-20 items-start">
-
-      {/* Left: Visual Anchor (Sticky on desktop so it stays pinned while scrolling through moments) */}
-      <div className="lg:col-span-5 lg:sticky lg:top-28">
-        <ScrollReveal animation="fadeUp" delay={0.08}>
-          <div className="relative max-w-[500px] mx-auto lg:mx-0">
-
-            {/* Subtle Offset Frame */}
-            <div className="absolute -left-2.5 -bottom-2.5 sm:-left-3 sm:-bottom-3 w-full h-full border border-[#C8B28E]/35 rounded-[18px] pointer-events-none" />
-
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] sm:rounded-[20px] border border-[#E8E2D8] bg-white shadow-[0_8px_26px_rgba(0,0,0,0.045)]">
-              <Image
-                src={data.heroImage}
-                alt={data.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-center"
-              />
-            </div>
-
-          </div>
-        </ScrollReveal>
-      </div>
-
-      {/* Right: Editorial Moments List */}
-      <div className="lg:col-span-7">
-        <div className="border-t border-[#DCD5CA]">
-
-          {data.moments.map((moment, idx) => {
-            const Icon = IconMap[moment.iconName] || Heart;
-
-            return (
-              <ScrollReveal
-                key={idx}
-                animation="fadeUp"
-                delay={0.035 * (idx + 1)}
-              >
-                <div className="group border-b border-[#DCD5CA] py-5 sm:py-6 lg:py-7 transition-transform duration-300 ease-out hover:-translate-y-1">
-                  <div className="flex items-center gap-4 sm:gap-5">
-
-                    {/* Icon */}
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center text-[#8C6228] transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="w-5 h-5 sm:w-[21px] sm:h-[21px] stroke-[1.45]" />
-                    </div>
-
-                    {/* Title */}
-                    <span className="flex-1 text-sm sm:text-base md:text-lg font-medium text-[#1A1A18] group-hover:text-[#8C6228] transition-colors duration-300 leading-snug">
-                      {moment.title}
-                    </span>
-
-                    {/* Arrow */}
-                    <ChevronRight className="w-4 h-4 shrink-0 text-[#B5AFA6] group-hover:text-[#8C6228] group-hover:translate-x-1.5 transition-all duration-300" />
-
-                  </div>
-                </div>
-              </ScrollReveal>
-            );
-          })}
-
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
 
@@ -485,7 +396,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                 className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
                 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
               >
-                {data.budgetTitle || 'Thoughtfully Curated Around Your Budget'}
+                {toSentenceCase(data.budgetTitle || 'Thoughtfully curated around your budget')}
               </h2>
               {data.budgetSubtitle && (
                 <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-2xl mx-auto leading-normal">
@@ -594,7 +505,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                   className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
                   style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
                 >
-                  Not Sure What to Gift? That’s Where We Come In.
+                  Not sure what to gift? That’s where we come in.
                 </h2>
                 <p className="text-xs sm:text-sm md:text-base text-[#6B655E] font-light leading-relaxed">
                   Tell us who you’re gifting, the occasion, quantity and budget.
@@ -629,14 +540,11 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
           
           <ScrollReveal animation="fadeUp">
             <div className="text-center space-y-2">
-              <span className="text-[11px] sm:text-[12px] font-sans font-semibold uppercase tracking-[0.22em] text-[#7A8B6F] block">
-                PRIVATE CONCIERGE
-              </span>
               <h2
-                className="text-3xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight"
+                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight"
                 style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
               >
-                Enquire for {data.title}
+                Enquire for {toSentenceCase(data.title)}
               </h2>
               <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-xl mx-auto">
                 Share your requirements and our gifting concierge will prepare 3 tailored concepts within 24 hours.

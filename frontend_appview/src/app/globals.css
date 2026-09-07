@@ -262,6 +262,15 @@
     font-family: var(--font-cormorant), Georgia, serif;
     color: var(--satra-charcoal);
   }
+
+  /* Display Heading 2 — Crisp Modern Editorial Sans (no camel case) */
+  .dh-h2, h2.dh-h2 {
+    font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif !important;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    text-transform: none;
+  }
 }
 
 /* ─── Scroll Animation Utilities ─── */

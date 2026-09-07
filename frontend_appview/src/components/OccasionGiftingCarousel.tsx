@@ -166,11 +166,11 @@ export default function OccasionGiftingCarousel() {
         <ScrollReveal animation="fadeUp">
           <div className="text-center max-w-4xl mx-auto px-2 space-y-2.5 sm:space-y-3.5 mb-8 sm:mb-10 md:mb-12">
             <h2
-              className="text-[28px] xs:text-3xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-[1.15]"
+              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight whitespace-nowrap"
               style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
             >
-              <span className="block xs:inline">For Every Occasion</span>{' '}
-              <span className="block xs:inline">That Matters</span>
+              <span>For every occasion</span>{' '}
+              <span>that matters</span>
             </h2>
             <p className="text-xs md:text-sm text-[#78746D] font-light max-w-3xl mx-auto leading-normal pb-[3px]">
               Thoughtful gifting for milestones, celebrations, and relationships that matter.

@@ -28,10 +28,10 @@ export default function OccasionsIndexPage() {
         {/* Hero Title & Subtitle */}
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3.5">
           <h1
-            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-light text-[#1A1A18] tracking-tight leading-[1.12]"
+            className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-tight leading-tight whitespace-nowrap"
             style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
           >
-            For Every Occasion That Matters
+            For every occasion that matters
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-[#78746D] font-light max-w-2xl mx-auto leading-relaxed px-2">
             Thoughtfully curated keepsakes designed for corporate milestones, celebrations, and lasting relationships.

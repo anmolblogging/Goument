@@ -83,17 +83,18 @@ export default function HomePage() {
 
         {/* Hero Content positioned inside the sticky hero — Centered on Mobile, Left-Aligned on Desktop */}
         <div className="relative z-10 px-5 sm:px-10 lg:px-16 max-w-[1440px] mx-auto w-full flex flex-col items-center sm:items-start justify-center text-center sm:text-left">
-          <div ref={heroTextRef} className="max-w-3xl space-y-3 sm:space-y-4 flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div ref={heroTextRef} className="max-w-4xl space-y-3 sm:space-y-4 flex flex-col items-center sm:items-start text-center sm:text-left">
             
             {/* Title */}
             <h1
-              className="text-white leading-[1.05] sm:leading-[1.02] tracking-[-0.02em] opacity-0 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-center sm:text-left"
+              className="text-white leading-[1.08] sm:leading-[1.04] tracking-[-0.02em] opacity-0 text-[28px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-light text-center sm:text-left"
               style={{
                 fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontWeight: 300,
               }}
             >
-              B2B Gifting, curated around your brand and requirements.
+              <span className="block">B2B Gifting, curated around</span>
+              <span className="block">your brand and requirements.</span>
             </h1>
 
             {/* Subtitle */}
