@@ -148,7 +148,7 @@ export default function OccasionsIndexPage() {
 
       {/* ─── SECTION 3: BESPOKE CONCIERGE CALLOUT BLOCK ─── */}
       <section className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#38493B] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 text-center space-y-4 shadow-xl relative overflow-hidden">
+        <div className="bg-[#273629] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 text-center space-y-4 shadow-xl relative overflow-hidden">
           <ScrollReveal animation="fadeUp">
             <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#DFC299] block mb-1">
               Bespoke curation service

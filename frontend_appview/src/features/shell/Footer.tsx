@@ -4,7 +4,21 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const GOURMET_FOOTER_COLUMNS = [
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface FooterColumn {
+  title: string;
+  entity?: {
+    company: string;
+    gst: string;
+  };
+  links: FooterLink[];
+}
+
+const GOURMET_FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: 'Occasions',
     links: [
@@ -46,9 +60,11 @@ const GOURMET_FOOTER_COLUMNS = [
   },
   {
     title: 'Concierge Direct',
+    entity: {
+      company: 'House of Satra Pvt Ltd.',
+      gst: 'GST: 27AAICH9186M1ZP',
+    },
     links: [
-      { label: 'House of Satra Pvt Ltd.', href: '#' },
-      { label: 'GST: 27AAICH9186M1ZP', href: '#' },
       { label: 'hello@thegourmetgifts.co', href: 'mailto:hello@thegourmetgifts.co' },
       { label: '+91 70214 63609 (WhatsApp)', href: 'https://wa.me/917021463609?text=Hi%21%20I%E2%80%99d%20like%20to%20enquire%20about%20bespoke%20corporate%20gifting.' },
       { label: 'Mumbai, India', href: '/contact' },
@@ -156,6 +172,16 @@ export const Footer: React.FC = () => {
                 {col.title}
               </h4>
               <ul className="space-y-1.5">
+                {col.entity && (
+                  <li className="space-y-0.5 leading-tight pb-0.5">
+                    <span className="block text-[10.5px] xs:text-[11.5px] sm:text-[12.5px] text-[#4A4742]">
+                      {col.entity.company}
+                    </span>
+                    <span className="block text-[10.5px] xs:text-[11.5px] sm:text-[12.5px] text-[#4A4742]">
+                      {col.entity.gst}
+                    </span>
+                  </li>
+                )}
                 {col.links.map((link) => {
                   const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:');
                   
@@ -170,16 +196,6 @@ export const Footer: React.FC = () => {
                         >
                           {link.label}
                         </a>
-                      </li>
-                    );
-                  }
-
-                  if (link.href === '#') {
-                    return (
-                      <li key={link.label}>
-                        <span className="inline-block text-[11px] xs:text-[12px] sm:text-[12.5px] text-[#2A2722] font-medium leading-snug">
-                          {link.label}
-                        </span>
                       </li>
                     );
                   }
@@ -204,12 +220,12 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar: Compact Meta, Entity, GST & Copyright */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 pt-5 text-xs sm:text-[12.5px] text-[#5C5851]">
           <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-            <span className="font-semibold text-[#1A1A18]">House of Satra Pvt Ltd.</span>
-            <span className="w-1 h-1 rounded-full bg-black/30" />
-            <span className="font-mono text-[#1A1A18] font-medium tracking-wide">GST: 27AAICH9186M1ZP</span>
-            <span className="w-1 h-1 rounded-full bg-black/30" />
+            <span>House of Satra Pvt Ltd.</span>
+            <span className="w-1 h-1 rounded-full bg-black/25" />
+            <span>GST: 27AAICH9186M1ZP</span>
+            <span className="w-1 h-1 rounded-full bg-black/25" />
             <span>© {new Date().getFullYear()} The Gourmet Gifts.</span>
-            <span className="w-1 h-1 rounded-full bg-black/30" />
+            <span className="w-1 h-1 rounded-full bg-black/25" />
             <Link href="/privacy" className="hover:text-[#1A1A18] transition-colors">
               Privacy &amp; Terms
             </Link>

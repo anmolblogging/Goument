@@ -215,7 +215,7 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
               className={`inline-flex items-center px-2.5 sm:px-3.5 py-1.5 text-[9.5px] sm:text-[10.5px] font-mono font-semibold uppercase tracking-[0.12em] sm:tracking-[0.16em] transition-all rounded-sm cursor-pointer shrink-0 ${
                 isTransparentHero 
                   ? 'bg-white text-[#1A1A18] hover:bg-white/90 shadow-xs' 
-                  : 'bg-[#1A1A18] text-[#FAF8F5] hover:bg-[#38332B]'
+                  : 'bg-[#273629] text-[#FAF8F5] hover:bg-[#344837]'
               }`}
             >
               ENQUIRE
@@ -318,7 +318,7 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
                   setMobileMenuOpen(false);
                   openInquiryModal({ source: 'Mobile Menu Enquire' });
                 }}
-                className="w-full py-3.5 bg-[#1A1A18] hover:bg-[#2C241D] text-white text-xs font-mono uppercase tracking-[0.18em] font-bold rounded-lg transition-all cursor-pointer shadow-md"
+                className="w-full py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] font-bold rounded-lg transition-all cursor-pointer shadow-md"
               >
                 ENQUIRE NOW
               </button>

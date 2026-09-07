@@ -257,14 +257,14 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mt-7 sm:mt-9">
           <button
             onClick={scrollToInquiry}
-            className="px-7 py-3.5 sm:py-4 bg-[#1A1A18] hover:bg-[#2C241D] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer text-center"
+            className="px-7 py-3.5 sm:py-4 bg-[#273629] hover:bg-[#344837] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer text-center"
           >
             {data.primaryCta || 'GET 3 CURATED CONCEPTS'}
           </button>
 
           <button
             onClick={scrollToConcepts}
-            className="px-6 py-3.5 sm:py-4 border border-[#8C6228]/50 hover:border-[#1A1A18] text-[#8C6228] hover:text-[#1A1A18] font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 hover:bg-white/80 cursor-pointer text-center"
+            className="px-6 py-3.5 sm:py-4 border border-[#273629]/50 hover:border-[#273629] text-[#273629] hover:text-[#1A1A18] font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 hover:bg-white/80 cursor-pointer text-center"
           >
             {data.secondaryCta || 'EXPLORE GIFT BOXES'}
           </button>
@@ -508,7 +508,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
             <div className="pt-2">
               <button
                 onClick={scrollToInquiry}
-                className="px-7 py-3.5 bg-[#1A1A18] hover:bg-[#2C241D] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+                className="px-7 py-3.5 bg-[#273629] hover:bg-[#344837] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
               >
                 GET 3 CURATED CONCEPTS
               </button>
@@ -519,15 +519,15 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          5. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN
+          5. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN (FULL-BLEED GREEN SECTION)
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5]">
-        <div className="max-w-[1480px] mx-auto">
+      <section className="w-full bg-[#273629] text-white py-14 sm:py-18 md:py-22 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10">
           <ScrollReveal animation="fadeUp">
-            <div className="bg-[#F5EFEB] border border-[#E6DDCF] rounded-3xl p-8 sm:p-12 md:p-16 text-center space-y-6 max-w-4xl mx-auto shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <div className="space-y-6 text-center">
               <div className="space-y-3 max-w-2xl mx-auto">
                 <h2
-                  className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                  className="text-2xl sm:text-4xl md:text-5xl font-light text-white tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
                   style={{
                     fontFamily: 'var(--font-cormorant), Georgia, serif',
                     fontWeight: 300,
@@ -535,7 +535,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                 >
                   Not sure what to gift? That’s where we come in.
                 </h2>
-                <p className="text-xs sm:text-sm md:text-base text-[#6B655E] font-light leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-[#EDE6DC]/90 font-light leading-relaxed">
                   Tell us who you’re gifting, the occasion, quantity and budget.
                   <br className="hidden sm:inline" /> We’ll come back with 3 thoughtfully curated concepts {conceptsAudienceTarget}
                 </p>
@@ -544,13 +544,13 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
               <div className="pt-2">
                 <button
                   onClick={scrollToInquiry}
-                  className="px-8 py-4 bg-[#1A1A18] hover:bg-[#2C241D] text-white font-sans text-xs uppercase tracking-[0.18em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+                  className="px-8 py-4 bg-[#DFC299] hover:bg-white text-[#1A1A18] font-sans text-xs uppercase tracking-[0.18em] font-bold rounded-xl transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.25)] hover:scale-105 active:scale-95 cursor-pointer"
                 >
                   GET 3 CURATED CONCEPTS
                 </button>
               </div>
 
-              <p className="text-[11px] sm:text-xs text-[#8C847B] font-light tracking-wide pt-1">
+              <p className="text-[11px] sm:text-xs text-[#EDE6DC]/75 font-light tracking-wide pt-1">
                 No catalogue scrolling. No guesswork. Just thoughtful options curated for you.
               </p>
             </div>

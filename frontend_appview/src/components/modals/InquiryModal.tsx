@@ -273,7 +273,7 @@ export const InquiryModal: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 bg-[#1A1A18] hover:bg-[#2C241D] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2.5 rounded-xl cursor-pointer shadow-md hover:shadow-lg disabled:opacity-50 active:scale-[0.99]"
+                  className="w-full py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2.5 rounded-xl cursor-pointer shadow-md hover:shadow-lg disabled:opacity-50 active:scale-[0.99]"
                 >
                   <Send className="w-3.5 h-3.5 text-[#DFC299]" />
                   <span>{isSubmitting ? 'SENDING...' : 'SEND CURATION ENQUIRY'}</span>

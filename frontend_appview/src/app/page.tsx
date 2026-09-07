@@ -110,7 +110,7 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={() => openInquiryModal({ source: 'Hero Section (Get 3 Concepts)' })}
-                className="px-6 sm:px-7 py-3 sm:py-3.5 bg-[#8C6228] hover:bg-[#A37330] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-lg transition-all duration-300 shadow-[0_8px_20px_rgba(140,98,40,0.35)] hover:scale-105 active:scale-95 cursor-pointer text-center"
+                className="px-6 sm:px-7 py-3 sm:py-3.5 bg-[#273629] hover:bg-[#344837] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-lg transition-all duration-300 shadow-[0_8px_20px_rgba(39,54,41,0.4)] border border-[#3E5240]/70 hover:scale-105 active:scale-95 cursor-pointer text-center"
               >
                 GET 3 GIFTING CONCEPTS
               </button>
@@ -148,7 +148,7 @@ export default function HomePage() {
         <PackagingExperienceSection />
 
         {/* ─── PRIVATE CONCIERGE & BESPOKE GIFTING (HERITAGE FOREST GREEN THEME) ─── */}
-        <section className="pt-6 sm:pt-10 md:pt-14 pb-7 sm:pb-10 md:pb-12 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden bg-[#38493B] text-[#FAF8F5]">
+        <section className="pt-6 sm:pt-10 md:pt-14 pb-7 sm:pb-10 md:pb-12 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden bg-[#273629] text-[#FAF8F5]">
 
           <div className="max-w-[760px] mx-auto space-y-5 relative z-10">
             <ScrollReveal animation="fadeUp">

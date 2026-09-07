@@ -45,7 +45,7 @@ const PROCESS_STEPS: ProcessStep[] = [
 
 export const GiftingProcessSection: React.FC = () => {
   return (
-    <section className="relative w-full bg-[#273629] text-white overflow-hidden py-10 sm:py-12 md:py-14">
+    <section className="relative w-full bg-[#273629] text-white overflow-hidden py-12 sm:py-16 md:py-20">
 
       <div className="relative z-10 max-w-[1580px] mx-auto px-5 sm:px-8 lg:px-12">
 
