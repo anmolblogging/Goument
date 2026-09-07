@@ -45,15 +45,15 @@ const PROCESS_STEPS: ProcessStep[] = [
 
 export const GiftingProcessSection: React.FC = () => {
   return (
-    <section className="relative w-full bg-[#38493B] md:bg-transparent text-white overflow-hidden pt-6 sm:pt-8 md:pt-6 pb-6 sm:pb-8 md:pb-6">
+    <section className="relative w-full bg-[#273629] text-white overflow-hidden py-10 sm:py-12 md:py-14">
 
       <div className="relative z-10 max-w-[1580px] mx-auto px-5 sm:px-8 lg:px-12">
 
-        {/* ─── SECTION HEADER (DESKTOP) ─── */}
-        <div className="hidden md:block text-center max-w-4xl mx-auto px-2 mb-8 sm:mb-10 md:mb-12">
+        {/* ─── SECTION HEADER (INSIDE GREEN) ─── */}
+        <div className="text-center max-w-4xl mx-auto px-2 mb-8 sm:mb-10 md:mb-12">
           <ScrollReveal animation="fadeUp">
             <h2
-              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+              className="text-2xl sm:text-4xl md:text-5xl font-light text-white tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
               style={{
                 fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontWeight: 300,
@@ -65,15 +65,15 @@ export const GiftingProcessSection: React.FC = () => {
         </div>
 
         {/* ─────────────────────────────────────────
-            DESKTOP VIEW — SLEEK ROUNDED CAPSULE BOX
+            DESKTOP VIEW — FULL-WIDTH EXPANDED STEPS
         ───────────────────────────────────────── */}
         <div className="hidden md:block">
           <ScrollReveal animation="fadeUp" delay={0.08}>
-            <div className="w-full max-w-[1440px] mx-auto grid grid-cols-5 divide-x divide-white/10 bg-[#273629] rounded-full border border-white/10 px-6 lg:px-10 py-5 lg:py-6 items-center">
+            <div className="w-full mx-auto grid grid-cols-5 divide-x divide-white/15 border-y border-white/15 py-6 lg:py-7 items-center">
               {PROCESS_STEPS.map((step) => (
                 <div
                   key={step.number}
-                  className="flex items-center justify-start px-3 lg:px-5 min-w-0"
+                  className="flex items-center justify-start px-4 lg:px-6 min-w-0"
                 >
                   {/* Circled Gold Number */}
                   <div className="w-10 h-10 lg:w-11 lg:h-11 rounded-full border border-[#DFC299]/75 flex items-center justify-center shrink-0 font-sans text-sm lg:text-base text-[#DFC299]">
@@ -81,11 +81,11 @@ export const GiftingProcessSection: React.FC = () => {
                   </div>
 
                   {/* Title + Full Paragraph Description */}
-                  <div className="flex-1 min-w-0 pl-3 lg:pl-4 text-left">
+                  <div className="flex-1 min-w-0 pl-3.5 lg:pl-4 text-left">
                     <h3 className="text-xs lg:text-[13px] font-sans font-bold uppercase tracking-wider text-white leading-snug">
                       {step.title}
                     </h3>
-                    <p className="text-[10px] lg:text-[11px] text-[#A6B2A3] font-light leading-snug mt-1 whitespace-normal">
+                    <p className="text-[10px] lg:text-[11.5px] text-[#A6B2A3] font-light leading-snug mt-1 whitespace-normal">
                       {step.description}
                     </p>
                   </div>

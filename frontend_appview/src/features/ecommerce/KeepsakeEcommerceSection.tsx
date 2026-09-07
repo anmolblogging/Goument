@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
 import { CATALOGUE_CATEGORIES } from '@/data/hampersData';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 
@@ -90,20 +89,7 @@ export default function KeepsakeEcommerceSection() {
           </div>
         </div>
 
-        {/* ─── ELEGANT UNDERLINE ANIMATED LINK (NO BLACK BUTTON, NO SPARKLE) ─── */}
-        <div className="text-center pt-0 mt-1 sm:mt-2">
-          <Link
-            href="/collections"
-            className="inline-flex items-center gap-2 group text-[#1A1A18] font-sans text-xs sm:text-sm font-semibold tracking-[0.16em] uppercase relative py-1 cursor-pointer transition-colors"
-          >
-            <span className="inline sm:hidden">Explore Catalogue</span>
-            <span className="hidden sm:inline">Explore Complete Catalogue</span>
-            <ArrowRight className="w-4 h-4 text-[#9E7B35] group-hover:translate-x-1.5 transition-transform duration-300" />
-            
-            {/* Animated Underline */}
-            <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#1A1A18] scale-x-100 group-hover:bg-[#9E7B35] group-hover:h-[2px] transition-all duration-300 origin-left" />
-          </Link>
-        </div>
+
 
       </div>
     </section>

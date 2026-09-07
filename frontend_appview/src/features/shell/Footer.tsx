@@ -47,8 +47,10 @@ const GOURMET_FOOTER_COLUMNS = [
   {
     title: 'Concierge Direct',
     links: [
+      { label: 'House of Satra Pvt Ltd.', href: '#' },
+      { label: 'GST: 27AAICH9186M1ZP', href: '#' },
       { label: 'hello@thegourmetgifts.co', href: 'mailto:hello@thegourmetgifts.co' },
-      { label: '+91 70214 63609', href: 'https://wa.me/917021463609?text=Hi%21%20I%E2%80%99d%20like%20to%20enquire%20about%20bespoke%20corporate%20gifting.' },
+      { label: '+91 70214 63609 (WhatsApp)', href: 'https://wa.me/917021463609?text=Hi%21%20I%E2%80%99d%20like%20to%20enquire%20about%20bespoke%20corporate%20gifting.' },
       { label: 'Mumbai, India', href: '/contact' },
     ],
   },
@@ -172,6 +174,16 @@ export const Footer: React.FC = () => {
                     );
                   }
 
+                  if (link.href === '#') {
+                    return (
+                      <li key={link.label}>
+                        <span className="inline-block text-[11px] xs:text-[12px] sm:text-[12.5px] text-[#2A2722] font-medium leading-snug">
+                          {link.label}
+                        </span>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li key={link.label}>
                       <Link
@@ -190,14 +202,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Compact Meta, Entity, GST & Copyright */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 pt-5 text-[10.5px] sm:text-[11px] text-[#78746D]">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 pt-5 text-xs sm:text-[12.5px] text-[#5C5851]">
           <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-            <span className="font-medium text-[#3A3731]">House of Satra Pvt Ltd.</span>
-            <span className="w-1 h-1 rounded-full bg-black/20" />
-            <span className="font-mono text-[#5C5851] tracking-wider">GST: 27AAICH9186M1ZP</span>
-            <span className="w-1 h-1 rounded-full bg-black/20" />
+            <span className="font-semibold text-[#1A1A18]">House of Satra Pvt Ltd.</span>
+            <span className="w-1 h-1 rounded-full bg-black/30" />
+            <span className="font-mono text-[#1A1A18] font-medium tracking-wide">GST: 27AAICH9186M1ZP</span>
+            <span className="w-1 h-1 rounded-full bg-black/30" />
             <span>© {new Date().getFullYear()} The Gourmet Gifts.</span>
-            <span className="w-1 h-1 rounded-full bg-black/20" />
+            <span className="w-1 h-1 rounded-full bg-black/30" />
             <Link href="/privacy" className="hover:text-[#1A1A18] transition-colors">
               Privacy &amp; Terms
             </Link>
