@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
@@ -31,6 +31,7 @@ import {
   Headphones,
   ArrowRight,
   ChevronRight,
+  X,
 } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { OccasionPageData } from '@/data/occasionsData';
@@ -90,6 +91,15 @@ function toSentenceCase(str: string): string {
     .join(' ');
 }
 
+// Helper to identify the recommended budget tier (strictly 1000 - 1500 range, or index 1)
+function isRecommendedTier(tierRange: string, index: number): boolean {
+  const clean = tierRange.replace(/[₹,\s–-]/g, '');
+  if (clean.includes('10001499') || clean.includes('10001500')) {
+    return true;
+  }
+  return index === 1;
+}
+
 export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ data }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -99,8 +109,28 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
     quantity: '50 - 100',
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  // Esc key and body scroll lock for center modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        setIsModalOpen(false);
+      }
+    };
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen]);
 
   const conceptsAudienceTarget = useMemo(() => {
     switch (data.slug) {
@@ -126,12 +156,18 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
 
   const handleBudgetClick = (range: string) => {
     setFormData((prev) => ({ ...prev, budget: range }));
-    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-      const el = document.getElementById('curation-form-card');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    setSubmitted(false);
+    setIsModalOpen(true);
+  };
+
+  const handleOpenDefaultModal = () => {
+    const recTier = data.budgetTiers.find((t, i) => isRecommendedTier(t.range, i))?.range
+      || data.budgetTiers[1]?.range
+      || data.budgetTiers[0]?.range
+      || '₹1,000 – ₹1,499';
+    setFormData((prev) => ({ ...prev, budget: recTier }));
+    setSubmitted(false);
+    setIsModalOpen(true);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -184,14 +220,18 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
     }
   };
 
-  const scrollToInquiry = () => {
+  const scrollToPricingTiers = () => {
     const el = document.getElementById('curation-inquiry');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToConcepts = () => {
     const el = document.getElementById('curated-concepts');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      scrollToPricingTiers();
+    }
   };
 
   return (
@@ -258,7 +298,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mt-7 sm:mt-9">
           <button
-            onClick={scrollToInquiry}
+            onClick={handleOpenDefaultModal}
             className="px-7 py-3.5 sm:py-4 bg-[#273629] hover:bg-[#344837] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer text-center"
           >
             {data.primaryCta || 'GET 3 CURATED CONCEPTS'}
@@ -325,7 +365,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
 {/* ══════════════════════════════════════════════════════════════════
     2. ROADBLOCKS / SOLVES & MOMENTS SECTION (IMG 1 LAYOUT)
     ══════════════════════════════════════════════════════════════════ */}
-<section className="pt-2 sm:pt-4 md:pt-6 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-12 bg-[#FAF8F5]">
+<section className="pt-2 sm:pt-4 md:pt-6 pb-7 sm:pb-9 md:pb-11 px-4 sm:px-6 lg:px-12 bg-[#FAF8F5]">
   <div className="max-w-[1320px] mx-auto">
 
     {/* Centered Main Heading & Subtitle */}
@@ -409,263 +449,111 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
 </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          4 & 5. BUDGET CURATION & BESPOKE INQUIRY (SIDE-BY-SIDE)
+          3. BUDGET CURATION SECTION (CENTERED SHOWCASE)
           ══════════════════════════════════════════════════════════════════ */}
-      <section id="curation-inquiry" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5] scroll-mt-20">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-start">
-            
-            {/* ── LEFT COLUMN: BUDGET TIERS ── */}
-            <div className="lg:col-span-5 space-y-6 sm:space-y-8">
-              <ScrollReveal animation="fadeUp">
-                <div className="space-y-2 text-left">
-                  <h2
-                    className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
-                    style={{
-                      fontFamily: 'var(--font-cormorant), Georgia, serif',
-                      fontWeight: 300,
-                    }}
-                  >
-                    {toSentenceCase(data.budgetTitle || 'Thoughtfully curated around your budget')}
-                  </h2>
-                  {data.budgetSubtitle && (
-                    <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-xl leading-normal">
-                      {data.budgetSubtitle}
-                    </p>
-                  )}
-                </div>
-              </ScrollReveal>
-
-              {/* User's Original Circular Price Pills */}
-              <div className="w-full flex items-center justify-start pt-1 pb-2">
-                <div className="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
-                  {data.budgetTiers.map((tier, idx) => {
-                    const pillTiers = [
-                      {
-                        bg: 'bg-[#154230]', // Emerald Green
-                        border: 'border-[#0F3023]',
-                        shadow: 'shadow-[0_8px_24px_rgba(21,66,48,0.35)] hover:shadow-[0_12px_32px_rgba(21,66,48,0.5)]',
-                      },
-                      {
-                        bg: 'bg-[#5D1E21]', // Deep Burgundy
-                        border: 'border-[#481719]',
-                        shadow: 'shadow-[0_8px_24px_rgba(93,30,33,0.35)] hover:shadow-[0_12px_32px_rgba(93,30,33,0.5)]',
-                      },
-                      {
-                        bg: 'bg-[#101111]', // Charcoal Black
-                        border: 'border-[#000000]',
-                        shadow: 'shadow-[0_8px_24px_rgba(16,17,17,0.35)] hover:shadow-[0_12px_32px_rgba(16,17,17,0.5)]',
-                      },
-                      {
-                        bg: 'bg-[#A6824A]', // Antique Gold
-                        border: 'border-[#8F6F3D]',
-                        shadow: 'shadow-[0_8px_24px_rgba(166,130,74,0.35)] hover:shadow-[0_12px_32px_rgba(166,130,74,0.5)]',
-                      },
-                    ];
-                    const pill = pillTiers[idx % pillTiers.length];
-                    const isSelected = formData.budget === tier.range;
-
-                    // Parse 2-line text cleanly
-                    const lines = tier.range.includes(' – ') 
-                      ? [`${tier.range.split(' – ')[0]} –`, tier.range.split(' – ')[1]]
-                      : tier.range.startsWith('Up to ')
-                      ? ['Up to', tier.range.replace('Up to ', '')]
-                      : tier.range.startsWith('Under ')
-                      ? ['Under', tier.range.replace('Under ', '')]
-                      : [tier.range];
-
-                    return (
-                      <ScrollReveal key={idx} animation="fadeUp" delay={0.04 * (idx + 1)}>
-                        <div
-                          onClick={() => handleBudgetClick(tier.range)}
-                          className={`w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-105 cursor-pointer border ${pill.bg} ${pill.border} ${pill.shadow} ${
-                            isSelected ? 'ring-4 ring-[#DFC299] ring-offset-2 ring-offset-[#FAF8F5] scale-105' : ''
-                          }`}
-                        >
-                          <div className="text-white space-y-0.5 select-none text-center">
-                            {lines.length > 1 ? (
-                              <>
-                                <span className="block text-xs sm:text-[13px] md:text-sm font-medium opacity-90 leading-tight">
-                                  {lines[0]}
-                                </span>
-                                <span className="block text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-tight">
-                                  {lines[1]}
-                                </span>
-                              </>
-                            ) : (
-                              <span className="block text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-tight">
-                                {lines[0]}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      </ScrollReveal>
-                    );
-                  })}
-                </div>
-              </div>
+      <section id="curation-inquiry" className="pt-7 sm:pt-9 md:pt-12 pb-14 sm:pb-18 md:pb-22 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5] scroll-mt-20">
+        <div className="max-w-[1280px] mx-auto text-center">
+          <ScrollReveal animation="fadeUp">
+            <div className="space-y-3 max-w-2xl mx-auto mb-10 sm:mb-14">
+              <h2
+                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontWeight: 300,
+                }}
+              >
+                {toSentenceCase(data.budgetTitle || 'Thoughtfully curated around your budget')}
+              </h2>
+              {data.budgetSubtitle && (
+                <p className="text-xs sm:text-sm md:text-base text-[#78746D] font-light max-w-xl mx-auto leading-relaxed">
+                  {data.budgetSubtitle}
+                </p>
+              )}
+              <p className="text-[11px] sm:text-xs text-[#8C6228] font-medium tracking-wide pt-1">
+                Select your per-box budget to get tailor-made curation concepts from our team
+              </p>
             </div>
+          </ScrollReveal>
 
-            {/* ── RIGHT COLUMN: ENQUIRY FORM ── */}
-            <div id="curation-form-card" className="lg:col-span-7 space-y-4">
-              <ScrollReveal animation="fadeUp" delay={0.08}>
-                <div className="text-left space-y-1.5 mb-5 sm:mb-6">
-                  <h2
-                    className="text-2xl sm:text-3xl md:text-4xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
-                    style={{
-                      fontFamily: 'var(--font-cormorant), Georgia, serif',
-                      fontWeight: 300,
-                    }}
-                  >
-                    Enquire for {toSentenceCase(data.title)}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-xl">
-                    Share your requirements and our gifting concierge will prepare 3 tailored concepts within 24 hours.
-                  </p>
-                </div>
+          {/* Centered Circular Price Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 pt-2 pb-4">
+            {data.budgetTiers.map((tier, idx) => {
+              const isRecommended = isRecommendedTier(tier.range, idx);
+              const pillStyle = isRecommended
+                ? {
+                    bg: 'bg-[#273629]', // Signature Forest Green (Recommended)
+                    border: 'border-[#1C281E]',
+                    shadow: 'shadow-[0_12px_28px_rgba(39,54,41,0.38)] hover:shadow-[0_18px_36px_rgba(39,54,41,0.52)]',
+                  }
+                : {
+                    bg: 'bg-[#8E7252]', // Luxury Warm Beige / Camel
+                    border: 'border-[#785E40]',
+                    shadow: 'shadow-[0_10px_26px_rgba(142,114,82,0.3)] hover:shadow-[0_16px_34px_rgba(142,114,82,0.45)]',
+                  };
 
-                {/* Clean Card Form */}
-                <div className="relative rounded-[24px] sm:rounded-[32px] border border-[#D9D5CC] bg-white p-6 sm:p-8 md:p-10 shadow-sm">
-                  {submitted ? (
-                    <div className="py-10 text-center space-y-4">
-                      <div className="w-14 h-14 rounded-full bg-[#EBF3E8] border border-[#7A8B6F] flex items-center justify-center mx-auto text-[#7A8B6F]">
-                        <CheckCircle2 className="w-7 h-7" />
+              // Parse 2-line text cleanly
+              const lines = tier.range.includes(' – ') 
+                ? [`${tier.range.split(' – ')[0]} –`, tier.range.split(' – ')[1]]
+                : tier.range.startsWith('Up to ')
+                ? ['Up to', tier.range.replace('Up to ', '')]
+                : tier.range.startsWith('Under ')
+                ? ['Under', tier.range.replace('Under ', '')]
+                : [tier.range];
+
+              return (
+                <ScrollReveal key={idx} animation="fadeUp" delay={0.05 * (idx + 1)}>
+                  <div className="flex flex-col items-center group">
+                    <button
+                      type="button"
+                      onClick={() => handleBudgetClick(tier.range)}
+                      aria-label={`Select budget tier ${tier.range}`}
+                      className={`relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-108 active:scale-95 cursor-pointer border ${pillStyle.bg} ${pillStyle.border} ${pillStyle.shadow} ${
+                        isRecommended ? 'ring-2 ring-[#DFC299]/70 ring-offset-2 ring-offset-[#FAF8F5]' : ''
+                      }`}
+                    >
+                      {isRecommended && (
+                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-[#DFC299] text-[#1A1A18] text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-[0.14em] rounded-full shadow-md whitespace-nowrap">
+                          Recommended
+                        </span>
+                      )}
+
+                      <div className="text-white space-y-0.5 select-none text-center">
+                        {lines.length > 1 ? (
+                          <>
+                            <span className="block text-xs sm:text-[13px] md:text-sm font-medium opacity-95 leading-tight">
+                              {lines[0]}
+                            </span>
+                            <span className="block text-sm sm:text-base md:text-[18px] font-bold tracking-tight leading-tight">
+                              {lines[1]}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="block text-sm sm:text-base md:text-[18px] font-bold tracking-tight leading-tight">
+                            {lines[0]}
+                          </span>
+                        )}
                       </div>
-                      <h3
-                        className="text-2xl sm:text-3xl font-light text-[#1A1A18]"
-                        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
-                      >
-                        Thank you, {formData.name}.
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-md mx-auto">
-                        Your curation brief has been delivered to <span className="text-[#1A1A18] font-medium">hello@thegourmetgifts.co</span>. Our team will get back to you shortly.
-                      </p>
-                      <div className="pt-2">
-                        <button
-                          onClick={() => setSubmitted(false)}
-                          className="text-xs text-[#8C847B] underline hover:text-[#1A1A18]"
-                        >
-                          Submit another inquiry
-                        </button>
-                      </div>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-                        {/* Name */}
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                            Your Name / Company *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={formData.name}
-                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            placeholder="e.g. Ananya Sharma (Acme Corp)"
-                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
-                          />
-                        </div>
+                    </button>
 
-                        {/* Email */}
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                            Work Email *
-                          </label>
-                          <input
-                            type="email"
-                            required
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            placeholder="ananya@company.com"
-                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-                        {/* Phone */}
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                            Phone / WhatsApp *
-                          </label>
-                          <input
-                            type="tel"
-                            required
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            placeholder="+91 98765 43210"
-                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
-                          />
-                        </div>
-
-                        {/* Budget */}
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                            Target Budget (per box)
-                          </label>
-                          <select
-                            value={formData.budget}
-                            onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
-                          >
-                            {data.budgetTiers.map((tier) => (
-                              <option key={tier.range} value={tier.range}>
-                                {tier.range}
-                              </option>
-                            ))}
-                            <option value="Custom Budget">Custom / Flexible</option>
-                          </select>
-                        </div>
-
-                        {/* Quantity */}
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                            Estimated Quantity
-                          </label>
-                          <select
-                            value={formData.quantity}
-                            onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
-                          >
-                            <option>25 - 50</option>
-                            <option>50 - 100</option>
-                            <option>100 - 250</option>
-                            <option>250 - 500</option>
-                            <option>500+</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-[#EFECE6]">
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className={`px-8 py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-none shrink-0 shadow-md ${
-                            isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
-                          }`}
-                        >
-                          <Send className="w-3.5 h-3.5 text-[#DFC299]" />
-                          <span>{isSubmitting ? 'DISPATCHING TO CONCIERGE...' : 'SEND CURATION ENQUIRY'}</span>
-                        </button>
-
-                        <p className="text-xs text-[#78746D] font-light">
-                          Direct concierge: <a href="mailto:hello@thegourmetgifts.co" className="text-[#1A1A18] font-medium underline underline-offset-4 hover:text-[#BFA267] transition-colors">hello@thegourmetgifts.co</a>
-                        </p>
-                      </div>
-
-                    </form>
-                  )}
-                </div>
-              </ScrollReveal>
-            </div>
-
+                    {tier.description && (
+                      <span className="mt-3 text-[11px] sm:text-xs text-[#6B655E] font-normal text-center max-w-[150px] leading-snug">
+                        {tier.description}
+                      </span>
+                    )}
+                  </div>
+                </ScrollReveal>
+              );
+            })}
           </div>
+
+          <p className="text-xs text-[#8C847B] font-light mt-6">
+            Click any budget tier above to open your tailored curation brief.
+          </p>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          6. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN (FULL-BLEED GREEN SECTION)
+          4. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN (FULL-BLEED GREEN SECTION)
           ══════════════════════════════════════════════════════════════════ */}
       <section className="w-full bg-[#273629] text-white py-14 sm:py-18 md:py-22 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
@@ -689,7 +577,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
 
               <div className="pt-2">
                 <button
-                  onClick={scrollToInquiry}
+                  onClick={handleOpenDefaultModal}
                   className="px-8 py-4 bg-[#DFC299] hover:bg-white text-[#1A1A18] font-sans text-xs uppercase tracking-[0.18em] font-bold rounded-xl transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.25)] hover:scale-105 active:scale-95 cursor-pointer"
                 >
                   GET 3 CURATED CONCEPTS
@@ -703,6 +591,192 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          5. CENTER POPUP ENQUIRY MODAL (WITH BACKDROP BLUR)
+          ══════════════════════════════════════════════════════════════════ */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          {/* Semi-transparent dark blur backdrop */}
+          <div
+            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 bg-black/65 backdrop-blur-sm transition-opacity"
+          />
+
+          {/* Modal Window */}
+          <div className="relative w-full max-w-xl bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-2xl border border-[#D9D5CC] z-10 my-auto text-[#1A1A18] animate-in fade-in zoom-in-95 duration-200">
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              aria-label="Close modal"
+              className="absolute top-5 right-5 sm:top-6 sm:right-6 p-2 rounded-full text-[#8C847B] hover:text-[#1A1A18] hover:bg-[#FAF8F5] transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {submitted ? (
+              <div className="py-8 text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-[#EBF3E8] border border-[#7A8B6F] flex items-center justify-center mx-auto text-[#7A8B6F]">
+                  <CheckCircle2 className="w-7 h-7" />
+                </div>
+                <h3
+                  className="text-2xl sm:text-3xl font-light text-[#1A1A18]"
+                  style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                >
+                  Thank you, {formData.name}.
+                </h3>
+                <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-md mx-auto leading-relaxed">
+                  Your curation brief for <strong className="text-[#1A1A18] font-medium">{data.title}</strong> with target budget <strong className="text-[#8C6228] font-medium">{formData.budget}</strong> has been received. Our concierge will share 3 tailored concepts within 24 hours.
+                </p>
+                <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-6 py-2.5 bg-[#273629] text-white text-xs font-bold uppercase tracking-[0.14em] rounded-xl hover:bg-[#344837] transition-all cursor-pointer"
+                  >
+                    Done
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="text-xs text-[#8C847B] underline hover:text-[#1A1A18] cursor-pointer"
+                  >
+                    Submit another enquiry
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-5">
+                {/* Modal Header */}
+                <div className="space-y-1.5 pr-8">
+                  <span className="text-[10px] font-mono tracking-[0.2em] text-[#8C6228] uppercase font-bold block">
+                    Bespoke Curation Brief
+                  </span>
+                  <h3
+                    className="text-2xl sm:text-3xl font-light text-[#1A1A18] tracking-[-0.02em] leading-tight"
+                    style={{
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
+                      fontWeight: 300,
+                    }}
+                  >
+                    Enquire for {toSentenceCase(data.title)}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#78746D] font-light leading-relaxed">
+                    Share your requirements and our gifting concierge will prepare 3 tailored concepts within 24 hours.
+                  </p>
+                </div>
+
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-5 pt-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                    {/* Name */}
+                    <div className="space-y-1">
+                      <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                        Your Name / Company *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="e.g. Ananya Sharma (Acme Corp)"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-1">
+                      <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                        Work Email *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="ananya@company.com"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                    {/* Phone */}
+                    <div className="space-y-1">
+                      <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                        Phone / WhatsApp *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="+91 98765 43210"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                      />
+                    </div>
+
+                    {/* Target Budget - prefilled from clicked tier */}
+                    <div className="space-y-1">
+                      <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                        Target Budget (per box)
+                      </label>
+                      <select
+                        value={formData.budget}
+                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer font-medium"
+                      >
+                        {data.budgetTiers.map((tier) => (
+                          <option key={tier.range} value={tier.range}>
+                            {tier.range}
+                          </option>
+                        ))}
+                        <option value="Custom Budget">Custom / Flexible</option>
+                      </select>
+                    </div>
+
+                    {/* Quantity */}
+                    <div className="space-y-1">
+                      <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                        Estimated Quantity
+                      </label>
+                      <select
+                        value={formData.quantity}
+                        onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
+                      >
+                        <option>25 - 50</option>
+                        <option>50 - 100</option>
+                        <option>100 - 250</option>
+                        <option>250 - 500</option>
+                        <option>500+</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#F0ECE1]">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`px-7 py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-xl shrink-0 shadow-md ${
+                        isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
+                      }`}
+                    >
+                      <Send className="w-3.5 h-3.5 text-[#DFC299]" />
+                      <span>{isSubmitting ? 'DISPATCHING...' : 'SEND CURATION ENQUIRY'}</span>
+                    </button>
+
+                    <p className="text-[11px] text-[#78746D] font-light">
+                      Direct concierge: <a href="mailto:hello@thegourmetgifts.co" className="text-[#1A1A18] font-medium underline underline-offset-4 hover:text-[#8C6228] transition-colors">hello@thegourmetgifts.co</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
     </div>
   );
