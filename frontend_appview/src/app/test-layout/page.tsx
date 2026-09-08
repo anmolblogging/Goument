@@ -189,7 +189,7 @@ export default function TestLayoutPage() {
                   >
                     {/* Active Selected Badge */}
                     {isSelected && (
-                      <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#1A1A18] text-[#DFC299] flex items-center justify-center text-[9px] shadow-xs z-10">
+                      <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#3c0b1e] text-[#DFC299] flex items-center justify-center text-[9px] shadow-xs z-10">
                         <Check className="w-2.5 h-2.5" />
                       </span>
                     )}
