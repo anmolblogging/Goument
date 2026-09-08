@@ -507,7 +507,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                       type="button"
                       onClick={() => handleBudgetClick(tier.range)}
                       aria-label={`Select budget tier ${tier.range}`}
-                      className={`relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-108 active:scale-95 cursor-pointer border ${pillStyle.bg} ${pillStyle.border} ${pillStyle.shadow} ${
+                      className={`relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-[1.08] active:scale-95 cursor-pointer border ${pillStyle.bg} ${pillStyle.border} ${pillStyle.shadow} ${
                         isRecommended ? 'ring-2 ring-[#DFC299]/70 ring-offset-2 ring-offset-[#FAF8F5]' : ''
                       }`}
                     >

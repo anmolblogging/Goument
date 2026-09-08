@@ -2,9 +2,6 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -23,9 +20,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-  },
-  turbopack: {
-    root: path.resolve(__dirname),
   },
   async headers() {
     return [

@@ -44,4 +44,5 @@ coverage/
 
 # Analytics Vault Database
 *.enc
-**/data/
+frontend_appview/data/
+!frontend_appview/src/data/
