@@ -23,7 +23,7 @@ export default function NotFound() {
         <div className="pt-4 flex items-center justify-center gap-3">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#273629] hover:bg-[#344837] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-lg transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#3c0b1e] hover:bg-[#4f1028] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-lg transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Home</span>

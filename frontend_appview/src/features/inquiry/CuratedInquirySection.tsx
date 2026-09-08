@@ -363,7 +363,7 @@ export default function CuratedInquirySection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-8 py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-none shrink-0 shadow-md ${
+                  className={`px-8 py-3.5 bg-[#3c0b1e] hover:bg-[#4f1028] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-none shrink-0 shadow-md ${
                     isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
                   }`}
                 >

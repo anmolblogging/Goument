@@ -299,14 +299,14 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mt-7 sm:mt-9">
           <button
             onClick={handleOpenDefaultModal}
-            className="px-7 py-3.5 sm:py-4 bg-[#273629] hover:bg-[#344837] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer text-center"
+            className="px-7 py-3.5 sm:py-4 bg-[#3c0b1e] hover:bg-[#4f1028] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer text-center"
           >
             {data.primaryCta || 'GET 3 CURATED CONCEPTS'}
           </button>
 
           <button
             onClick={scrollToConcepts}
-            className="px-6 py-3.5 sm:py-4 border border-[#273629]/50 hover:border-[#273629] text-[#273629] hover:text-[#1A1A18] font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 hover:bg-white/80 cursor-pointer text-center"
+            className="px-6 py-3.5 sm:py-4 border border-[#3c0b1e]/50 hover:border-[#3c0b1e] text-[#3c0b1e] hover:text-[#1A1A18] font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 hover:bg-white/80 cursor-pointer text-center"
           >
             {data.secondaryCta || 'EXPLORE GIFT BOXES'}
           </button>
@@ -481,9 +481,9 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
               const isRecommended = isRecommendedTier(tier.range, idx);
               const pillStyle = isRecommended
                 ? {
-                    bg: 'bg-[#273629]', // Signature Forest Green (Recommended)
-                    border: 'border-[#1C281E]',
-                    shadow: 'shadow-[0_12px_28px_rgba(39,54,41,0.38)] hover:shadow-[0_18px_36px_rgba(39,54,41,0.52)]',
+                    bg: 'bg-[#3c0b1e]', // Signature Deep Wine (Recommended)
+                    border: 'border-[#290714]',
+                    shadow: 'shadow-[0_12px_28px_rgba(60,11,30,0.38)] hover:shadow-[0_18px_36px_rgba(60,11,30,0.52)]',
                   }
                 : {
                     bg: 'bg-[#8E7252]', // Luxury Warm Beige / Camel
@@ -553,9 +553,9 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          4. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN (FULL-BLEED GREEN SECTION)
+          4. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN (FULL-BLEED WINE SECTION)
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="w-full bg-[#273629] text-white py-14 sm:py-18 md:py-22 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden">
+      <section className="w-full bg-[#3c0b1e] text-white py-14 sm:py-18 md:py-22 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
           <ScrollReveal animation="fadeUp">
             <div className="space-y-6 text-center">
@@ -633,7 +633,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-6 py-2.5 bg-[#273629] text-white text-xs font-bold uppercase tracking-[0.14em] rounded-xl hover:bg-[#344837] transition-all cursor-pointer"
+                    className="px-6 py-2.5 bg-[#3c0b1e] text-white text-xs font-bold uppercase tracking-[0.14em] rounded-xl hover:bg-[#4f1028] transition-all cursor-pointer"
                   >
                     Done
                   </button>
@@ -759,7 +759,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`px-7 py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-xl shrink-0 shadow-md ${
+                      className={`px-7 py-3.5 bg-[#3c0b1e] hover:bg-[#4f1028] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-xl shrink-0 shadow-md ${
                         isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
                       }`}
                     >

@@ -77,7 +77,7 @@ export const StickyInquiryDrawer: React.FC = () => {
       <div className="fixed right-5 sm:right-7 bottom-5 sm:bottom-7 z-40">
         <button
           onClick={() => setIsOpen(true)}
-          className="group flex items-center gap-2.5 bg-[#273629] hover:bg-[#344837] text-[#FAF8F5] px-4 sm:px-5 py-2.5 sm:py-3 rounded-full shadow-[0_8px_30px_rgba(39,54,41,0.45)] border border-[#DFC299]/40 hover:border-[#DFC299] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+          className="group flex items-center gap-2.5 bg-[#3c0b1e] hover:bg-[#4f1028] text-[#FAF8F5] px-4 sm:px-5 py-2.5 sm:py-3 rounded-full shadow-[0_8px_30px_rgba(60,11,30,0.45)] border border-[#DFC299]/40 hover:border-[#DFC299] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
           aria-label="Open Bespoke Enquiry Drawer"
         >
           <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DFC299] group-hover:rotate-12 transition-transform" />
@@ -313,7 +313,7 @@ export const StickyInquiryDrawer: React.FC = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-3 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-lg cursor-pointer shadow-md"
+                        className="w-full py-3 bg-[#3c0b1e] hover:bg-[#4f1028] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-lg cursor-pointer shadow-md"
                       >
                         <Send className="w-3.5 h-3.5 text-[#DFC299]" />
                         <span>{isSubmitting ? 'DISPATCHING...' : 'SEND INQUIRY'}</span>
