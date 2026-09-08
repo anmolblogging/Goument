@@ -7,11 +7,11 @@ import Link from 'next/link';
 
 const HERO_IMAGES = [
   {
-    url: '/images/small_anipics/velvet_tray_hero.jpg',
+    url: '/images/brand/deskhero.png',
     alt: 'Luxury Velvet Tray Hero Collection',
   },
   {
-    url: '/images/small_anipics/framee.png',
+    url: '/images/brand/phonehero.png',
     alt: 'Artisanal Gourmet Luxury Frame',
   },
 ];

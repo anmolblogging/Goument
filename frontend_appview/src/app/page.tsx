@@ -66,17 +66,33 @@ export default function HomePage() {
           SECTION 1 — STATIC HERO BACKGROUND (Sticky / Fixed)
           ═══════════════════════════════════════════════ */}
       <div id="hero" className="sticky top-0 left-0 w-full h-screen overflow-hidden z-0 flex flex-col justify-center items-center">
-        {/* Full-bleed cover background image (No blank margins) */}
+        {/* Full-bleed cover background image (Responsive: phonehero for mobile, deskhero for desktop) */}
         <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/images/hero/hero_main.jpg"
-            alt="The Gourmet Gifts — Luxury Gifting"
-            fill
-            priority
-            quality={80}
-            sizes="100vw"
-            className="object-cover object-center filter brightness-[0.88]"
-          />
+          {/* Phone View Hero Background */}
+          <div className="block sm:hidden absolute inset-0">
+            <Image
+              src="/images/brand/phonehero.png"
+              alt="The Gourmet Gifts — Luxury Gifting"
+              fill
+              priority
+              quality={85}
+              sizes="100vw"
+              className="object-cover object-center filter brightness-[0.88]"
+            />
+          </div>
+
+          {/* Desktop & Tablet Other Responsive Views Hero Background */}
+          <div className="hidden sm:block absolute inset-0">
+            <Image
+              src="/images/brand/deskhero.png"
+              alt="The Gourmet Gifts — Luxury Gifting"
+              fill
+              priority
+              quality={85}
+              sizes="100vw"
+              className="object-cover object-center filter brightness-[0.88]"
+            />
+          </div>
         </div>
 
         {/* Ambient luxury gradient overlay for legibility */}
