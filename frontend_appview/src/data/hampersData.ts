@@ -491,23 +491,6 @@ export const HAMPERS_CATALOG: HamperData[] = [
     dietary: 'Spiritual Wellness',
   },
   {
-    _id: 'decor_artisanal_soaps',
-    slug: 'artisanal-soaps',
-    name: 'Artisanal Soaps',
-    subCopy: 'Handmade with care, naturally indulgent.',
-    category: 'decor-spiritual',
-    categoryLabel: 'Decor & Spiritual',
-    inside_items: [
-      { item: 'Cold-Pressed Botanical Soap Bar', weight: '125g' },
-    ],
-    packaging_style: 'Handmade with care, naturally indulgent.',
-    description: 'Handmade with care, naturally indulgent.',
-    price: 0,
-    image: '/images/decor/soaps.jpg',
-    highlights: ['Cold-Pressed Plant Oils', 'Sulphate & Paraben Free', 'Gentle Exfoliation'],
-    dietary: 'Natural Self-Care',
-  },
-  {
     _id: 'decor_brass_bottle',
     slug: 'brass-bottle',
     name: 'Brass Bottle',
