@@ -71,7 +71,7 @@ export const CATALOGUE_CATEGORIES: CatalogueCategory[] = [
     label: 'Decor & Spiritual',
     subtitle: 'Thoughtful accents for inspired spaces.',
     tagline: 'Thoughtful accents for inspired spaces.',
-    image: '/images/catalogue_items/category/decor&spiritual.png',
+    image: '/images/catalogue_items/category/decor_spiritual_v2.png',
     borderRadius: '48% 52% 43% 57% / 58% 41% 59% 42%',
     pastelActive: 'bg-[#DFC299]',
     pastelHover: 'group-hover:bg-[#F3E7D5]',
@@ -95,7 +95,7 @@ export const CATALOGUE_CATEGORIES: CatalogueCategory[] = [
   {
     id: '3d-miniatures',
     label: '3D Miniatures',
-    image: '/images/catalogue_items/category/3d.png',
+    image: '/images/catalogue_items/category/3d_v2.png',
     borderRadius: '48% 52% 47% 53% / 58% 46% 54% 42%',
     pastelActive: 'bg-[#CFAFA3]',
     pastelHover: 'group-hover:bg-[#EFE2DC]',
@@ -104,7 +104,7 @@ export const CATALOGUE_CATEGORIES: CatalogueCategory[] = [
   {
     id: 'office-travel-bags',
     label: 'Office & Travel Bags',
-    image: '/images/catalogue_items/category/office.png',
+    image: '/images/catalogue_items/category/office_v2.png',
     borderRadius: '56% 44% 58% 42% / 46% 59% 41% 54%',
     pastelActive: 'bg-[#D6C2A9]',
     pastelHover: 'group-hover:bg-[#D6C2A9]/50',
@@ -112,7 +112,7 @@ export const CATALOGUE_CATEGORIES: CatalogueCategory[] = [
   {
     id: 'electronics-audio',
     label: 'Electronics',
-    image: '/images/catalogue_items/category/electronics.png',
+    image: '/images/catalogue_items/category/electronics_v2.png',
     borderRadius: '46% 54% 38% 62% / 62% 44% 56% 38%',
     pastelActive: 'bg-[#C7C3B7]',
     pastelHover: 'group-hover:bg-[#C7C3B7]/50',

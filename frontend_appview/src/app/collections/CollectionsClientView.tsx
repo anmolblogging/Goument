@@ -215,7 +215,7 @@ export function CataloguePresentation({
                             href={`https://wa.me/917021463609?text=${encodeURIComponent(`Hi! I'm interested in "${item.name}" from your ${activeCategoryMeta?.label || 'curated'} collection.`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full py-1.5 sm:py-2 px-2.5 bg-[#FAF8F5] hover:bg-[#1A1A18] text-[#1A1A18] hover:text-[#DFC299] border border-[#E0D9CE] hover:border-[#1A1A18] rounded-lg text-[9.5px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider flex items-center justify-center gap-1 transition-all duration-200"
+                            className="w-full py-1.5 sm:py-2 px-2.5 bg-[#FAF8F5] hover:bg-[#3c0b1e] text-[#1A1A18] hover:text-[#DFC299] border border-[#E0D9CE] hover:border-[#3c0b1e] rounded-lg text-[9.5px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider flex items-center justify-center gap-1 transition-all duration-200"
                           >
                             <span>ENQUIRE</span>
                             <span className="text-[10px]">→</span>

@@ -280,7 +280,7 @@ export default function CustomGiftBoxesSection() {
                   <div className="pt-2">
                     <a
                       href="#curation-inquiry"
-                      className="inline-flex items-center justify-center gap-1.5 w-full border border-[#C5A880] text-[#9E7B35] hover:bg-[#1A1A18] hover:border-[#1A1A18] hover:text-white rounded-lg py-2 text-xs font-semibold tracking-wide transition-all duration-200 shadow-2xs hover:shadow-xs active:scale-95 cursor-pointer text-center"
+                      className="inline-flex items-center justify-center gap-1.5 w-full border border-[#C5A880] text-[#9E7B35] hover:bg-[#3c0b1e] hover:border-[#3c0b1e] hover:text-white rounded-lg py-2 text-xs font-semibold tracking-wide transition-all duration-200 shadow-2xs hover:shadow-xs active:scale-95 cursor-pointer text-center"
                     >
                       <span>ENQUIRE VESSEL</span>
                       <ArrowRight className="w-3.5 h-3.5" />

@@ -335,7 +335,7 @@ export default function TestLayoutPage() {
                         ) : (
                           <button
                             onClick={(e) => handleIncrement(item, e)}
-                            className="text-[10.5px] font-mono uppercase tracking-[0.14em] px-3 py-1.5 rounded-lg bg-[#FAF8F5] hover:bg-[#1A1A18] text-[#1A1A18] hover:text-[#FAF8F5] border border-[#DDD8CE] hover:border-[#1A1A18] transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
+                            className="text-[10.5px] font-mono uppercase tracking-[0.14em] px-3 py-1.5 rounded-lg bg-[#FAF8F5] hover:bg-[#3c0b1e] text-[#1A1A18] hover:text-[#FAF8F5] border border-[#DDD8CE] hover:border-[#3c0b1e] transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
                           >
                             <Plus className="w-3 h-3 text-[#9E7B35]" />
                             <span>Bag</span>
