@@ -15,6 +15,7 @@ import { WhyChooseSection } from '@/features/brand/WhyChooseSection';
 import { IndustriesSection } from '@/features/brand/IndustriesSection';
 import { PackagingExperienceSection } from '@/features/brand/PackagingExperienceSection';
 import { GiftingProcessSection } from '@/features/brand/GiftingProcessSection';
+import { FaqSection } from '@/features/brand/FaqSection';
 import KeepsakeEcommerceSection from '@/features/ecommerce/KeepsakeEcommerceSection';
 import CustomGiftBoxesSection from '@/features/ecommerce/CustomGiftBoxesSection';
 import CuratedInquirySection from '@/features/inquiry/CuratedInquirySection';
@@ -146,6 +147,9 @@ export default function HomePage() {
 
         {/* ─── PACKAGING THAT COMPLETES THE EXPERIENCE ─── */}
         <PackagingExperienceSection />
+
+        {/* ─── FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION & SEO SCHEMA) ─── */}
+        <FaqSection />
 
         {/* ─── PRIVATE CONCIERGE & BESPOKE GIFTING (LUXURY DEEP WINE THEME) ─── */}
         <section className="pt-6 sm:pt-10 md:pt-14 pb-7 sm:pb-10 md:pb-12 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden bg-[#3c0b1e] text-[#FAF8F5]">
