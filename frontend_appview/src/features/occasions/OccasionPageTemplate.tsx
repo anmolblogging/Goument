@@ -478,19 +478,6 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
           {/* Centered Circular Price Pills */}
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 pt-2 pb-4">
             {data.budgetTiers.map((tier, idx) => {
-              const isRecommended = isRecommendedTier(tier.range, idx);
-              const pillStyle = isRecommended
-                ? {
-                    bg: 'bg-[#3c0b1e]', // Signature Deep Wine (Recommended)
-                    border: 'border-[#290714]',
-                    shadow: 'shadow-[0_12px_28px_rgba(60,11,30,0.38)] hover:shadow-[0_18px_36px_rgba(60,11,30,0.52)]',
-                  }
-                : {
-                    bg: 'bg-[#8E7252]', // Luxury Warm Beige / Camel
-                    border: 'border-[#785E40]',
-                    shadow: 'shadow-[0_10px_26px_rgba(142,114,82,0.3)] hover:shadow-[0_16px_34px_rgba(142,114,82,0.45)]',
-                  };
-
               // Parse 2-line text cleanly
               const lines = tier.range.includes(' – ') 
                 ? [`${tier.range.split(' – ')[0]} –`, tier.range.split(' – ')[1]]
@@ -507,15 +494,8 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                       type="button"
                       onClick={() => handleBudgetClick(tier.range)}
                       aria-label={`Select budget tier ${tier.range}`}
-                      className={`relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-[1.08] active:scale-95 cursor-pointer border ${pillStyle.bg} ${pillStyle.border} ${pillStyle.shadow} ${
-                        isRecommended ? 'ring-2 ring-[#DFC299]/70 ring-offset-2 ring-offset-[#FAF8F5]' : ''
-                      }`}
+                      className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-[1.08] active:scale-95 cursor-pointer border bg-[#8E7252] border-[#785E40] shadow-[0_10px_26px_rgba(142,114,82,0.3)] hover:shadow-[0_16px_34px_rgba(142,114,82,0.45)]"
                     >
-                      {isRecommended && (
-                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-[#DFC299] text-[#1A1A18] text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-[0.14em] rounded-full shadow-md whitespace-nowrap">
-                          Recommended
-                        </span>
-                      )}
 
                       <div className="text-white space-y-0.5 select-none text-center">
                         {lines.length > 1 ? (
