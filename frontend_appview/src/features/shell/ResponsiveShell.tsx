@@ -179,7 +179,7 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
                       className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0"
                     >
                       <Image
-                        src="/icon.svg"
+                        src="/images/brand/LOGOs.svg"
                         alt="The Gourmet Gifts"
                         fill
                         className="object-contain transition-all duration-300"
