@@ -10,7 +10,8 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'anthropic-ai', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
-      { userAgent: 'CCBot', allow: '/' },
+      { userAgent: 'CCBot', allow: '/' },,
+      
     ],
     sitemap: 'https://thegourmetgifts.co/sitemap.xml',
     host: 'https://thegourmetgifts.co',

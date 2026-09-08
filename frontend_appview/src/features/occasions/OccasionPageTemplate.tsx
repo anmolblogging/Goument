@@ -126,9 +126,11 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
 
   const handleBudgetClick = (range: string) => {
     setFormData((prev) => ({ ...prev, budget: range }));
-    const el = document.getElementById('curation-inquiry');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      const el = document.getElementById('curation-form-card');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -407,255 +409,258 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
 </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          4. THOUGHTFULLY CURATED AROUND YOUR BUDGET
+          4 & 5. BUDGET CURATION & BESPOKE INQUIRY (SIDE-BY-SIDE)
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="pt-6 sm:pt-10 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5]">
-        <div className="max-w-[1480px] mx-auto space-y-8 sm:space-y-10">
-          
-          <ScrollReveal animation="fadeUp">
-            <div className="text-center space-y-2 max-w-3xl mx-auto">
-              <h2
-                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
-                style={{
-                  fontFamily: 'var(--font-cormorant), Georgia, serif',
-                  fontWeight: 300,
-                }}
-              >
-                {toSentenceCase(data.budgetTitle || 'Thoughtfully curated around your budget')}
-              </h2>
-              {data.budgetSubtitle && (
-                <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-2xl mx-auto leading-normal">
-                  {data.budgetSubtitle}
-                </p>
-              )}
-            </div>
-          </ScrollReveal>
-
-          {/* User's Original Circular Price Pills */}
-          <div className="w-full flex items-center justify-center pt-2 pb-2 px-4 sm:px-8">
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
-              {data.budgetTiers.map((tier, idx) => {
-                const pillTiers = [
-                  {
-                    bg: 'bg-[#154230]', // Emerald Green
-                    border: 'border-[#0F3023]',
-                    shadow: 'shadow-[0_8px_24px_rgba(21,66,48,0.35)] hover:shadow-[0_12px_32px_rgba(21,66,48,0.5)]',
-                  },
-                  {
-                    bg: 'bg-[#5D1E21]', // Deep Burgundy
-                    border: 'border-[#481719]',
-                    shadow: 'shadow-[0_8px_24px_rgba(93,30,33,0.35)] hover:shadow-[0_12px_32px_rgba(93,30,33,0.5)]',
-                  },
-                  {
-                    bg: 'bg-[#101111]', // Charcoal Black
-                    border: 'border-[#000000]',
-                    shadow: 'shadow-[0_8px_24px_rgba(16,17,17,0.35)] hover:shadow-[0_12px_32px_rgba(16,17,17,0.5)]',
-                  },
-                  {
-                    bg: 'bg-[#A6824A]', // Antique Gold
-                    border: 'border-[#8F6F3D]',
-                    shadow: 'shadow-[0_8px_24px_rgba(166,130,74,0.35)] hover:shadow-[0_12px_32px_rgba(166,130,74,0.5)]',
-                  },
-                ];
-                const pill = pillTiers[idx % pillTiers.length];
-
-                // Parse 2-line text cleanly
-                const lines = tier.range.includes(' – ') 
-                  ? [`${tier.range.split(' – ')[0]} –`, tier.range.split(' – ')[1]]
-                  : tier.range.startsWith('Up to ')
-                  ? ['Up to', tier.range.replace('Up to ', '')]
-                  : tier.range.startsWith('Under ')
-                  ? ['Under', tier.range.replace('Under ', '')]
-                  : [tier.range];
-
-                return (
-                  <ScrollReveal key={idx} animation="fadeUp" delay={0.04 * (idx + 1)}>
-                    <div
-                      onClick={() => handleBudgetClick(tier.range)}
-                      className={`w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-105 cursor-pointer border ${pill.bg} ${pill.border} ${pill.shadow}`}
-                    >
-                      <div className="text-white space-y-0.5 select-none text-center">
-                        {lines.length > 1 ? (
-                          <>
-                            <span className="block text-xs sm:text-[13px] md:text-sm font-medium opacity-90 leading-tight">
-                              {lines[0]}
-                            </span>
-                            <span className="block text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-tight">
-                              {lines[1]}
-                            </span>
-                          </>
-                        ) : (
-                          <span className="block text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-tight">
-                            {lines[0]}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          5. BESPOKE CURATION INQUIRY SECTION (QUOTATION FORM) — ABOVE CTA
-          ══════════════════════════════════════════════════════════════════ */}
-      <section id="curation-inquiry" className="pt-2 sm:pt-4 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#FAF8F5] scroll-mt-20">
-        <div className="max-w-[960px] mx-auto space-y-6 sm:space-y-8">
-          
-          <ScrollReveal animation="fadeUp">
-            <div className="text-center space-y-2">
-              <h2
-                className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
-                style={{
-                  fontFamily: 'var(--font-cormorant), Georgia, serif',
-                  fontWeight: 300,
-                }}
-              >
-                Enquire for {toSentenceCase(data.title)}
-              </h2>
-              <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-xl mx-auto">
-                Share your requirements and our gifting concierge will prepare 3 tailored concepts within 24 hours.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          {/* Centered Clean Card Form */}
-          <div className="relative rounded-[28px] sm:rounded-[36px] border border-[#D9D5CC] bg-white p-6 sm:p-10 md:p-12 shadow-sm">
-            {submitted ? (
-              <div className="py-10 text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-[#EBF3E8] border border-[#7A8B6F] flex items-center justify-center mx-auto text-[#7A8B6F]">
-                  <CheckCircle2 className="w-7 h-7" />
-                </div>
-                <h3
-                  className="text-2xl sm:text-3xl font-light text-[#1A1A18]"
-                  style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
-                >
-                  Thank you, {formData.name}.
-                </h3>
-                <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-md mx-auto">
-                  Your curation brief has been delivered to <span className="text-[#1A1A18] font-medium">hello@thegourmetgifts.co</span>. Our team will get back to you shortly.
-                </p>
-                <div className="pt-2">
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="text-xs text-[#8C847B] underline hover:text-[#1A1A18]"
+      <section id="curation-inquiry" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5] scroll-mt-20">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-start">
+            
+            {/* ── LEFT COLUMN: BUDGET TIERS ── */}
+            <div className="lg:col-span-5 space-y-6 sm:space-y-8">
+              <ScrollReveal animation="fadeUp">
+                <div className="space-y-2 text-left">
+                  <h2
+                    className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                    style={{
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
+                      fontWeight: 300,
+                    }}
                   >
-                    Submit another inquiry
-                  </button>
+                    {toSentenceCase(data.budgetTitle || 'Thoughtfully curated around your budget')}
+                  </h2>
+                  {data.budgetSubtitle && (
+                    <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-xl leading-normal">
+                      {data.budgetSubtitle}
+                    </p>
+                  )}
+                </div>
+              </ScrollReveal>
+
+              {/* User's Original Circular Price Pills */}
+              <div className="w-full flex items-center justify-start pt-1 pb-2">
+                <div className="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
+                  {data.budgetTiers.map((tier, idx) => {
+                    const pillTiers = [
+                      {
+                        bg: 'bg-[#154230]', // Emerald Green
+                        border: 'border-[#0F3023]',
+                        shadow: 'shadow-[0_8px_24px_rgba(21,66,48,0.35)] hover:shadow-[0_12px_32px_rgba(21,66,48,0.5)]',
+                      },
+                      {
+                        bg: 'bg-[#5D1E21]', // Deep Burgundy
+                        border: 'border-[#481719]',
+                        shadow: 'shadow-[0_8px_24px_rgba(93,30,33,0.35)] hover:shadow-[0_12px_32px_rgba(93,30,33,0.5)]',
+                      },
+                      {
+                        bg: 'bg-[#101111]', // Charcoal Black
+                        border: 'border-[#000000]',
+                        shadow: 'shadow-[0_8px_24px_rgba(16,17,17,0.35)] hover:shadow-[0_12px_32px_rgba(16,17,17,0.5)]',
+                      },
+                      {
+                        bg: 'bg-[#A6824A]', // Antique Gold
+                        border: 'border-[#8F6F3D]',
+                        shadow: 'shadow-[0_8px_24px_rgba(166,130,74,0.35)] hover:shadow-[0_12px_32px_rgba(166,130,74,0.5)]',
+                      },
+                    ];
+                    const pill = pillTiers[idx % pillTiers.length];
+                    const isSelected = formData.budget === tier.range;
+
+                    // Parse 2-line text cleanly
+                    const lines = tier.range.includes(' – ') 
+                      ? [`${tier.range.split(' – ')[0]} –`, tier.range.split(' – ')[1]]
+                      : tier.range.startsWith('Up to ')
+                      ? ['Up to', tier.range.replace('Up to ', '')]
+                      : tier.range.startsWith('Under ')
+                      ? ['Under', tier.range.replace('Under ', '')]
+                      : [tier.range];
+
+                    return (
+                      <ScrollReveal key={idx} animation="fadeUp" delay={0.04 * (idx + 1)}>
+                        <div
+                          onClick={() => handleBudgetClick(tier.range)}
+                          className={`w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 rounded-full shrink-0 flex flex-col items-center justify-center p-3 text-center transition-all duration-300 hover:scale-105 cursor-pointer border ${pill.bg} ${pill.border} ${pill.shadow} ${
+                            isSelected ? 'ring-4 ring-[#DFC299] ring-offset-2 ring-offset-[#FAF8F5] scale-105' : ''
+                          }`}
+                        >
+                          <div className="text-white space-y-0.5 select-none text-center">
+                            {lines.length > 1 ? (
+                              <>
+                                <span className="block text-xs sm:text-[13px] md:text-sm font-medium opacity-90 leading-tight">
+                                  {lines[0]}
+                                </span>
+                                <span className="block text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-tight">
+                                  {lines[1]}
+                                </span>
+                              </>
+                            ) : (
+                              <span className="block text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-tight">
+                                {lines[0]}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </ScrollReveal>
+                    );
+                  })}
                 </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-                  {/* Name */}
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Your Name / Company *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Ananya Sharma (Acme Corp)"
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
-                    />
-                  </div>
+            </div>
 
-                  {/* Email */}
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Work Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="ananya@company.com"
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-                  {/* Phone */}
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Phone / WhatsApp *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
-                    />
-                  </div>
-
-                  {/* Budget */}
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Target Budget (per box)
-                    </label>
-                    <select
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
-                    >
-                      {data.budgetTiers.map((tier) => (
-                        <option key={tier.range} value={tier.range}>
-                          {tier.range}
-                        </option>
-                      ))}
-                      <option value="Custom Budget">Custom / Flexible</option>
-                    </select>
-                  </div>
-
-                  {/* Quantity */}
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Estimated Quantity
-                    </label>
-                    <select
-                      value={formData.quantity}
-                      onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
-                    >
-                      <option>25 - 50</option>
-                      <option>50 - 100</option>
-                      <option>100 - 250</option>
-                      <option>250 - 500</option>
-                      <option>500+</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-[#EFECE6]">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`px-8 py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-none shrink-0 shadow-md ${
-                      isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
-                    }`}
+            {/* ── RIGHT COLUMN: ENQUIRY FORM ── */}
+            <div id="curation-form-card" className="lg:col-span-7 space-y-4">
+              <ScrollReveal animation="fadeUp" delay={0.08}>
+                <div className="text-left space-y-1.5 mb-5 sm:mb-6">
+                  <h2
+                    className="text-2xl sm:text-3xl md:text-4xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                    style={{
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
+                      fontWeight: 300,
+                    }}
                   >
-                    <Send className="w-3.5 h-3.5 text-[#DFC299]" />
-                    <span>{isSubmitting ? 'DISPATCHING TO CONCIERGE...' : 'SEND CURATION ENQUIRY'}</span>
-                  </button>
-
-                  <p className="text-xs text-[#78746D] font-light">
-                    Direct concierge: <a href="mailto:hello@thegourmetgifts.co" className="text-[#1A1A18] font-medium underline underline-offset-4 hover:text-[#BFA267] transition-colors">hello@thegourmetgifts.co</a>
+                    Enquire for {toSentenceCase(data.title)}
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-xl">
+                    Share your requirements and our gifting concierge will prepare 3 tailored concepts within 24 hours.
                   </p>
                 </div>
 
-              </form>
-            )}
-          </div>
+                {/* Clean Card Form */}
+                <div className="relative rounded-[24px] sm:rounded-[32px] border border-[#D9D5CC] bg-white p-6 sm:p-8 md:p-10 shadow-sm">
+                  {submitted ? (
+                    <div className="py-10 text-center space-y-4">
+                      <div className="w-14 h-14 rounded-full bg-[#EBF3E8] border border-[#7A8B6F] flex items-center justify-center mx-auto text-[#7A8B6F]">
+                        <CheckCircle2 className="w-7 h-7" />
+                      </div>
+                      <h3
+                        className="text-2xl sm:text-3xl font-light text-[#1A1A18]"
+                        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                      >
+                        Thank you, {formData.name}.
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-md mx-auto">
+                        Your curation brief has been delivered to <span className="text-[#1A1A18] font-medium">hello@thegourmetgifts.co</span>. Our team will get back to you shortly.
+                      </p>
+                      <div className="pt-2">
+                        <button
+                          onClick={() => setSubmitted(false)}
+                          className="text-xs text-[#8C847B] underline hover:text-[#1A1A18]"
+                        >
+                          Submit another inquiry
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                        {/* Name */}
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                            Your Name / Company *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            placeholder="e.g. Ananya Sharma (Acme Corp)"
+                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                          />
+                        </div>
 
+                        {/* Email */}
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                            Work Email *
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            placeholder="ananya@company.com"
+                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+                        {/* Phone */}
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                            Phone / WhatsApp *
+                          </label>
+                          <input
+                            type="tel"
+                            required
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            placeholder="+91 98765 43210"
+                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                          />
+                        </div>
+
+                        {/* Budget */}
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                            Target Budget (per box)
+                          </label>
+                          <select
+                            value={formData.budget}
+                            onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
+                          >
+                            {data.budgetTiers.map((tier) => (
+                              <option key={tier.range} value={tier.range}>
+                                {tier.range}
+                              </option>
+                            ))}
+                            <option value="Custom Budget">Custom / Flexible</option>
+                          </select>
+                        </div>
+
+                        {/* Quantity */}
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                            Estimated Quantity
+                          </label>
+                          <select
+                            value={formData.quantity}
+                            onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                            className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
+                          >
+                            <option>25 - 50</option>
+                            <option>50 - 100</option>
+                            <option>100 - 250</option>
+                            <option>250 - 500</option>
+                            <option>500+</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-[#EFECE6]">
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className={`px-8 py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-none shrink-0 shadow-md ${
+                            isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
+                          }`}
+                        >
+                          <Send className="w-3.5 h-3.5 text-[#DFC299]" />
+                          <span>{isSubmitting ? 'DISPATCHING TO CONCIERGE...' : 'SEND CURATION ENQUIRY'}</span>
+                        </button>
+
+                        <p className="text-xs text-[#78746D] font-light">
+                          Direct concierge: <a href="mailto:hello@thegourmetgifts.co" className="text-[#1A1A18] font-medium underline underline-offset-4 hover:text-[#BFA267] transition-colors">hello@thegourmetgifts.co</a>
+                        </p>
+                      </div>
+
+                    </form>
+                  )}
+                </div>
+              </ScrollReveal>
+            </div>
+
+          </div>
         </div>
       </section>
 
