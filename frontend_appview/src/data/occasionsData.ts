@@ -85,8 +85,8 @@ export interface OccasionPageData {
 export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
   'employee-gifting': {
     slug: 'employee-gifting',
-    metaTitle: 'Employee Gifting — The Gourmet Gifts',
-    metaDescription: 'Celebrate your people with premium, thoughtful corporate gifts that inspire, engage and make every milestone memorable.',
+    metaTitle: 'Employee Gifting Ideas & Hampers | The Gourmet Gifts',
+    metaDescription: 'Curated employee gifting for onboarding, milestones, festivals and everyday appreciation — thoughtful hampers built around your people and culture.',
     title: 'Employee Gifting',
     tagline: 'For the people who make the company what it is.',
     description: 'Onboarding. Milestones. Recognition. Festivals. Everyday appreciation. We thoughtfully curate each gifting experience around the recipient, the occasion and your brand — so it feels personal, useful and worth remembering.',
@@ -185,8 +185,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
 
   'client-gifting': {
     slug: 'client-gifting',
-    metaTitle: 'Client Gifting — The Gourmet Gifts',
-    metaDescription: 'Be remembered for more than the business you do. Thoughtfully curated gifting for clients, partners and key relationships.',
+    metaTitle: 'Client Gifting Hampers & Ideas | The Gourmet Gifts',
+    metaDescription: 'Curated client gifting for new client welcomes, deal wins, milestones and festive occasions — thoughtful hampers that keep your brand remembered.',
     title: 'Client Gifting',
     tagline: 'Be remembered for more than the business you do.',
     description: 'Thoughtfully curated gifting for clients, partners and key relationships — designed around who you\'re gifting to, why you\'re gifting and what you want your brand to leave behind.',
@@ -284,8 +284,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
 
   'festive-gifting': {
     slug: 'festive-gifting',
-    metaTitle: 'Festive Gifting — The Gourmet Gifts',
-    metaDescription: 'Celebrate the season. Make every gesture feel personal. Thoughtfully curated festive gifting for teams, clients, friends and families.',
+    metaTitle: 'Festive Corporate Gift Hampers | The Gourmet Gifts',
+    metaDescription: 'Curated festive corporate gift hampers for teams, clients, partners and families — thoughtfully chosen and beautifully presented for the season.',
     title: 'Festive Gifting',
     tagline: 'Celebrate the season. Make every gesture feel personal.',
     description: 'From teams and clients to families, friends and loved ones, we curate festive gifts around who you’re gifting, the occasion and the feeling you want to create — thoughtfully chosen, beautifully presented and made to be remembered.',
@@ -383,8 +383,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
 
   'events-conferences': {
     slug: 'events-conferences',
-    metaTitle: 'Events & Conferences — The Gourmet Gifts',
-    metaDescription: 'Make the event memorable beyond the venue. Welcome kits, speaker gifts, attendee keepsakes and event merchandise.',
+    metaTitle: 'Event & Conference Gifting | The Gourmet Gifts',
+    metaDescription: 'Curated event and conference gifting — welcome kits, speaker gifts, delegate keepsakes and event merchandise that extend the experience.',
     title: 'Events & Conferences',
     tagline: 'Make the event memorable beyond the venue.',
     description: 'From welcome kits and speaker gifts to attendee keepsakes and event merchandise, we curate every detail around your audience, event and brand — so the gifting feels like part of the experience, not an afterthought.',
@@ -482,8 +482,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
 
   'milestones-recognition': {
     slug: 'milestones-recognition',
-    metaTitle: 'Milestones & Recognition — The Gourmet Gifts',
-    metaDescription: 'Some achievements deserve more than a message. Curating recognition experiences around the achievement, the person and the moment.',
+    metaTitle: 'Milestone & Recognition Gifts | The Gourmet Gifts',
+    metaDescription: 'Curated recognition gifting for years of service, promotions, achievements and company milestones — meaningful, personal and worth keeping.',
     title: 'Milestones & Recognition',
     tagline: 'Some achievements deserve more than a message.',
     description: 'From personal milestones to extraordinary contributions, we curate recognition experiences around the achievement, the person and what the moment represents — creating something they’ll be proud to receive and remember.',
@@ -581,8 +581,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
 
   'cx-gifting': {
     slug: 'cx-gifting',
-    metaTitle: 'Customer Experience Gifting — The Gourmet Gifts',
-    metaDescription: 'Turn customer moments into relationships worth remembering. Curated gifts for first purchases, onboarding, renewals and milestones.',
+    metaTitle: 'Customer Experience Gifting | The Gourmet Gifts',
+    metaDescription: 'Curated CX gifting for first purchases, onboarding, loyalty milestones and renewals — turning customer moments into lasting relationships.',
     title: 'Customer Experience Gifting',
     tagline: 'Turn customer moments into relationships worth remembering.',
     description: 'From first purchases and onboarding to loyalty milestones, renewals and special moments, we curate gifts around the customer, the journey and the experience you want your brand to create.',
@@ -680,8 +680,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
 
   'dealer-partner-gifting': {
     slug: 'dealer-partner-gifting',
-    metaTitle: 'Dealer & Partner Gifting — The Gourmet Gifts',
-    metaDescription: 'Celebrate the partnerships that move business forward. Curated gifts for dealer onboarding, festive appreciation and target milestones.',
+    metaTitle: 'Dealer & Partner Gifting | The Gourmet Gifts',
+    metaDescription: 'Curated dealer and partner gifting for onboarding, festive appreciation, target milestones and long-term relationships across your channel.',
     title: 'Dealer & Partner Gifting',
     tagline: 'Celebrate the partnerships that move business forward.',
     description: 'From onboarding and festive appreciation to performance milestones and long-term partnerships, we curate gifts around the relationship, the occasion and your brand — so every gesture feels considered and commercially relevant without feeling transactional.',
@@ -779,8 +779,8 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
 
   'weddings-celebrations': {
     slug: 'weddings-celebrations',
-    metaTitle: 'Celebrations — The Gourmet Gifts',
-    metaDescription: 'Make every celebration feel more thoughtful. Bespoke wedding welcome gifts, guest favours, and celebratory hampers.',
+    metaTitle: 'Wedding & Celebration Gift Hampers | TGG',
+    metaDescription: 'Curated celebration gifting for weddings, guest favours, engagements and family milestones — personal, beautiful and worth remembering.',
     title: 'Celebrations',
     tagline: 'Make every celebration feel more thoughtful.',
     description: 'From wedding gifting and guest favours to family celebrations and special occasions, we curate gifts around the people, the moment and the experience you want to create — so every gesture feels personal, beautiful and worth remembering.',
@@ -874,6 +874,105 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
       { step: '3', title: 'Approve & Personalise', description: 'Finalize personalized monograms, ribbon shades, and gift contents.' },
       { step: '4', title: 'We Prepare & Pack', description: 'Careful batch assembly, freshness sealing, and luxury gift wrapping.' },
       { step: '5', title: 'Delivered With Delight', description: 'Direct scheduled delivery to your destination resort or residence.' },
+    ],
+  },
+
+  'onboarding-kits': {
+    slug: 'onboarding-kits',
+    metaTitle: 'Employee Onboarding Kits | The Gourmet Gifts',
+    metaDescription: 'Curated onboarding kits for new hires — bespoke welcome boxes with gourmet delicacies and keepsakes that make Day One memorable.',
+    title: 'Employee Onboarding Kits',
+    tagline: 'Make Day One count with welcome kits they’ll actually keep.',
+    description: 'From day-one welcome kits and remote joiner boxes to executive onboarding hampers, we curate each box around your company culture, values and brand identity — so new hires feel welcomed, valued and ready to contribute from day one.',
+    heroImage: '/cards/employeecard.png',
+    primaryCta: 'GET 3 CURATED CONCEPTS',
+    secondaryCta: 'EXPLORE ONBOARDING KITS',
+    trustPoints: ['Day-One Ready', 'Brand Personalisation', 'Pan-India Desk Delivery'],
+
+    solvesTitle: 'Why thoughtful onboarding kits matter',
+    solvesSubtitle: 'The first day sets the tone for an employee’s entire journey. A thoughtful onboarding kit turns orientation into excitement, builds immediate belonging, and reinforces why they chose to join your team.',
+    pillars: [
+      {
+        title: 'Elevates Day-One Excitement',
+        description: 'Create an unforgettable unboxing moment that turns first-day jitters into pride and anticipation.',
+        iconName: 'Sparkles',
+      },
+      {
+        title: 'Reinforces Company Culture',
+        description: 'Embed your company values, team mission, and brand story into practical, premium everyday items.',
+        iconName: 'Building',
+      },
+      {
+        title: 'Useful From Moment One',
+        description: 'We curate desk essentials, tech accessories, and artisanal gourmet snacks that new joiners actually use.',
+        iconName: 'Briefcase',
+      },
+      {
+        title: 'Seamless HR Execution',
+        description: 'Pre-assembled, batch-ready inventory dispatched directly to office desks or remote team doorsteps nationwide.',
+        iconName: 'Truck',
+      },
+    ],
+
+    momentsTitle: 'Curated for every onboarding moment',
+    momentsSubtitle: 'From single remote joiners to large campus hiring cohorts, we scale effortlessly.',
+    moments: [
+      { title: 'New Hire Welcome Boxes', iconName: 'Users' },
+      { title: 'Remote & Hybrid Joiner Kits', iconName: 'Home' },
+      { title: 'Campus & Intern Cohorts', iconName: 'GraduationCap' },
+      { title: 'Executive & Leadership Joiners', iconName: 'Crown' },
+      { title: 'First Week Milestones', iconName: 'Calendar' },
+      { title: 'Tech & Engineering Swag Kits', iconName: 'Laptop' },
+      { title: 'Return-to-Office Welcome Sets', iconName: 'Building' },
+      { title: 'Promotion & Transition Kits', iconName: 'Trophy' },
+    ],
+
+    budgetTitle: 'Thoughtfully curated around your budget',
+    budgetSubtitle: 'Whether onboarding 10 interns or 500 engineering new-hires, every kit is curated with exceptional polish.',
+    budgetTiers: [
+      {
+        range: 'Up to ₹999',
+        description: 'Essential welcome tokens, stationery & sweet treats',
+        iconName: 'Wallet',
+      },
+      {
+        range: '₹1,000 – ₹1,499',
+        description: 'Complete desk set with tumbler, journal & tech swag',
+        iconName: 'Gift',
+      },
+      {
+        range: '₹1,500 – ₹2,499',
+        description: 'Premium curated welcome chest with audio & gourmet snacks',
+        iconName: 'Award',
+      },
+      {
+        range: '₹2,500+',
+        description: 'Executive welcome hamper with leather folio & luxury keepsakes',
+        iconName: 'Gem',
+      },
+    ],
+
+    curatedConcepts: [
+      { name: 'The Day-One Starter', tagline: 'Culture & Energy', description: 'Matte vacuum bottle, hardbound notebook, premium stylus pen, and gourmet roasted nuts.', image: '/images/boxes/box_1.png' },
+      { name: 'The Hybrid Desk Suite', tagline: 'Remote Ready', description: 'Fast wireless charger pad, ceramic coffee mug, artisan filter coffee, and welcome badge.', image: '/images/boxes/box_2.png' },
+      { name: 'The Innovator Kit', tagline: 'Tech & Lifestyle', description: 'Bluetooth speaker, ergonomic desk organizer, artisanal chikki, and custom branded tee.', image: '/images/boxes/box_3.png' },
+      { name: 'The Leadership Induction', tagline: 'Executive Impact', description: 'Leather laptop sleeve, noise cancelling headphones, and signature celebratory delicacies.', image: '/images/boxes/box_4.png' },
+    ],
+
+    customizationFeatures: [
+      { title: 'Company Swag Branding', description: 'Precision logo engraving, screen printing, and custom color-matching across all merchandise.', iconName: 'BadgeCheck' },
+      { title: 'CEO Welcome Letter', description: 'Personalized welcome message from founders or HR leads printed on deckle-edge cards.', iconName: 'FileText' },
+      { title: 'Batch Storage & Call-Off', description: 'We store your branded kits in our Mumbai warehouse and ship as new joiners accept offers.', iconName: 'Package' },
+      { title: 'Apparel Sizing Coordination', description: 'Zero-waste size capture coordination for company hoodies and polo tees.', iconName: 'Sliders' },
+      { title: 'Pan-India Home Delivery', description: 'Tracked express courier delivery directly to remote employees before Day One.', iconName: 'Truck' },
+    ],
+
+    processSteps: [
+      { step: '1', title: 'Share Your Requirements', description: 'Tell us annual hiring volume, preferred kit items, and onboarding dates.' },
+      { step: '2', title: 'We Curate Concepts', description: 'Review 3 custom onboarding kit concepts with complete 3D digital renders.' },
+      { step: '3', title: 'Approve & Personalise', description: 'Finalize brand guidelines, merchandise quality, and welcome card message.' },
+      { step: '4', title: 'We Prepare & Pack', description: 'Assembly, count verification, individual boxing, and secure warehouse storage.' },
+      { step: '5', title: 'Delivered With Delight', description: 'Scheduled dispatch to regional offices or employee doorsteps right on time.' },
     ],
   },
 };
