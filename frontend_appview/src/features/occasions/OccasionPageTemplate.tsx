@@ -496,74 +496,13 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
               })}
             </div>
           </div>
-
-          {/* Need something different? Minimal clean callout below */}
-          <div className="text-center pt-6 sm:pt-8 space-y-3 max-w-xl mx-auto">
-            <h3 className="text-base sm:text-lg font-medium text-[#1A1A18] tracking-tight">
-              Need something different?
-            </h3>
-            <p className="text-xs sm:text-sm text-[#6B655E] font-light">
-              Tell us your budget and brief — we&apos;ll curate around it.
-            </p>
-            <div className="pt-2">
-              <button
-                onClick={scrollToInquiry}
-                className="px-7 py-3.5 bg-[#273629] hover:bg-[#344837] text-white font-sans text-xs uppercase tracking-[0.16em] font-bold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
-              >
-                GET 3 CURATED CONCEPTS
-              </button>
-            </div>
-          </div>
-
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          5. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN (FULL-BLEED GREEN SECTION)
+          5. BESPOKE CURATION INQUIRY SECTION (QUOTATION FORM) — ABOVE CTA
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="w-full bg-[#273629] text-white py-14 sm:py-18 md:py-22 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto relative z-10">
-          <ScrollReveal animation="fadeUp">
-            <div className="space-y-6 text-center">
-              <div className="space-y-3 max-w-2xl mx-auto">
-                <h2
-                  className="text-2xl sm:text-4xl md:text-5xl font-light text-white tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
-                  style={{
-                    fontFamily: 'var(--font-cormorant), Georgia, serif',
-                    fontWeight: 300,
-                  }}
-                >
-                  Not sure what to gift? That’s where we come in.
-                </h2>
-                <p className="text-xs sm:text-sm md:text-base text-[#EDE6DC]/90 font-light leading-relaxed">
-                  Tell us who you’re gifting, the occasion, quantity and budget.
-                  <br className="hidden sm:inline" /> We’ll come back with 3 thoughtfully curated concepts {conceptsAudienceTarget}
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <button
-                  onClick={scrollToInquiry}
-                  className="px-8 py-4 bg-[#DFC299] hover:bg-white text-[#1A1A18] font-sans text-xs uppercase tracking-[0.18em] font-bold rounded-xl transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.25)] hover:scale-105 active:scale-95 cursor-pointer"
-                >
-                  GET 3 CURATED CONCEPTS
-                </button>
-              </div>
-
-              <p className="text-[11px] sm:text-xs text-[#EDE6DC]/75 font-light tracking-wide pt-1">
-                No catalogue scrolling. No guesswork. Just thoughtful options curated for you.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-
-
-      {/* ══════════════════════════════════════════════════════════════════
-          9. BESPOKE CURATION INQUIRY SECTION (QUOTATION FORM)
-          ══════════════════════════════════════════════════════════════════ */}
-      <section id="curation-inquiry" className="pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-[#F6F4EF]/70 border-t border-[#EAE5DC] scroll-mt-20">
+      <section id="curation-inquiry" className="pt-10 sm:pt-14 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#FAF8F5] border-t border-[#EAE5DC] scroll-mt-20">
         <div className="max-w-[960px] mx-auto space-y-6 sm:space-y-8">
           
           <ScrollReveal animation="fadeUp">
@@ -599,59 +538,53 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                 <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-md mx-auto">
                   Your curation brief has been delivered to <span className="text-[#1A1A18] font-medium">hello@thegourmetgifts.co</span>. Our team will get back to you shortly.
                 </p>
-                <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href={`https://wa.me/917021463609?text=${encodeURIComponent(
-                      `✨ *NEW CURATION ENQUIRY* ✨\n📍 *Source / Page:* ${data.title}\n\n👤 *PERSONAL DETAILS*\n• *Name:* ${formData.name}\n• *Email:* ${formData.email}\n• *Phone / WhatsApp:* ${formData.phone}\n\n📦 *REQUIREMENTS*\n• *Estimated Quantity:* ${formData.quantity}\n• *Target Budget:* ${formData.budget}\n\n─────────────\n_Sent via The Gourmet Gifts Concierge_`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2.5 bg-[#1A1A18] hover:bg-[#2C241D] text-white text-xs font-mono uppercase tracking-[0.16em] cursor-pointer shadow-md inline-flex items-center gap-2"
-                  >
-                    <span>OPEN CHAT ON WHATSAPP</span>
-                  </a>
+                <div className="pt-2">
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 border border-[#1A1A18]/30 hover:border-[#1A1A18] text-[#1A1A18] text-xs font-mono uppercase tracking-[0.16em] cursor-pointer"
+                    className="text-xs text-[#8C847B] underline hover:text-[#1A1A18]"
                   >
-                    SEND ANOTHER ENQUIRY
+                    Submit another inquiry
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
-                
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Your Name *
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                  {/* Name */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                      Your Name / Company *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Rahul Verma"
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none transition-colors"
+                      placeholder="e.g. Ananya Sharma (Acme Corp)"
+                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
                     />
                   </div>
 
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Email Address *
+                  {/* Email */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                      Work Email *
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="name@company.com"
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none transition-colors"
+                      placeholder="ananya@company.com"
+                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
                     />
                   </div>
+                </div>
 
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+                  {/* Phone */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                       Phone / WhatsApp *
                     </label>
                     <input
@@ -659,16 +592,15 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 Mobile number"
-                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none transition-colors"
+                      placeholder="+91 98765 43210"
+                      className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
                     />
                   </div>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
-                      Target Budget
+                  {/* Budget */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                      Target Budget (per box)
                     </label>
                     <select
                       value={formData.budget}
@@ -680,12 +612,13 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                           {tier.range}
                         </option>
                       ))}
-                      <option value="Custom / Undecided">Custom / Undecided</option>
+                      <option value="Custom Budget">Custom / Flexible</option>
                     </select>
                   </div>
 
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
+                  {/* Quantity */}
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                       Estimated Quantity
                     </label>
                     <select
@@ -702,11 +635,11 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between border-[#EFECE6]">
+                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-[#EFECE6]">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`px-8 py-3.5 bg-[#1A1A18] hover:bg-[#2C241D] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-none shrink-0 ${
+                    className={`px-8 py-3.5 bg-[#273629] hover:bg-[#344837] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-none shrink-0 shadow-md ${
                       isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
                     }`}
                   >
@@ -723,6 +656,46 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
             )}
           </div>
 
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          6. NOT SURE WHAT TO GIFT? THAT'S WHERE WE COME IN (FULL-BLEED GREEN SECTION)
+          ══════════════════════════════════════════════════════════════════ */}
+      <section className="w-full bg-[#273629] text-white py-14 sm:py-18 md:py-22 px-5 sm:px-8 lg:px-12 text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <ScrollReveal animation="fadeUp">
+            <div className="space-y-6 text-center">
+              <div className="space-y-3 max-w-2xl mx-auto">
+                <h2
+                  className="text-2xl sm:text-4xl md:text-5xl font-light text-white tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+                  style={{
+                    fontFamily: 'var(--font-cormorant), Georgia, serif',
+                    fontWeight: 300,
+                  }}
+                >
+                  Not sure what to gift? That’s where we come in.
+                </h2>
+                <p className="text-xs sm:text-sm md:text-base text-[#EDE6DC]/90 font-light leading-relaxed">
+                  Tell us who you’re gifting, the occasion, quantity and budget.
+                  <br className="hidden sm:inline" /> We’ll come back with 3 thoughtfully curated concepts {conceptsAudienceTarget}
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  onClick={scrollToInquiry}
+                  className="px-8 py-4 bg-[#DFC299] hover:bg-white text-[#1A1A18] font-sans text-xs uppercase tracking-[0.18em] font-bold rounded-xl transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.25)] hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  GET 3 CURATED CONCEPTS
+                </button>
+              </div>
+
+              <p className="text-[11px] sm:text-xs text-[#EDE6DC]/75 font-light tracking-wide pt-1">
+                No catalogue scrolling. No guesswork. Just thoughtful options curated for you.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

@@ -134,7 +134,7 @@ export interface PageRouteItem {
 }
 
 export const PAGE_ROUTES_CONFIG: Record<string, PageRouteItem> = {
-  // ─── CORE PAGES ───
+  // ─── ACTIVE PAGES (APPROVED BY USER) ───
   HOME: {
     id: 'home',
     name: 'Home Page',
@@ -142,40 +142,12 @@ export const PAGE_ROUTES_CONFIG: Record<string, PageRouteItem> = {
     description: 'Main editorial landing page, Hero section, Occasions, Categories, Story.',
     enabled: true,
   },
-  GOURMET_GIFTS: {
-    id: 'gourmet_gifts',
-    name: 'Gourmet Gifts Showcase',
-    path: '/gourmet-gifts',
-    description: 'Primary product & occasion showcase homepage view.',
-    enabled: true,
-  },
   COLLECTIONS: {
     id: 'collections',
     name: 'Catalogue & Collections',
     path: '/collections',
-    description: 'Complete 8-category catalogue, live filtering, Curation Tray additions.',
+    description: 'Complete catalogue, live category filtering, Curation additions.',
     enabled: true,
-  },
-  STORY: {
-    id: 'story',
-    name: 'Brand Story',
-    path: '/story',
-    description: 'Our philosophy, artisan craft, keepsake vessel narrative.',
-    enabled: false,
-  },
-  CART: {
-    id: 'cart',
-    name: 'Curation Tray / Cart',
-    path: '/cart',
-    description: 'Tray view with selected signature hampers and products.',
-    enabled: false,
-  },
-  CHECKOUT: {
-    id: 'checkout',
-    name: 'Checkout & Inquiry Flow',
-    path: '/checkout',
-    description: 'Corporate quotation and order inquiry finalisation.',
-    enabled: false,
   },
   CONTACT: {
     id: 'contact',
@@ -184,43 +156,36 @@ export const PAGE_ROUTES_CONFIG: Record<string, PageRouteItem> = {
     description: 'Direct contact info, WhatsApp concierge, corporate office details.',
     enabled: true,
   },
-  PRIVACY: {
-    id: 'privacy',
-    name: 'Privacy & Terms',
-    path: '/privacy',
-    description: 'Client confidentiality and corporate data protection policy.',
+  OFFLINE: {
+    id: 'offline',
+    name: 'Offline Fallback',
+    path: '/offline',
+    description: 'PWA offline connection support page.',
     enabled: true,
   },
-  CORPORATE: {
-    id: 'corporate',
-    name: 'Corporate Gifting Solutions',
-    path: '/corporate',
-    description: 'Bulk enterprise procurement, bespoke branding, executive gifting.',
-    enabled: false,
+  EMPLOYEE_GIFTING_DIRECT: {
+    id: 'employee_gifting_direct',
+    name: 'Employee Gifting (Direct)',
+    path: '/employee-gifting',
+    description: 'Standalone alias for employee gifting.',
+    enabled: true,
   },
-  INQUIRE: {
-    id: 'inquire',
-    name: 'Inquiry Studio',
-    path: '/inquire',
-    description: 'Dedicated bespoke gifting inquiry submission form.',
-    enabled: false,
+  MILESTONES_DIRECT: {
+    id: 'milestones_direct',
+    name: 'Milestones Recognition (Direct)',
+    path: '/milestones-recognition',
+    description: 'Standalone alias for milestones & recognition.',
+    enabled: true,
   },
-  ACCOUNT: {
-    id: 'account',
-    name: 'User Account Dashboard',
-    path: '/account',
-    description: 'User profile, past corporate curations, preferences.',
-    enabled: false,
-  },
-  CUSTOMIZE: {
-    id: 'customize',
-    name: 'Box Customization Studio',
-    path: '/customize',
-    description: '3D interactive box customizer and ribbon selector.',
+  DEALER_PARTNER_DIRECT: {
+    id: 'dealer_partner_direct',
+    name: 'Dealer Partner Gifting (Direct)',
+    path: '/dealer-partner-gifting',
+    description: 'Standalone alias for dealer & partner gifting.',
     enabled: true,
   },
 
-  // ─── OCCASION PAGES (/occasions/[slug]) ───
+  // ─── ACTIVE OCCASION PAGES (/occasions/[slug]) ───
   OCCASION_EMPLOYEE_GIFTING: {
     id: 'occasion_employee_gifting',
     name: 'Employee Gifting',
@@ -284,6 +249,113 @@ export const PAGE_ROUTES_CONFIG: Record<string, PageRouteItem> = {
     description: 'New hire welcome hampers, premium brand merch.',
     enabled: true,
   },
+
+  // ─── DISABLED PAGES (CLOSED AS REQUESTED) ───
+  OCCASIONS_HUB: {
+    id: 'occasions_hub',
+    name: 'Occasions Hub Page',
+    path: '/occasions',
+    description: 'Occasions showcase index.',
+    enabled: false,
+  },
+  CORPORATE: {
+    id: 'corporate',
+    name: 'Corporate Gifting Solutions',
+    path: '/corporate',
+    description: 'Bulk enterprise procurement.',
+    enabled: false,
+  },
+  GIFT_BOXING: {
+    id: 'gift_boxing',
+    name: 'Gift Boxing Studio',
+    path: '/gift-boxing',
+    description: 'Gift boxing builder and box showcase.',
+    enabled: false,
+  },
+  GOURMET: {
+    id: 'gourmet',
+    name: 'Gourmet Showcase',
+    path: '/gourmet',
+    description: 'Gourmet food showcase.',
+    enabled: false,
+  },
+  GOURMET_GIFTS: {
+    id: 'gourmet_gifts',
+    name: 'Gourmet Gifts Showcase',
+    path: '/gourmet-gifts',
+    description: 'Product detail directory.',
+    enabled: false,
+  },
+  HOUSE_OF_SATRA: {
+    id: 'house_of_satra',
+    name: 'House of Satra',
+    path: '/house-of-satra',
+    description: 'House of Satra brand atelier page.',
+    enabled: false,
+  },
+  STORY: {
+    id: 'story',
+    name: 'Brand Story',
+    path: '/story',
+    description: 'Brand philosophy narrative.',
+    enabled: false,
+  },
+  CART: {
+    id: 'cart',
+    name: 'Curation Tray / Cart',
+    path: '/cart',
+    description: 'Tray view with selected hampers.',
+    enabled: false,
+  },
+  CHECKOUT: {
+    id: 'checkout',
+    name: 'Checkout & Inquiry Flow',
+    path: '/checkout',
+    description: 'Order inquiry finalisation.',
+    enabled: false,
+  },
+  CUSTOMIZE: {
+    id: 'customize',
+    name: 'Box Customization Studio',
+    path: '/customize',
+    description: '3D interactive box customizer.',
+    enabled: false,
+  },
+  INQUIRE: {
+    id: 'inquire',
+    name: 'Inquiry Studio',
+    path: '/inquire',
+    description: 'Dedicated bespoke gifting inquiry submission form.',
+    enabled: false,
+  },
+  PRIVACY: {
+    id: 'privacy',
+    name: 'Privacy & Terms',
+    path: '/privacy',
+    description: 'Privacy policy page.',
+    enabled: false,
+  },
+  ACCOUNT: {
+    id: 'account',
+    name: 'User Account Dashboard',
+    path: '/account',
+    description: 'User profile and past curations.',
+    enabled: false,
+  },
+  STUDIO_ADMIN: {
+    id: 'studio_admin',
+    name: 'Studio Admin Portal',
+    path: '/studio-admin',
+    description: 'Internal admin telemetry & analytics portal.',
+    enabled: false,
+  },
+  TEST_LAYOUT: {
+    id: 'test_layout',
+    name: 'Test Layout Sandbox',
+    path: '/test-layout',
+    description: 'Internal layout sandbox.',
+    enabled: false,
+  },
 };
 
 /* ──────────────────────────────────────────────────────────────────────────────
@@ -298,37 +370,45 @@ export function isPageRouteActive(pathname: string): boolean {
   if (!pathname) return true;
   const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
 
-  // Next.js standard metadata files bypass
+  // Next.js standard metadata & internal system files bypass
   if (
     cleanPath === '/manifest.webmanifest' ||
     cleanPath.endsWith('.webmanifest') ||
     cleanPath === '/robots.txt' ||
     cleanPath === '/sitemap.xml' ||
     cleanPath === '/favicon.ico' ||
-    cleanPath === '/icon.svg'
+    cleanPath === '/icon.svg' ||
+    cleanPath === '/_not-found'
   ) {
     return true;
   }
 
-  // Exact match
-  for (const key in PAGE_ROUTES_CONFIG) {
-    const route = PAGE_ROUTES_CONFIG[key];
-    if (route && route.path === cleanPath) {
-      return route.enabled === true;
-    }
+  // Active whitelist requested by the user
+  const activeWhitelist = new Set([
+    '/',
+    '/collections',
+    '/contact',
+    '/offline',
+    '/employee-gifting',
+    '/milestones-recognition',
+    '/dealer-partner-gifting',
+    '/occasions/employee-gifting',
+    '/occasions/client-gifting',
+    '/occasions/festive-gifting',
+    '/occasions/events-conferences',
+    '/occasions/milestones-recognition',
+    '/occasions/dealer-partner-gifting',
+    '/occasions/weddings-celebrations',
+    '/occasions/cx-gifting',
+    '/occasions/onboarding-kits',
+  ]);
+
+  if (activeWhitelist.has(cleanPath)) {
+    return true;
   }
 
-  // Dynamic /occasions/ check
-  if (cleanPath.startsWith('/occasions/')) {
-    for (const key in PAGE_ROUTES_CONFIG) {
-      const route = PAGE_ROUTES_CONFIG[key];
-      if (route && route.path === cleanPath) {
-        return route.enabled === true;
-      }
-    }
-  }
-
-  return true;
+  // All other pages are disabled (blocked and rewritten to 404)
+  return false;
 }
 
 /**

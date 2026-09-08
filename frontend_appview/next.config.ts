@@ -21,18 +21,22 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
-  async rewrites() {
-    return [
-      {
-        source: '/favicon.ico',
-        destination: '/icon.svg',
-      },
-      {
-        source: '/api/v1/:path*',
-        destination: 'http://localhost:5001/api/v1/:path*',
-      },
-    ];
-  },
+    async rewrites() {
+      return [
+        {
+          source: '/dealer-partner-gifting',
+          destination: '/occasions/dealer-partner-gifting',
+        },
+        {
+          source: '/favicon.ico',
+          destination: '/icon.svg',
+        },
+        {
+          source: '/api/v1/:path*',
+          destination: 'http://localhost:5001/api/v1/:path*',
+        },
+      ];
+    },
 };
 
 export default nextConfig;
