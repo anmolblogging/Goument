@@ -195,15 +195,6 @@ export function ContactClientView() {
                     </a>
                   </div>
 
-                  {/* Studio */}
-                  <div className="space-y-1">
-                    <span className="text-[10.5px] uppercase tracking-[0.2em] font-medium text-[#8C6228] block">
-                      Studio
-                    </span>
-                    <p className="text-xs sm:text-[13.5px] font-light text-[#3A3833] leading-relaxed">
-                      Mumbai, India
-                    </p>
-                  </div>
 
                   {/* Corporate Office */}
                   <div className="space-y-1">

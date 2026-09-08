@@ -40,6 +40,7 @@ const GOURMET_FOOTER_COLUMNS: FooterColumn[] = [
       { label: 'Decor & Spiritual', href: '/collections?category=decor-spiritual' },
       { label: 'Eternal Paper Co', href: '/collections?category=infinity-beyond' },
       { label: 'Wellness & Lifestyle', href: '/collections?category=wellness-lifestyle' },
+      { label: '3D Miniatures', href: '/collections?category=3d-miniatures' },
       { label: 'Office & Travel Bags', href: '/collections?category=office-travel-bags' },
       { label: 'Electronics', href: '/collections?category=electronics-audio' },
       { label: 'Stationery & Desk', href: '/collections?category=stationery-desk' },
@@ -51,15 +52,17 @@ const GOURMET_FOOTER_COLUMNS: FooterColumn[] = [
     title: 'Quick Navigation',
     links: [
       { label: 'Home', href: '/' },
-      { label: 'Occasions Showcase', href: '/occasions' },
       { label: 'Contact Us', href: '/contact' },
     ],
   },
   {
     title: 'Concierge Direct',
+    entity: {
+      company: 'House of Satra Pvt Ltd.',
+      gst: 'GST: 27AAICH9186M1ZP',
+    },
     links: [
       { label: 'hello@thegourmetgifts.co', href: 'mailto:hello@thegourmetgifts.co' },
-      { label: '+91 70214 63609 (WhatsApp)', href: 'https://wa.me/917021463609?text=Hi%21%20I%E2%80%99d%20like%20to%20enquire%20about%20bespoke%20corporate%20gifting.' },
       { label: 'Mumbai, India', href: '/contact' },
     ],
   },
@@ -165,6 +168,16 @@ export const Footer: React.FC = () => {
                 {col.title}
               </h4>
               <ul className="space-y-1.5">
+                {col.entity && (
+                  <li className="space-y-0.5 leading-tight pb-0.5">
+                    <span className="block text-[10.5px] xs:text-[11.5px] sm:text-[12.5px] text-[#4A4742]">
+                      {col.entity.company}
+                    </span>
+                    <span className="block text-[10.5px] xs:text-[11.5px] sm:text-[12.5px] text-[#4A4742]">
+                      {col.entity.gst}
+                    </span>
+                  </li>
+                )}
                 {col.links.map((link) => {
                   const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:');
                   
