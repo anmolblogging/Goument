@@ -284,7 +284,7 @@ export default function OccasionGiftingCarousel() {
               onClick={() => scrollToIndex(idx)}
               className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
                 activeIndex === idx 
-                  ? 'w-7 bg-[#1A1A18]' 
+                  ? 'w-7 bg-[#3c0b1e]' 
                   : 'w-2 bg-[#D5CFBF] hover:bg-[#A39E93]'
               }`}
               aria-label={`Go to slide ${idx + 1}`}

@@ -203,7 +203,7 @@ export default function CustomGiftBoxesSection() {
               aria-label="Previous Box"
               className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs ${
                 canScrollLeft
-                  ? 'bg-white text-[#1A1A18] hover:bg-[#1A1A18] hover:text-white shadow-md active:scale-90'
+                  ? 'bg-white text-[#1A1A18] hover:bg-[#3c0b1e] hover:text-white shadow-md active:scale-90'
                   : 'bg-black/5 text-[#B5AFA6] opacity-35 cursor-not-allowed'
               }`}
             >
@@ -215,7 +215,7 @@ export default function CustomGiftBoxesSection() {
               aria-label="Next Box"
               className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs ${
                 canScrollRight
-                  ? 'bg-white text-[#1A1A18] hover:bg-[#1A1A18] hover:text-white shadow-md active:scale-90'
+                  ? 'bg-white text-[#1A1A18] hover:bg-[#3c0b1e] hover:text-white shadow-md active:scale-90'
                   : 'bg-black/5 text-[#B5AFA6] opacity-35 cursor-not-allowed'
               }`}
             >
