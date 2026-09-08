@@ -604,7 +604,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
           />
 
           {/* Modal Window */}
-          <div className="relative w-full max-w-xl bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-2xl border border-[#D9D5CC] z-10 my-auto text-[#1A1A18] animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-2xl bg-white rounded-[24px] sm:rounded-[32px] p-7 sm:p-9 md:p-11 shadow-2xl border border-[#D9D5CC] z-10 my-auto text-[#1A1A18] animate-in fade-in zoom-in-95 duration-200">
             {/* Close button */}
             <button
               type="button"
@@ -633,7 +633,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-6 py-2.5 bg-[#3c0b1e] text-white text-xs font-bold uppercase tracking-[0.14em] rounded-xl hover:bg-[#4f1028] transition-all cursor-pointer"
+                    className="px-8 py-3 bg-[#3c0b1e] text-white text-xs font-bold uppercase tracking-[0.14em] rounded-xl hover:bg-[#4f1028] transition-all cursor-pointer"
                   >
                     Done
                   </button>
@@ -647,14 +647,14 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                 </div>
               </div>
             ) : (
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {/* Modal Header */}
-                <div className="space-y-1.5 pr-8">
+                <div className="space-y-2 pr-8">
                   <span className="text-[10px] font-mono tracking-[0.2em] text-[#8C6228] uppercase font-bold block">
                     Bespoke Curation Brief
                   </span>
                   <h3
-                    className="text-2xl sm:text-3xl font-light text-[#1A1A18] tracking-[-0.02em] leading-tight"
+                    className="text-2xl sm:text-3xl md:text-4xl font-light text-[#1A1A18] tracking-[-0.02em] leading-tight"
                     style={{
                       fontFamily: 'var(--font-cormorant), Georgia, serif',
                       fontWeight: 300,
@@ -668,10 +668,10 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-5 pt-1">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <form onSubmit={handleSubmit} className="space-y-6 pt-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                     {/* Name */}
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                         Your Name / Company *
                       </label>
@@ -681,12 +681,12 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Ananya Sharma (Acme Corp)"
-                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2.5 sm:py-3 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
                       />
                     </div>
 
                     {/* Email */}
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                         Work Email *
                       </label>
@@ -696,14 +696,14 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="ananya@company.com"
-                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2.5 sm:py-3 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
                     {/* Phone */}
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                         Phone / WhatsApp *
                       </label>
@@ -713,19 +713,19 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2.5 sm:py-3 text-xs sm:text-sm text-[#1A1A18] placeholder-[#9E9A92] focus:outline-none transition-colors"
                       />
                     </div>
 
                     {/* Target Budget - prefilled from clicked tier */}
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                         Target Budget (per box)
                       </label>
                       <select
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer font-medium"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2.5 sm:py-3 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer font-medium"
                       >
                         {data.budgetTiers.map((tier) => (
                           <option key={tier.range} value={tier.range}>
@@ -737,14 +737,14 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                     </div>
 
                     {/* Quantity */}
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <label className="text-[10px] sm:text-[11px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                         Estimated Quantity
                       </label>
                       <select
                         value={formData.quantity}
                         onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
+                        className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-2.5 sm:py-3 text-xs sm:text-sm text-[#1A1A18] focus:outline-none cursor-pointer"
                       >
                         <option>25 - 50</option>
                         <option>50 - 100</option>
@@ -755,19 +755,20 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                     </div>
                   </div>
 
-                  <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#F0ECE1]">
+                  {/* Submit Button & Direct Concierge info */}
+                  <div className="pt-4 space-y-3.5 border-t border-[#F0ECE1]">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`px-7 py-3.5 bg-[#3c0b1e] hover:bg-[#4f1028] text-white text-xs font-mono uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 rounded-xl shrink-0 shadow-md ${
-                        isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-95'
+                      className={`w-full py-4 bg-[#3c0b1e] hover:bg-[#4f1028] text-white text-xs sm:text-[13px] font-mono uppercase tracking-[0.2em] font-bold transition-all flex items-center justify-center gap-2.5 rounded-xl shadow-md hover:shadow-lg ${
+                        isSubmitting ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer active:scale-[0.99]'
                       }`}
                     >
-                      <Send className="w-3.5 h-3.5 text-[#DFC299]" />
-                      <span>{isSubmitting ? 'DISPATCHING...' : 'SEND CURATION ENQUIRY'}</span>
+                      <Send className="w-4 h-4 text-[#DFC299]" />
+                      <span>{isSubmitting ? 'DISPATCHING TO CONCIERGE...' : 'SEND CURATION ENQUIRY'}</span>
                     </button>
 
-                    <p className="text-[11px] text-[#78746D] font-light">
+                    <p className="text-center text-[11px] sm:text-xs text-[#78746D] font-light">
                       Direct concierge: <a href="mailto:hello@thegourmetgifts.co" className="text-[#1A1A18] font-medium underline underline-offset-4 hover:text-[#8C6228] transition-colors">hello@thegourmetgifts.co</a>
                     </p>
                   </div>
