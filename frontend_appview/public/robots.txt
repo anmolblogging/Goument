@@ -1,0 +1,119 @@
+User-agent: *
+Allow: /
+
+# Content Signals - AI & Search Usage Preferences
+# https://contentsignals.org/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# --------------------------------------------------
+# SEARCH / AD CRAWLERS
+# --------------------------------------------------
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+# --------------------------------------------------
+# AI SEARCH / RETRIEVAL
+# Explicitly allowed by the site's policy
+# --------------------------------------------------
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Gemini-Deep-Research
+Allow: /
+
+User-agent: Google-NotebookLM
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# --------------------------------------------------
+# AI TRAINING CRAWLERS - BLOCK
+# --------------------------------------------------
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: webzio-extended
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: img2dataset
+Disallow: /
+
+User-agent: PiplBot
+Disallow: /
+
+# --------------------------------------------------
+# SITEMAP
+# --------------------------------------------------
+
+Sitemap: https://thegourmetgifts.co/sitemap.xml
+Host: https://thegourmetgifts.co

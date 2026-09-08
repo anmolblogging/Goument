@@ -73,8 +73,10 @@ export function CataloguePresentation({
           {CATALOGUE_CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
-              <button
+              <Link
                 key={cat.id}
+                href={`/collections/${cat.id}`}
+                scroll={false}
                 onClick={() => onSelectCategory?.(cat.id)}
                 className="flex flex-col items-center shrink-0 snap-start transition-all duration-200 cursor-pointer focus:outline-none w-[74px]"
               >
@@ -103,7 +105,7 @@ export function CataloguePresentation({
                 >
                   {cat.label}
                 </span>
-              </button>
+              </Link>
             );
           })}
         </div>
@@ -129,8 +131,10 @@ export function CataloguePresentation({
                 const isSelected = selectedCategory === cat.id;
 
                 return (
-                  <button
+                  <Link
                     key={cat.id}
+                    href={`/collections/${cat.id}`}
+                    scroll={false}
                     onClick={() => onSelectCategory?.(cat.id)}
                     className="flex flex-col items-center py-2 px-1 rounded-xl transition-all duration-300 group cursor-pointer text-center relative focus:outline-none"
                   >
@@ -159,7 +163,7 @@ export function CataloguePresentation({
                     >
                       {cat.label}
                     </span>
-                  </button>
+                  </Link>
                 );
               })}
             </div>

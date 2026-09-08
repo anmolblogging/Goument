@@ -401,6 +401,18 @@ export function isPageRouteActive(pathname: string): boolean {
     '/occasions/weddings-celebrations',
     '/occasions/cx-gifting',
     '/occasions/onboarding-kits',
+    // Catalogue category routes
+    '/collections/gourmet-food',
+    '/collections/beverages',
+    '/collections/decor-spiritual',
+    '/collections/wellness-lifestyle',
+    '/collections/infinity-beyond',
+    '/collections/3d-miniatures',
+    '/collections/office-travel-bags',
+    '/collections/electronics-audio',
+    '/collections/stationery-desk',
+    '/collections/corporate-apparel',
+    '/collections/awards-recognition',
   ]);
 
   if (activeWhitelist.has(cleanPath)) {
