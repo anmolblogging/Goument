@@ -409,7 +409,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
       {/* ══════════════════════════════════════════════════════════════════
           4. THOUGHTFULLY CURATED AROUND YOUR BUDGET
           ══════════════════════════════════════════════════════════════════ */}
-      <section className="pt-6 sm:pt-10 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5]">
+      <section className="pt-6 sm:pt-10 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-10 bg-[#FAF8F5]">
         <div className="max-w-[1480px] mx-auto space-y-8 sm:space-y-10">
           
           <ScrollReveal animation="fadeUp">
@@ -502,7 +502,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
       {/* ══════════════════════════════════════════════════════════════════
           5. BESPOKE CURATION INQUIRY SECTION (QUOTATION FORM) — ABOVE CTA
           ══════════════════════════════════════════════════════════════════ */}
-      <section id="curation-inquiry" className="pt-10 sm:pt-14 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#FAF8F5] border-t border-[#EAE5DC] scroll-mt-20">
+      <section id="curation-inquiry" className="pt-2 sm:pt-4 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#FAF8F5] scroll-mt-20">
         <div className="max-w-[960px] mx-auto space-y-6 sm:space-y-8">
           
           <ScrollReveal animation="fadeUp">
