@@ -1151,7 +1151,7 @@ export const HAMPERS_CATALOG: HamperData[] = [
     packaging_style: 'Heritage Architectural Desk Timepiece',
     description: 'Heritage Architectural Desk Timepiece combining metal geometry with silent quartz accuracy.',
     price: 0,
-    image: '/images/corporate/stationary/Table Clock.jpg',
+    image: '/images/catalogue_items/category/tableclock.webp',
     highlights: ['Silent Sweep Quartz', 'Brushed Metal Finish', 'Heirloom Desk Piece'],
   },
   {

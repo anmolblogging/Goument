@@ -189,7 +189,7 @@ export const CORPORATE_PRODUCTS: CorporateProduct[] = [
     subtitle: 'Heritage Architectural Desk Timepiece',
     category: 'stationery-desk',
     categoryLabel: 'Stationery & Desk',
-    image: '/images/corporate/stationary/Table Clock.jpg',
+    image: '/images/catalogue_items/category/tableclock.webp',
   },
   {
     id: 'corp-diary-2026',
