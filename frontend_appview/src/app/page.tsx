@@ -71,11 +71,11 @@ export default function HomePage() {
           {/* Phone View Hero Background */}
           <div className="block sm:hidden absolute inset-0">
             <Image
-              src="/images/brand/phonehero.png"
+              src="/images/brand/phone_hero.png"
               alt="The Gourmet Gifts — Luxury Gifting"
               fill
               priority
-              quality={85}
+              quality={90}
               sizes="100vw"
               className="object-cover object-center filter brightness-[0.88]"
             />
@@ -84,11 +84,11 @@ export default function HomePage() {
           {/* Desktop & Tablet Other Responsive Views Hero Background */}
           <div className="hidden sm:block absolute inset-0">
             <Image
-              src="/images/brand/deskhero.png"
+              src="/images/brand/hero.png"
               alt="The Gourmet Gifts — Luxury Gifting"
               fill
               priority
-              quality={85}
+              quality={90}
               sizes="100vw"
               className="object-cover object-center filter brightness-[0.88]"
             />
@@ -104,14 +104,24 @@ export default function HomePage() {
             
             {/* Title */}
             <h1
-              className="text-white leading-[1.08] sm:leading-[1.04] tracking-[-0.02em] opacity-0 text-[28px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-light text-center sm:text-left"
+              className="text-white leading-[1.12] sm:leading-[1.04] tracking-[-0.02em] opacity-0 text-[31px] xs:text-[35px] sm:text-5xl md:text-6xl lg:text-[68px] font-light text-center sm:text-left"
               style={{
                 fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontWeight: 300,
               }}
             >
-              <span className="block">B2B Gifting, curated around</span>
-              <span className="block">your brand and requirements.</span>
+              {/* Phone View: 3 balanced, prominent lines (3 words, 3 words, 2 words) */}
+              <span className="block sm:hidden">
+                <span className="block">B2B Gifting, curated</span>
+                <span className="block">around your brand</span>
+                <span className="block">and requirements.</span>
+              </span>
+
+              {/* Desktop / Responsive View: 2 lines */}
+              <span className="hidden sm:block">
+                <span className="block">B2B Gifting, curated around</span>
+                <span className="block">your brand and requirements.</span>
+              </span>
             </h1>
 
             {/* Subtitle */}

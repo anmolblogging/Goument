@@ -1,48 +1,26 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const HERO_IMAGES = [
-  {
-    url: '/images/brand/deskhero.png',
-    alt: 'Luxury Velvet Tray Hero Collection',
-  },
-  {
-    url: '/images/brand/phonehero.png',
-    alt: 'Artisanal Gourmet Luxury Frame',
-  },
-];
-
 export const HeroSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section id="hero" className="relative w-full h-[540px] md:h-[620px] lg:h-[680px] overflow-hidden rounded-none scroll-mt-24">
-      {/* 8K High-Resolution Auto-Sliding Background Images */}
+      {/* Responsive Background Images: Phone view vs Desktop view */}
       <div className="absolute inset-0 z-0 bg-black">
-        <AnimatePresence mode="popLayout">
-          <motion.img
-            key={HERO_IMAGES[currentSlide].url}
-            src={HERO_IMAGES[currentSlide].url}
-            alt={HERO_IMAGES[currentSlide].alt}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
-            className="w-full h-full object-cover object-center absolute inset-0"
-          />
-        </AnimatePresence>
+        {/* Mobile / Phone View */}
+        <img
+          src="/images/brand/phone_hero.png"
+          alt="The Gourmet Gifts — Luxury Gifting"
+          className="block sm:hidden w-full h-full object-cover object-center absolute inset-0"
+        />
+        {/* Desktop / Responsive View */}
+        <img
+          src="/images/brand/hero.png"
+          alt="The Gourmet Gifts — Luxury Gifting"
+          className="hidden sm:block w-full h-full object-cover object-center absolute inset-0"
+        />
 
         {/* Dark Vignette Overlay for High Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/40 z-10" />
