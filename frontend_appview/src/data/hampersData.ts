@@ -21,6 +21,7 @@ export interface HamperData {
   _id: string;
   slug: string;
   name: string;
+  brand?: string;
   subCopy: string;
   category: 
     | 'gourmet-food' 
@@ -184,20 +185,21 @@ export const HAMPERS_CATALOG: HamperData[] = [
     dietary: '100% Vegetarian',
   },
   {
-    _id: 'gourmet_gujarat_namkeen',
-    slug: 'gujarats-namkeen',
-    name: 'Gujarat’s Namkeen',
-    subCopy: 'Authentic Gujarati snacks, savoury and irresistible.',
+    _id: 'gourmet_chilli_cheese_bhujia',
+    slug: 'chilli-cheese-bhujia',
+    name: 'Chilli Cheese Bhujia',
+    brand: 'Bombay Sweet Shop',
+    subCopy: 'Artisanal crispy bhujia tossed with cheddar cheese & fiery green chilli.',
     category: 'gourmet-food',
     categoryLabel: 'Gourmet Food',
     inside_items: [
-      { item: 'Authentic Gujarati Savoury Namkeen', weight: '150g' },
+      { item: 'Bombay Sweet Shop Chilli Cheese Bhujia', weight: '150g' },
     ],
-    packaging_style: 'Authentic Gujarati snacks, savoury and irresistible.',
-    description: 'Authentic Gujarati snacks, savoury and irresistible.',
+    packaging_style: 'Airtight premium artisanal standee pouch keeping crunch fresh.',
+    description: 'A contemporary Indian classic from Bombay Sweet Shop — crunchy bhujia infused with sharp cheddar cheese and a spicy kick of chilli.',
     price: 0,
-    image: '/images/catalogue_items/gujarat_namkeen.jpg',
-    highlights: ['Authentic Regional Spices', 'Crunchy & Savoury', 'Perfect Chai Companion'],
+    image: '/images/catalogue_items/chilli_cheese_bhujia.jpg',
+    highlights: ['Bombay Sweet Shop Original', 'Sharp Cheddar & Chilli Kick', '100% Vegetarian'],
     shelfLife: '90 Days',
     dietary: '100% Vegetarian',
   },
@@ -1227,5 +1229,5 @@ export const HAMPERS_CATALOG: HamperData[] = [
 ];
 
 export function getHamperBySlug(slug: string): HamperData | undefined {
-  return HAMPERS_CATALOG.find((h) => h.slug === slug);
+  return HAMPERS_CATALOG.find((h) => h.slug === slug || (slug === 'gujarats-namkeen' && h.slug === 'chilli-cheese-bhujia'));
 }

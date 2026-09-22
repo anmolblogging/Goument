@@ -70,7 +70,7 @@ function generateCategorySchema(categorySlug: string, categoryLabel: string, seo
             description: prod.subCopy || prod.description,
             brand: {
               '@type': 'Brand',
-              name: 'The Gourmet Gifts',
+              name: prod.brand || 'The Gourmet Gifts',
             },
             category: categoryLabel,
           },

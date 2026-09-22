@@ -126,9 +126,19 @@ export default function HamperDetailPage({ params }: { params: Promise<{ slug: s
             
             {/* Title & Category Header */}
             <div className="space-y-1.5">
-              <span className="type-meta text-[#7A8B6F] text-[10px] sm:text-[11px] tracking-[0.25em] uppercase font-bold block">
-                {hamper.categoryLabel}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="type-meta text-[#7A8B6F] text-[10px] sm:text-[11px] tracking-[0.25em] uppercase font-bold">
+                  {hamper.categoryLabel}
+                </span>
+                {hamper.brand && (
+                  <>
+                    <span className="text-[#C5BEB3] text-xs">•</span>
+                    <span className="type-meta text-[#9E7B35] text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-bold">
+                      {hamper.brand}
+                    </span>
+                  </>
+                )}
+              </div>
               <h1
                 className="text-3xl sm:text-4xl md:text-5xl text-[#1A1A18] font-light tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
                 style={{

@@ -202,6 +202,11 @@ export function CataloguePresentation({
 
                       <div className="p-3 sm:p-4 md:p-5 flex-1 flex flex-col justify-between">
                         <div className="space-y-1">
+                          {item.brand && (
+                            <span className="text-[9.5px] sm:text-[10px] font-semibold tracking-[0.12em] uppercase text-[#9E7B35] block">
+                              {item.brand}
+                            </span>
+                          )}
                           <h3 className="text-xs sm:text-[15px] md:text-[16px] font-semibold text-[#1A1A18] leading-tight line-clamp-1 tracking-tight font-sans">
                             {item.name}
                           </h3>
@@ -212,7 +217,7 @@ export function CataloguePresentation({
 
                         <div className="pt-2.5 sm:pt-3.5 mt-auto">
                           <a
-                            href={`https://wa.me/917021463609?text=${encodeURIComponent(`Hi! I'm interested in "${item.name}" from your ${activeCategoryMeta?.label || 'curated'} collection.`)}`}
+                            href={`https://wa.me/917021463609?text=${encodeURIComponent(`Hi! I'm interested in "${item.brand ? `${item.brand} - ` : ''}${item.name}" from your ${activeCategoryMeta?.label || 'curated'} collection.`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full py-1.5 sm:py-2 px-2.5 bg-[#FAF8F5] hover:bg-[#3c0b1e] text-[#1A1A18] hover:text-[#DFC299] border border-[#E0D9CE] hover:border-[#3c0b1e] rounded-lg text-[9.5px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider flex items-center justify-center gap-1 transition-all duration-200"
