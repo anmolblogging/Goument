@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { 
   Check,
@@ -88,7 +89,7 @@ export function CataloguePresentation({
                   }`}
                 >
                   <div className="w-full h-full rounded-[15px] bg-[#FAF8F5] overflow-hidden relative">
-                    <img src={cat.image} alt={cat.label} className="w-full h-full object-cover" />
+                    <Image src={cat.image} alt={cat.label} fill sizes="56px" loading="lazy" className="object-cover" />
                   </div>
 
                   {isSelected && (
@@ -192,11 +193,13 @@ export function CataloguePresentation({
                       className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.09)] transition-all duration-300 flex flex-col justify-between border border-[#EFEAE2] group"
                     >
                       <div className="w-full aspect-[4/3] overflow-hidden bg-[#FAF6F0] relative block">
-                        <img
+                        <Image
                           src={item.image}
                           alt={item.name}
+                          fill
                           loading="lazy"
-                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                       </div>
 
