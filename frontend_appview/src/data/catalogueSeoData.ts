@@ -28,7 +28,7 @@ export const CATALOGUE_SEO_DATA: Record<string, CategorySeoMeta> = {
     slug: 'beverages',
     title: 'Corporate Beverage Gift Hampers | The Gourmet Gifts',
     description:
-      'Curated beverage gifting featuring Sleepy Owl Coffee, Café Niloufer blended tea and Halmari Assam tea — premium hampers for corporate gifting.',
+      'Curated beverage gifting featuring Filter Kaapi, Café Niloufer blended tea and Royal Assam Tea — premium hampers for corporate gifting.',
     keywords: [
       'beverage gift hampers',
       'corporate tea and coffee gifts',
