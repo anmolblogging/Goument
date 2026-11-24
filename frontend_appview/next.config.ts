@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
   images: {
     // Keep each resized image for 31 days and make fewer versions (one format,
     // fewer sizes). This keeps Vercel's free image limit (5,000 a month) low.
+    // Serve images as they are (no Vercel resizing). Product photos already
+    // come optimised from Cloudinary, and resizing used up the free limit,
+    // which made images fail with "402 Payment Required".
+    unoptimized: true,
     qualities: [75],
     formats: ['image/webp'],
     minimumCacheTTL: 2678400,
