@@ -9,9 +9,13 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    qualities: [75, 80, 90],
-    formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 2592000,
+    // Keep each resized image for 31 days and make fewer versions (one format,
+    // fewer sizes). This keeps Vercel's free image limit (5,000 a month) low.
+    qualities: [75],
+    formats: ['image/webp'],
+    minimumCacheTTL: 2678400,
+    deviceSizes: [640, 828, 1080, 1920],
+    imageSizes: [64, 128, 256, 384],
     remotePatterns: [
       {
         protocol: 'https',
