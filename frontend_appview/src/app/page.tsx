@@ -71,7 +71,7 @@ export default function HomePage() {
           {/* Phone View Hero Background */}
           <div className="block sm:hidden absolute inset-0">
             <Image
-              src="/images/brand/phone_hero.png"
+              src="/images/brand/phone_hero.webp"
               alt="The Gourmet Gifts — Luxury Gifting"
               fill
               priority
@@ -84,7 +84,7 @@ export default function HomePage() {
           {/* Desktop & Tablet Other Responsive Views Hero Background */}
           <div className="hidden sm:block absolute inset-0">
             <Image
-              src="/images/brand/hero.png"
+              src="/images/brand/hero.webp"
               alt="The Gourmet Gifts — Luxury Gifting"
               fill
               priority

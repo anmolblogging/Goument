@@ -24,7 +24,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Magnetic Book-Style Keepsake Box',
     tagline: 'Crushed silk bedding with handcrafted botanical gold foiling.',
     capacitySlots: 4,
-    image: '/images/boxes/box_1.png',
+    image: '/images/boxes/box_1.webp',
     tag: 'Signature Series',
   },
   {
@@ -33,7 +33,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Textured Navy Blue Satin Keepsake',
     tagline: 'Deep royal blue satin with intricate gold botanical foiling.',
     capacitySlots: 5,
-    image: '/images/boxes/box_2.png',
+    image: '/images/boxes/box_2.webp',
     tag: 'Signature Series',
   },
   {
@@ -42,7 +42,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Pastel Lilac Suede Keepsake',
     tagline: 'Delicate pastel lilac textured box with soft-touch suede interior.',
     capacitySlots: 4,
-    image: '/images/boxes/box_3.png',
+    image: '/images/boxes/box_3.webp',
     tag: 'Signature Series',
   },
   {
@@ -51,7 +51,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Sliding Dual-Tier Sovereign Trunk',
     tagline: 'Double the luxury, double the impact.',
     capacitySlots: 8,
-    image: '/images/boxes/box_4.png',
+    image: '/images/boxes/box_4.webp',
     tag: 'Grand Scale',
   },
   {
@@ -60,7 +60,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Rigid Presentation Gift Box',
     tagline: 'Secure closure. Seamless experience.',
     capacitySlots: 6,
-    image: '/images/boxes/box_5.png',
+    image: '/images/boxes/box_5.webp',
     tag: 'Seamless Seal',
   },
   {
@@ -69,7 +69,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Heavyweight Protective Courier Box',
     tagline: 'Durable, lightweight and perfect for shipping.',
     capacitySlots: 4,
-    image: '/images/boxes/box_6.png',
+    image: '/images/boxes/box_6.webp',
     tag: 'Shipping Grade',
   },
   {
@@ -78,7 +78,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Embossed Navy & Gold Keepsake Tin',
     tagline: 'Reusable keepsake. Lasting memories.',
     capacitySlots: 4,
-    image: '/images/boxes/box_7.png',
+    image: '/images/boxes/box_7.webp',
     tag: 'Reusable Tin',
   },
   {
@@ -87,7 +87,7 @@ export const SIGNATURE_BOXES: CustomBoxItem[] = [
     subtitle: 'Open Display Tray with Cutout Handles',
     tagline: 'Elegant presentation for curated hampers.',
     capacitySlots: 6,
-    image: '/images/boxes/box_8.png',
+    image: '/images/boxes/box_8.webp',
     tag: 'Display Tray',
   },
 ];

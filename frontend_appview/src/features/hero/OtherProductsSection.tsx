@@ -20,7 +20,7 @@ const OTHER_PRODUCTS: OtherProductItem[] = [
     title: 'Botanical soy candles',
     category: 'Aromatics & Decor',
     description: 'Hand-poured pure soy wax infused with clean botanical oils in heavy amber glass.',
-    image: '/images/Product_images/CRAFTED IN-HOUSE/candle_120.png',
+    image: '/images/Product_images/CRAFTED IN-HOUSE/candle_120.webp',
     href: '/gift-boxing',
   },
   {
@@ -36,7 +36,7 @@ const OTHER_PRODUCTS: OtherProductItem[] = [
     title: 'Wooden keepsake trays',
     category: 'Heirloom Accessories',
     description: 'Handcrafted solid teakwood trays lined with soft burgundy velvet lining.',
-    image: '/images/Product_images/CRAFTED IN-HOUSE/keepsake_small.png',
+    image: '/images/Product_images/CRAFTED IN-HOUSE/keepsake_small.webp',
     href: '/gift-boxing',
   },
 ];

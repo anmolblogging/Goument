@@ -6,7 +6,7 @@ export const GIFT_BOX_TYPES = {
     name: 'The Classics',
     subtitle: 'Timeless luxury treats in signature packaging',
     surcharge: 0,
-    heroImage: '/images/Category_image/Classics/thumb.png',
+    heroImage: '/images/Category_image/Classics/thumb.webp',
   },
   PREMIUM_VELVET: {
     type: 'premium-velvet',
@@ -43,7 +43,7 @@ export const CATALOG_PRODUCTS = [
     subCategoryId: 'wooden-trays',
     segmentName: 'CRAFTED IN-HOUSE',
     basePrice: 129900,
-    image: '/images/Product_images/CRAFTED IN-HOUSE/keepsake_small.png',
+    image: '/images/Product_images/CRAFTED IN-HOUSE/keepsake_small.webp',
     description: { short: 'Handcrafted wooden tray with lush velvet lining.' },
   },
   {
@@ -53,7 +53,7 @@ export const CATALOG_PRODUCTS = [
     subCategoryId: 'candles',
     segmentName: 'CRAFTED IN-HOUSE',
     basePrice: 99900,
-    image: '/images/Product_images/CRAFTED IN-HOUSE/candle_120.png',
+    image: '/images/Product_images/CRAFTED IN-HOUSE/candle_120.webp',
     description: { short: 'Aromatic hand-poured soy candle in amber glass jar.' },
   },
   {

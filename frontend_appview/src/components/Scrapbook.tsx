@@ -83,7 +83,7 @@ export default function Scrapbook() {
             {/* Photo */}
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#ECE8DF]">
               <Image
-                src="/images/spotted/spot1.png"
+                src="/images/spotted/spot1.webp"
                 alt="Diwali celebration gifting moment"
                 fill
                 sizes="(max-width: 768px) 90vw, 380px"
@@ -134,7 +134,7 @@ export default function Scrapbook() {
             {/* Photo */}
             <div className="relative aspect-square w-full overflow-hidden bg-[#ECE8DF]">
               <Image
-                src="/images/spotted/spot2.png"
+                src="/images/spotted/spot2.webp"
                 alt="Bespoke hand-stamped crest"
                 fill
                 sizes="(max-width: 768px) 90vw, 380px"
@@ -181,7 +181,7 @@ export default function Scrapbook() {
             {/* Hero Landscape Photo */}
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#ECE8DF] rounded-xs">
               <Image
-                src="/images/spotted/spot3.png"
+                src="/images/spotted/spot3.webp"
                 alt="Unwrapping ritual in natural setting"
                 fill
                 sizes="(max-width: 768px) 95vw, 550px"
@@ -222,7 +222,7 @@ export default function Scrapbook() {
             {/* Photo */}
             <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#ECE8DF]">
               <Image
-                src="/images/spotted/spot4.png"
+                src="/images/spotted/spot4.webp"
                 alt="Keepsake vessel close-up"
                 fill
                 sizes="(max-width: 768px) 85vw, 320px"
@@ -263,7 +263,7 @@ export default function Scrapbook() {
             {/* Photo */}
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#ECE8DF]">
               <Image
-                src="/images/spotted/spot5.png"
+                src="/images/spotted/spot5.webp"
                 alt="Velvet keepsake tray presentation"
                 fill
                 sizes="(max-width: 768px) 90vw, 360px"

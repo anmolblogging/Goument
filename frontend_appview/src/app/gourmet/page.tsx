@@ -13,9 +13,9 @@ const GOURMET_COLLECTIONS: EditionData[] = [
     title: 'The Royale Tin Keepsake',
     subtitle: 'Imperial Octagonal Metallic Edition',
     quote: 'Heirloom metalcraft inspired by royal botanical pavilions.',
-    image: '/images/Category_image/Royale_tin_tin/tinnew1.png',
+    image: '/images/Category_image/Royale_tin_tin/tinnew1.webp',
     gallery: [
-      '/images/Category_image/Royale_tin_tin/tinnew1.png',
+      '/images/Category_image/Royale_tin_tin/tinnew1.webp',
       '/images/Category_image/Royale_tin_tin/tin1.jpeg',
     ],
     materials: [
@@ -67,9 +67,9 @@ const GOURMET_COLLECTIONS: EditionData[] = [
     title: 'The Classics Heritage',
     subtitle: 'Monochrome Linen & Botanical Treatises',
     quote: 'The foundational signature luxury hampers of The Gourmet.',
-    image: '/images/Category_image/Classics/classics_hero.png',
+    image: '/images/Category_image/Classics/classics_hero.webp',
     gallery: [
-      '/images/Category_image/Classics/classics_hero.png',
+      '/images/Category_image/Classics/classics_hero.webp',
       '/images/Category_image/Classics/classic.jpeg',
     ],
     materials: [
@@ -94,9 +94,9 @@ const GOURMET_COLLECTIONS: EditionData[] = [
     title: 'The Atelier Accents',
     subtitle: 'Small-Batch Handcrafted Masterworks',
     quote: 'Hand-poured soy botanicals, gold-flecked resin, and carved teak frames.',
-    image: '/images/small_anipics/framee.png',
+    image: '/images/small_anipics/framee.webp',
     gallery: [
-      '/images/small_anipics/framee.png',
+      '/images/small_anipics/framee.webp',
       '/images/Category_image/premium_velvet/thumb.jpeg',
     ],
     materials: [

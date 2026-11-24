@@ -29,7 +29,7 @@ export const ROW_1_BOXES = [
   {
     title: 'The Artisanal Rigid Box',
     link: '#packaging',
-    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 05_38_23 PM.png',
+    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 05_38_23 PM.webp',
   },
 ];
 
@@ -37,22 +37,22 @@ export const ROW_2_BOXES = [
   {
     title: 'The Botanical Keepsake Chest',
     link: '#packaging',
-    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 05_40_22 PM.png',
+    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 05_40_22 PM.webp',
   },
   {
     title: 'The Velvet Crest Trunk',
     link: '#packaging',
-    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 05_57_36 PM.png',
+    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 05_57_36 PM.webp',
   },
   {
     title: 'The Foil Monogram Hamper',
     link: '#packaging',
-    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 06_07_30 PM.png',
+    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 06_07_30 PM.webp',
   },
   {
     title: 'The Executive Luxury Box',
     link: '#packaging',
-    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 06_11_26 PM.png',
+    thumbnail: '/images/packaging/ChatGPT Image Sep 2, 2026, 06_11_26 PM.webp',
   },
 ];
 

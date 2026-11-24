@@ -59,7 +59,7 @@ export default function EditorialCollage() {
             className="collage-tile tile-h-44 mobile-tile-square"
           >
             <Image
-              src="/images/Product_images/CRAFTED IN-HOUSE/candle_120.png"
+              src="/images/Product_images/CRAFTED IN-HOUSE/candle_120.webp"
               alt="Handcrafted Amber Candle with Brass Lid"
               fill
               sizes="(max-width: 768px) 50vw, 18vw"
@@ -76,7 +76,7 @@ export default function EditorialCollage() {
             className="collage-tile tile-h-56 mobile-tile-square"
           >
             <Image
-              src="/images/Category_image/Royale_tin_tin/tinnew1.png"
+              src="/images/Category_image/Royale_tin_tin/tinnew1.webp"
               alt="Octagonal Emerald Keepsake Box"
               fill
               sizes="(max-width: 768px) 50vw, 18vw"

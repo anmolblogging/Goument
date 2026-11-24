@@ -90,7 +90,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Employee Gifting',
     tagline: 'For the people who make the company what it is.',
     description: 'Onboarding. Milestones. Recognition. Festivals. Everyday appreciation. We thoughtfully curate each gifting experience around the recipient, the occasion and your brand — so it feels personal, useful and worth remembering.',
-    heroImage: '/cards/employeecard.png',
+    heroImage: '/cards/employeecard.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE EMPLOYEE GIFTING',
     trustPoints: ['Thoughtful Curation', 'Brand Personalisation', 'End-to-End Execution'],
@@ -160,10 +160,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'The Everyday Essential', tagline: 'Motivation Redefined', description: 'Practical, premium and perfect for everyday workplace motivation.', image: '/images/boxes/box_1.png' },
-      { name: 'Well Done', tagline: 'Recognition Suite', description: 'Celebrate individual and team achievements with elegance and thoughtfulness.', image: '/images/boxes/box_2.png' },
-      { name: 'The Team Box', tagline: 'Connection & Cheer', description: 'Curated for teams to connect, celebrate, and thrive together.', image: '/images/boxes/box_3.png' },
-      { name: 'Leadership Edition', tagline: 'Executive Calibre', description: 'Substantial, heirloom gifts for leaders who inspire excellence.', image: '/images/boxes/box_4.png' },
+      { name: 'The Everyday Essential', tagline: 'Motivation Redefined', description: 'Practical, premium and perfect for everyday workplace motivation.', image: '/images/boxes/box_1.webp' },
+      { name: 'Well Done', tagline: 'Recognition Suite', description: 'Celebrate individual and team achievements with elegance and thoughtfulness.', image: '/images/boxes/box_2.webp' },
+      { name: 'The Team Box', tagline: 'Connection & Cheer', description: 'Curated for teams to connect, celebrate, and thrive together.', image: '/images/boxes/box_3.webp' },
+      { name: 'Leadership Edition', tagline: 'Executive Calibre', description: 'Substantial, heirloom gifts for leaders who inspire excellence.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -190,7 +190,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Client Gifting',
     tagline: 'Be remembered for more than the business you do.',
     description: 'Thoughtfully curated gifting for clients, partners and key relationships — designed around who you\'re gifting to, why you\'re gifting and what you want your brand to leave behind.',
-    heroImage: '/cards/clientcard.png',
+    heroImage: '/cards/clientcard.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE CLIENT GIFTING',
     trustPoints: ['Curated Around the Recipient', 'Customised to Your Brand', 'Handled End-to-End'],
@@ -259,10 +259,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'The Sovereign Chest', tagline: 'Understated Elegance', description: 'Solid wood keepsake box, roasted saffron nuts, and aged balsamic glaze.', image: '/images/boxes/box_1.png' },
-      { name: 'The Diplomat', tagline: 'Executive Distinction', description: 'Hand-stitched vegan leather organizer paired with artisanal Belgian truffles.', image: '/images/boxes/box_2.png' },
-      { name: 'Reserve Botanicals', tagline: 'Artisanal Indulgence', description: 'Single-estate loose leaf teas, brass infuser, and wild forest honey.', image: '/images/boxes/box_3.png' },
-      { name: 'The Grand Ambassador', tagline: 'Unmatched Grandeur', description: 'Our most expansive celebratory hamper with personalized client initials.', image: '/images/boxes/box_4.png' },
+      { name: 'The Sovereign Chest', tagline: 'Understated Elegance', description: 'Solid wood keepsake box, roasted saffron nuts, and aged balsamic glaze.', image: '/images/boxes/box_1.webp' },
+      { name: 'The Diplomat', tagline: 'Executive Distinction', description: 'Hand-stitched vegan leather organizer paired with artisanal Belgian truffles.', image: '/images/boxes/box_2.webp' },
+      { name: 'Reserve Botanicals', tagline: 'Artisanal Indulgence', description: 'Single-estate loose leaf teas, brass infuser, and wild forest honey.', image: '/images/boxes/box_3.webp' },
+      { name: 'The Grand Ambassador', tagline: 'Unmatched Grandeur', description: 'Our most expansive celebratory hamper with personalized client initials.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -289,7 +289,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Festive Gifting',
     tagline: 'Celebrate the season. Make every gesture feel personal.',
     description: 'From teams and clients to families, friends and loved ones, we curate festive gifts around who you’re gifting, the occasion and the feeling you want to create — thoughtfully chosen, beautifully presented and made to be remembered.',
-    heroImage: '/cards/festivecard.png',
+    heroImage: '/cards/festivecard.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE FESTIVE GIFTING',
     trustPoints: ['Thoughtfully Curated', 'Personalised Your Way', 'Delivered End-to-End'],
@@ -358,10 +358,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'Diwali Splendour', tagline: 'Warmth & Tradition', description: 'Handmade brass diyas, saffron infused sweets, and premium dry fruit selection.', image: '/images/boxes/box_1.png' },
-      { name: 'Royal Mithai Box', tagline: 'Gourmet Delicacies', description: 'Artisanal fusion sweets crafted with organic nuts, silver vark and rose petals.', image: '/images/boxes/box_2.png' },
-      { name: 'The Celebratory Trunk', tagline: 'Grandeur & Joy', description: 'Luxury vegan leather keepsake chest with gourmet confectionery and festive decor.', image: '/images/boxes/box_3.png' },
-      { name: 'The Heritage Hamper', tagline: 'Heirloom Elegance', description: 'Rare origin teas, hand-cast incense holders, and pure wild honey jars.', image: '/images/boxes/box_4.png' },
+      { name: 'Diwali Splendour', tagline: 'Warmth & Tradition', description: 'Handmade brass diyas, saffron infused sweets, and premium dry fruit selection.', image: '/images/boxes/box_1.webp' },
+      { name: 'Royal Mithai Box', tagline: 'Gourmet Delicacies', description: 'Artisanal fusion sweets crafted with organic nuts, silver vark and rose petals.', image: '/images/boxes/box_2.webp' },
+      { name: 'The Celebratory Trunk', tagline: 'Grandeur & Joy', description: 'Luxury vegan leather keepsake chest with gourmet confectionery and festive decor.', image: '/images/boxes/box_3.webp' },
+      { name: 'The Heritage Hamper', tagline: 'Heirloom Elegance', description: 'Rare origin teas, hand-cast incense holders, and pure wild honey jars.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -388,7 +388,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Events & Conferences',
     tagline: 'Make the event memorable beyond the venue.',
     description: 'From welcome kits and speaker gifts to attendee keepsakes and event merchandise, we curate every detail around your audience, event and brand — so the gifting feels like part of the experience, not an afterthought.',
-    heroImage: '/cards/events.png',
+    heroImage: '/cards/events.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE EVENT GIFTING',
     trustPoints: ['Thoughtfully Curated', 'Event-Ready Customisation', 'End-to-End Execution'],
@@ -457,10 +457,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'Delegate Essentials', tagline: 'Conference Ready', description: 'Hardcover journal, premium stylus pen, metal tumbler, and power bank.', image: '/images/boxes/box_1.png' },
-      { name: 'Keynote Speaker Box', tagline: 'Distinguished Honour', description: 'Hand-crafted brass keepsake, artisan dry fruits, and custom gratitude plaque.', image: '/images/boxes/box_2.png' },
-      { name: 'Summit VIP Hamper', tagline: 'Executive Impact', description: 'Noise-cancelling earbuds, leather folio, and single-origin coffee drip bags.', image: '/images/boxes/box_3.png' },
-      { name: 'Retreat Welcome Set', tagline: 'Relax & Connect', description: 'Aroma candle, organic herbal tea, wellness pouch, and personalized tote bag.', image: '/images/boxes/box_4.png' },
+      { name: 'Delegate Essentials', tagline: 'Conference Ready', description: 'Hardcover journal, premium stylus pen, metal tumbler, and power bank.', image: '/images/boxes/box_1.webp' },
+      { name: 'Keynote Speaker Box', tagline: 'Distinguished Honour', description: 'Hand-crafted brass keepsake, artisan dry fruits, and custom gratitude plaque.', image: '/images/boxes/box_2.webp' },
+      { name: 'Summit VIP Hamper', tagline: 'Executive Impact', description: 'Noise-cancelling earbuds, leather folio, and single-origin coffee drip bags.', image: '/images/boxes/box_3.webp' },
+      { name: 'Retreat Welcome Set', tagline: 'Relax & Connect', description: 'Aroma candle, organic herbal tea, wellness pouch, and personalized tote bag.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -487,7 +487,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Milestones & Recognition',
     tagline: 'Some achievements deserve more than a message.',
     description: 'From personal milestones to extraordinary contributions, we curate recognition experiences around the achievement, the person and what the moment represents — creating something they’ll be proud to receive and remember.',
-    heroImage: '/cards/milestones.png',
+    heroImage: '/cards/milestones.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE RECOGNITION GIFTING',
     trustPoints: ['Thoughtfully Curated', 'Personalised for the Moment', 'End-to-End Execution'],
@@ -556,10 +556,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'The Milestone Keepsake', tagline: 'Lasting Pride', description: 'Crystal citation award paired with single estate tea and fine confections.', image: '/images/boxes/box_1.png' },
-      { name: 'Excellence in Action', tagline: 'Top Performer', description: 'Leather desk accessories, brass stationery, and handcrafted truffles.', image: '/images/boxes/box_2.png' },
-      { name: 'Veteran Honours', tagline: 'Loyalty & Gratitude', description: 'Bespoke wooden watch box, engraved pen, and vintage roast coffee.', image: '/images/boxes/box_3.png' },
-      { name: 'Pinnacle Achievement', tagline: 'Heirloom Distinction', description: 'Solid bronze engraved plaque in handcrafted satin lined keepsake chest.', image: '/images/boxes/box_4.png' },
+      { name: 'The Milestone Keepsake', tagline: 'Lasting Pride', description: 'Crystal citation award paired with single estate tea and fine confections.', image: '/images/boxes/box_1.webp' },
+      { name: 'Excellence in Action', tagline: 'Top Performer', description: 'Leather desk accessories, brass stationery, and handcrafted truffles.', image: '/images/boxes/box_2.webp' },
+      { name: 'Veteran Honours', tagline: 'Loyalty & Gratitude', description: 'Bespoke wooden watch box, engraved pen, and vintage roast coffee.', image: '/images/boxes/box_3.webp' },
+      { name: 'Pinnacle Achievement', tagline: 'Heirloom Distinction', description: 'Solid bronze engraved plaque in handcrafted satin lined keepsake chest.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -586,7 +586,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Customer Experience Gifting',
     tagline: 'Turn customer moments into relationships worth remembering.',
     description: 'From first purchases and onboarding to loyalty milestones, renewals and special moments, we curate gifts around the customer, the journey and the experience you want your brand to create.',
-    heroImage: '/cards/cx.png',
+    heroImage: '/cards/cx.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE CX GIFTING',
     trustPoints: ['Thoughtfully Curated', 'Personalised to Your Brand', 'Delivered End-to-End'],
@@ -655,10 +655,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'The Warm Welcome', tagline: 'Day 1 Delight', description: 'Artisanal cookies, custom travel tumbler, and welcome voucher card.', image: '/images/boxes/box_1.png' },
-      { name: 'Loyalty Celebration', tagline: 'Tier Upgrade', description: 'Single-origin coffee beans, stainless steel mug, and gourmet chocolate.', image: '/images/boxes/box_2.png' },
-      { name: 'Client Delight Suite', tagline: 'VIP Relationship', description: 'Rare loose leaf teas, honey jar, scented candle, and luxury linen box.', image: '/images/boxes/box_3.png' },
-      { name: 'Resolution & Care', tagline: 'Concierge Touch', description: 'Relaxing wellness tea, aroma diffuser, and personalized apology/care note.', image: '/images/boxes/box_4.png' },
+      { name: 'The Warm Welcome', tagline: 'Day 1 Delight', description: 'Artisanal cookies, custom travel tumbler, and welcome voucher card.', image: '/images/boxes/box_1.webp' },
+      { name: 'Loyalty Celebration', tagline: 'Tier Upgrade', description: 'Single-origin coffee beans, stainless steel mug, and gourmet chocolate.', image: '/images/boxes/box_2.webp' },
+      { name: 'Client Delight Suite', tagline: 'VIP Relationship', description: 'Rare loose leaf teas, honey jar, scented candle, and luxury linen box.', image: '/images/boxes/box_3.webp' },
+      { name: 'Resolution & Care', tagline: 'Concierge Touch', description: 'Relaxing wellness tea, aroma diffuser, and personalized apology/care note.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -685,7 +685,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Dealer & Partner Gifting',
     tagline: 'Celebrate the partnerships that move business forward.',
     description: 'From onboarding and festive appreciation to performance milestones and long-term partnerships, we curate gifts around the relationship, the occasion and your brand — so every gesture feels considered and commercially relevant without feeling transactional.',
-    heroImage: '/cards/dealer.png',
+    heroImage: '/cards/dealer.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE PARTNER GIFTING',
     trustPoints: ['Thoughtfully Curated', 'Customised to Your Brand', 'Executed End-to-End'],
@@ -754,10 +754,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'Channel Champion', tagline: 'Target Achiever', description: 'Hardcover partner planner, executive brass pen, and specialty coffee.', image: '/images/boxes/box_1.png' },
-      { name: 'Annual Meet Hamper', tagline: 'Dealer Summit', description: 'Bluetooth speaker, matte flask, dry fruit selection, and welcome folio.', image: '/images/boxes/box_2.png' },
-      { name: 'The Milestone Crest', tagline: '5-Year Partnership', description: 'Solid wood keepsake chest, roasted saffron nuts, and custom plaque.', image: '/images/boxes/box_3.png' },
-      { name: 'Top Dealer Suite', tagline: 'Excellence in Distribution', description: 'Noise-cancelling headphones, leather briefcase, and imported confectionery.', image: '/images/boxes/box_4.png' },
+      { name: 'Channel Champion', tagline: 'Target Achiever', description: 'Hardcover partner planner, executive brass pen, and specialty coffee.', image: '/images/boxes/box_1.webp' },
+      { name: 'Annual Meet Hamper', tagline: 'Dealer Summit', description: 'Bluetooth speaker, matte flask, dry fruit selection, and welcome folio.', image: '/images/boxes/box_2.webp' },
+      { name: 'The Milestone Crest', tagline: '5-Year Partnership', description: 'Solid wood keepsake chest, roasted saffron nuts, and custom plaque.', image: '/images/boxes/box_3.webp' },
+      { name: 'Top Dealer Suite', tagline: 'Excellence in Distribution', description: 'Noise-cancelling headphones, leather briefcase, and imported confectionery.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -784,7 +784,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Celebrations',
     tagline: 'Make every celebration feel more thoughtful.',
     description: 'From wedding gifting and guest favours to family celebrations and special occasions, we curate gifts around the people, the moment and the experience you want to create — so every gesture feels personal, beautiful and worth remembering.',
-    heroImage: '/cards/wedding.png',
+    heroImage: '/cards/wedding.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE WEDDING GIFTING',
     trustPoints: ['Thoughtfully Curated', 'Personalised for the Occasion', 'Delivered End-to-End'],
@@ -854,10 +854,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'The Royale Welcome', tagline: 'Warmest Hospitality', description: 'Artisanal sweets, scented candle, raw wild honey, and custom name card.', image: '/images/boxes/box_1.png' },
-      { name: 'Celebration Favours', tagline: 'Gratitude Keepsake', description: 'Handcrafted brass diya, roasted gourmet nuts, and personalized wax-sealed note.', image: '/images/boxes/box_2.png' },
-      { name: 'Bridal Party Luxe', tagline: 'Special Bond', description: 'Personalized silk robe, organic body care, and artisanal Belgian truffles.', image: '/images/boxes/box_3.png' },
-      { name: 'Heritage Family Chest', tagline: 'Generational Joy', description: 'Solid wood keepsake trunk filled with single estate teas and luxury treats.', image: '/images/boxes/box_4.png' },
+      { name: 'The Royale Welcome', tagline: 'Warmest Hospitality', description: 'Artisanal sweets, scented candle, raw wild honey, and custom name card.', image: '/images/boxes/box_1.webp' },
+      { name: 'Celebration Favours', tagline: 'Gratitude Keepsake', description: 'Handcrafted brass diya, roasted gourmet nuts, and personalized wax-sealed note.', image: '/images/boxes/box_2.webp' },
+      { name: 'Bridal Party Luxe', tagline: 'Special Bond', description: 'Personalized silk robe, organic body care, and artisanal Belgian truffles.', image: '/images/boxes/box_3.webp' },
+      { name: 'Heritage Family Chest', tagline: 'Generational Joy', description: 'Solid wood keepsake trunk filled with single estate teas and luxury treats.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [
@@ -884,7 +884,7 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     title: 'Employee Onboarding Kits',
     tagline: 'Make Day One count with welcome kits they’ll actually keep.',
     description: 'From day-one welcome kits and remote joiner boxes to executive onboarding hampers, we curate each box around your company culture, values and brand identity — so new hires feel welcomed, valued and ready to contribute from day one.',
-    heroImage: '/cards/employeecard.png',
+    heroImage: '/cards/employeecard.webp',
     primaryCta: 'GET 3 CURATED CONCEPTS',
     secondaryCta: 'EXPLORE ONBOARDING KITS',
     trustPoints: ['Day-One Ready', 'Brand Personalisation', 'Pan-India Desk Delivery'],
@@ -953,10 +953,10 @@ export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
     ],
 
     curatedConcepts: [
-      { name: 'The Day-One Starter', tagline: 'Culture & Energy', description: 'Matte vacuum bottle, hardbound notebook, premium stylus pen, and gourmet roasted nuts.', image: '/images/boxes/box_1.png' },
-      { name: 'The Hybrid Desk Suite', tagline: 'Remote Ready', description: 'Fast wireless charger pad, ceramic coffee mug, artisan filter coffee, and welcome badge.', image: '/images/boxes/box_2.png' },
-      { name: 'The Innovator Kit', tagline: 'Tech & Lifestyle', description: 'Bluetooth speaker, ergonomic desk organizer, artisanal chikki, and custom branded tee.', image: '/images/boxes/box_3.png' },
-      { name: 'The Leadership Induction', tagline: 'Executive Impact', description: 'Leather laptop sleeve, noise cancelling headphones, and signature celebratory delicacies.', image: '/images/boxes/box_4.png' },
+      { name: 'The Day-One Starter', tagline: 'Culture & Energy', description: 'Matte vacuum bottle, hardbound notebook, premium stylus pen, and gourmet roasted nuts.', image: '/images/boxes/box_1.webp' },
+      { name: 'The Hybrid Desk Suite', tagline: 'Remote Ready', description: 'Fast wireless charger pad, ceramic coffee mug, artisan filter coffee, and welcome badge.', image: '/images/boxes/box_2.webp' },
+      { name: 'The Innovator Kit', tagline: 'Tech & Lifestyle', description: 'Bluetooth speaker, ergonomic desk organizer, artisanal chikki, and custom branded tee.', image: '/images/boxes/box_3.webp' },
+      { name: 'The Leadership Induction', tagline: 'Executive Impact', description: 'Leather laptop sleeve, noise cancelling headphones, and signature celebratory delicacies.', image: '/images/boxes/box_4.webp' },
     ],
 
     customizationFeatures: [

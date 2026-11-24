@@ -7,16 +7,16 @@ import toast from 'react-hot-toast';
 
 const COLUMN_1_IMAGES = [
   '/images/Category_image/Royale_tin_tin/tin7.jpeg',
-  '/images/Category_image/Classics/classic_1.png',
+  '/images/Category_image/Classics/classic_1.webp',
   '/images/Category_image/Royale_tin_tin/tin8.jpeg',
   '/images/Category_image/Royale_tin_tin/tin9.jpeg',
 ];
 
 const COLUMN_2_IMAGES = [
   '/images/small_anipics/velvet_tray_hero.jpg',
-  '/images/small_anipics/framee.png',
-  '/images/Category_image/Classics/classics_hero.png',
-  '/images/Category_image/Royale_tin_tin/tinnew1.png',
+  '/images/small_anipics/framee.webp',
+  '/images/Category_image/Classics/classics_hero.webp',
+  '/images/Category_image/Royale_tin_tin/tinnew1.webp',
 ];
 
 const COLUMN_3_IMAGES = [

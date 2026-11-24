@@ -123,7 +123,7 @@ export const CORPORATE_PRODUCTS: CorporateProduct[] = [
     subtitle: 'Active Noise Cancelling Studio Audio',
     category: 'electronics-audio',
     categoryLabel: 'Electronics',
-    image: '/images/corporate/electronics/Headphones.jpg',
+    image: '/images/corporate/electronics/Headphones.webp',
   },
   {
     id: 'corp-bluetooth-speaker',

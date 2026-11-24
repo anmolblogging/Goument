@@ -11,13 +11,13 @@ export const HeroSection: React.FC = () => {
       <div className="absolute inset-0 z-0 bg-black">
         {/* Mobile / Phone View */}
         <img
-          src="/images/brand/phone_hero.png"
+          src="/images/brand/phone_hero.webp"
           alt="The Gourmet Gifts — Luxury Gifting"
           className="block sm:hidden w-full h-full object-cover object-center absolute inset-0"
         />
         {/* Desktop / Responsive View */}
         <img
-          src="/images/brand/hero.png"
+          src="/images/brand/hero.webp"
           alt="The Gourmet Gifts — Luxury Gifting"
           className="hidden sm:block w-full h-full object-cover object-center absolute inset-0"
         />

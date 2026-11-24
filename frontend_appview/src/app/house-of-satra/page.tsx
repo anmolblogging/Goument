@@ -45,7 +45,7 @@ const MAISON_PRODUCTS: MaisonProduct[] = [
     brand: 'The Gourmet Gifts',
     brandCategory: 'gourmet-gifts',
     price: 0,
-    image: '/images/Category_image/Royale_tin_tin/tinnew1.png',
+    image: '/images/Category_image/Royale_tin_tin/tinnew1.webp',
     secondaryImage: '/images/Category_image/Royale_tin_tin/tin7.jpeg',
     provenance: 'Delhi NCR Atelier',
     materials: 'Architectural Tinplate, 24k Gold Filigree, Airtight Friction Seal',
@@ -84,8 +84,8 @@ const MAISON_PRODUCTS: MaisonProduct[] = [
     brand: 'Satra Atelier',
     brandCategory: 'satra-atelier',
     price: 0,
-    image: '/images/small_anipics/framee.png',
-    secondaryImage: '/images/small_anipics/frame.png',
+    image: '/images/small_anipics/framee.webp',
+    secondaryImage: '/images/small_anipics/frame.webp',
     provenance: 'Mumbai Master Woodcraft Guild',
     materials: 'Aged Teakwood, Pure Brass Hinges, Silk Velvet Base',
     tag: 'Limited Guild Masterwork',
@@ -97,7 +97,7 @@ const MAISON_PRODUCTS: MaisonProduct[] = [
     brand: 'Satra Atelier',
     brandCategory: 'satra-atelier',
     price: 0,
-    image: '/images/Product_images/CRAFTED IN-HOUSE/keepsake_small.png',
+    image: '/images/Product_images/CRAFTED IN-HOUSE/keepsake_small.webp',
     secondaryImage: '/images/Category_image/premium_velvet/royale2.jpeg',
     provenance: 'Satra Atelier Studio',
     materials: 'Faceted Emerald Lacquer, Solid Brass Rim, Felt Base',
@@ -109,7 +109,7 @@ const MAISON_PRODUCTS: MaisonProduct[] = [
     brand: 'Satra Atelier',
     brandCategory: 'satra-atelier',
     price: 0,
-    image: '/images/small_anipics/frame.png',
+    image: '/images/small_anipics/frame.webp',
     secondaryImage: '/images/Product_images/CRAFTED IN-HOUSE/frame.jpg',
     provenance: 'Mumbai Joinery Guild',
     materials: 'Reclaimed Teak, Hand-Cut Beveled Glass, Brass Fasteners',
@@ -123,7 +123,7 @@ const MAISON_PRODUCTS: MaisonProduct[] = [
     brand: 'Satra Living',
     brandCategory: 'satra-living',
     price: 0,
-    image: '/images/Product_images/CRAFTED IN-HOUSE/candle_120.png',
+    image: '/images/Product_images/CRAFTED IN-HOUSE/candle_120.webp',
     secondaryImage: '/images/Product_images/CRAFTED IN-HOUSE/Resin_Coaster_Setof2(Brand Colours).jpg',
     provenance: 'Himachal Wild Herb Guild',
     materials: 'Hand-Poured Soy Wax, Spiced Amber Essence, Solid Brass Lid',
@@ -323,7 +323,7 @@ export default function HouseOfSatraPage() {
 
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#1A1A18] mb-6">
                   <Image
-                    src="/images/small_anipics/framee.png"
+                    src="/images/small_anipics/framee.webp"
                     alt="Satra Atelier Craft"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -365,7 +365,7 @@ export default function HouseOfSatraPage() {
 
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#1A1A18] mb-6">
                   <Image
-                    src="/images/Product_images/CRAFTED IN-HOUSE/candle_120.png"
+                    src="/images/Product_images/CRAFTED IN-HOUSE/candle_120.webp"
                     alt="Satra Living Collection"
                     fill
                     className="object-contain p-3 group-hover:scale-105 transition-transform duration-700"

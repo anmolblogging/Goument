@@ -8,8 +8,8 @@ import { useCartStore } from '@/hooks/useCart';
 import toast from 'react-hot-toast';
 
 const CATEGORY_CIRCLES = [
-  { id: 'classics', label: 'THE CLASSICS', image: '/images/Category_image/Classics/classics_hero.png' },
-  { id: 'royale-tin', label: 'ROYALE TIN TIN', image: '/images/Category_image/Royale_tin_tin/tinnew1.png' },
+  { id: 'classics', label: 'THE CLASSICS', image: '/images/Category_image/Classics/classics_hero.webp' },
+  { id: 'royale-tin', label: 'ROYALE TIN TIN', image: '/images/Category_image/Royale_tin_tin/tinnew1.webp' },
   { id: 'premium-velvet', label: 'VELVET', image: '/images/Category_image/premium_velvet/thumb.jpeg' },
 ];
 
