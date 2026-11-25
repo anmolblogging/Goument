@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 
 export interface OccasionCard {
@@ -77,90 +77,106 @@ export default function OccasionGiftingCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [hasDragged, setHasDragged] = useState(false);
-  const startXRef = useRef(0);
-  const scrollLeftRef = useRef(0);
+  const [snapOff, setSnapOff] = useState(false);
+  const hasDraggedRef = useRef(false);
+
+  const [pageCount, setPageCount] = useState(1);
+
+  // One dot per screenful of cards (about 2 on desktop, more on phones)
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const measure = () => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      setPageCount(maxScroll > 4 ? Math.ceil(maxScroll / el.clientWidth - 0.05) + 1 : 1);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    const firstChild = scrollRef.current.children[0] as HTMLElement;
-    const cardWidth = firstChild ? firstChild.offsetWidth + 16 : 280;
     const maxScroll = scrollWidth - clientWidth;
-    
     if (maxScroll > 0 && scrollLeft >= maxScroll - 15) {
-      setActiveIndex(OCCASION_CARDS.length - 1);
+      setActiveIndex(pageCount - 1);
     } else {
-      const index = Math.round(scrollLeft / cardWidth);
-      setActiveIndex(Math.min(OCCASION_CARDS.length - 1, Math.max(0, index)));
+      setActiveIndex(Math.min(pageCount - 1, Math.max(0, Math.round(scrollLeft / clientWidth))));
     }
   };
 
-  const scrollToIndex = (index: number) => {
-    if (scrollRef.current) {
-      const card = scrollRef.current.children[index] as HTMLElement;
-      if (card) {
-        scrollRef.current.scrollTo({
-          left: card.offsetLeft - scrollRef.current.offsetLeft,
-          behavior: 'smooth',
-        });
+  const scrollToPage = (page: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    el.scrollTo({
+      left: page >= pageCount - 1 ? maxScroll : Math.min(maxScroll, page * el.clientWidth),
+      behavior: 'smooth',
+    });
+  };
+
+  /* ─── Mouse Drag to Scroll (touch uses the browser's own swipe) ─── */
+  const settleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const snapToNearestCard = (el: HTMLDivElement) => {
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    let target = el.scrollLeft;
+    let best = Infinity;
+    for (const child of Array.from(el.children) as HTMLElement[]) {
+      const left = Math.min(maxScroll, child.offsetLeft - el.offsetLeft);
+      const distance = Math.abs(left - el.scrollLeft);
+      if (distance < best) {
+        best = distance;
+        target = left;
       }
     }
+    el.scrollTo({ left: target, behavior: 'smooth' });
+    // Turn card snapping back on once the settle animation has finished
+    if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
+    settleTimerRef.current = setTimeout(() => setSnapOff(false), 450);
   };
 
-  const scrollPrev = () => {
-    if (scrollRef.current) {
-      const firstChild = scrollRef.current.children[0] as HTMLElement;
-      const cardWidth = firstChild ? firstChild.offsetWidth + 16 : 280;
-      scrollRef.current.scrollBy({
-        left: -cardWidth * 1.5,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  const scrollNext = () => {
-    if (scrollRef.current) {
-      const firstChild = scrollRef.current.children[0] as HTMLElement;
-      const cardWidth = firstChild ? firstChild.offsetWidth + 16 : 280;
-      scrollRef.current.scrollBy({
-        left: cardWidth * 1.5,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  /* ─── Mouse Drag to Scroll ─── */
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
+    const el = scrollRef.current;
+    if (!el || e.button !== 0) return;
+    if (el.scrollWidth <= el.clientWidth) return; // grid layout (desktop): nothing to drag
+    e.preventDefault(); // stop the browser from picking up the link/image
+    if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
+
+    const startX = e.clientX;
+    const startScroll = el.scrollLeft;
+    hasDraggedRef.current = false;
     setIsDragging(true);
-    setHasDragged(false);
-    startXRef.current = e.pageX - scrollRef.current.offsetLeft;
-    scrollLeftRef.current = scrollRef.current.scrollLeft;
+    setSnapOff(true);
+
+    const onMove = (ev: MouseEvent) => {
+      const dx = ev.clientX - startX;
+      if (Math.abs(dx) > 5) hasDraggedRef.current = true;
+      el.scrollLeft = startScroll - dx;
+    };
+    const onUp = () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      setIsDragging(false);
+      if (hasDraggedRef.current) {
+        snapToNearestCard(el);
+      } else {
+        setSnapOff(false);
+      }
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startXRef.current) * 1.4;
-    if (Math.abs(walk) > 5) {
-      setHasDragged(true);
-    }
-    scrollRef.current.scrollLeft = scrollLeftRef.current - walk;
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
+  useEffect(() => () => {
+    if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
+  }, []);
 
   return (
-    <section id="occasions" className="pt-6 sm:pt-10 md:pt-14 bg-[#FAF8F5] text-[#1A1A18] relative overflow-hidden scroll-mt-20">
-      <div className="max-w-[1580px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+    <section id="occasions" className="pt-[var(--section-gap)] sm:pt-[calc(var(--section-gap)-16px)] lg:pt-[calc(var(--section-gap)-24px)] bg-[#FAF8F5] text-[#1A1A18] relative overflow-hidden scroll-mt-20">
+      <div className="max-w-[1600px] mx-auto px-2.5 sm:px-4 lg:px-6">
         
         {/* ─── SECTION HEADER ─── */}
         <ScrollReveal animation="fadeUp">
@@ -181,57 +197,38 @@ export default function OccasionGiftingCarousel() {
           </div>
         </ScrollReveal>
 
-        {/* ─── CAROUSEL WRAPPER WITH NAVIGATION BUTTONS ─── */}
+        {/* ─── CAROUSEL WRAPPER (drag with mouse, swipe on touch) ─── */}
         <div className="relative group/carousel">
           
-          {/* Left Arrow Button */}
-          <button
-            type="button"
-            onClick={scrollPrev}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-[#1A1A18] shadow-lg border border-[#E8E2D8] items-center justify-center -ml-3 lg:-ml-5 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            type="button"
-            onClick={scrollNext}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-[#1A1A18] shadow-lg border border-[#E8E2D8] items-center justify-center -mr-3 lg:-mr-5 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
           {/* ─── 8-CARD OCCASIONS CAROUSEL ─── */}
           <div
             ref={scrollRef}
             onScroll={handleScroll}
             onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            className={`flex gap-3.5 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-4 pt-1 px-4 sm:px-0 scroll-smooth select-none ${
-              isDragging ? 'cursor-grabbing scroll-auto' : 'cursor-grab'
-            } [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
+            onDragStart={(e) => e.preventDefault()}
+            className={`flex gap-3.5 sm:gap-4 overflow-x-auto px-4 sm:px-0 select-none lg:grid lg:grid-cols-4 lg:gap-5 lg:overflow-visible lg:cursor-auto ${
+              snapOff ? 'snap-none' : 'snap-x snap-mandatory'
+            } ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
           >
             {OCCASION_CARDS.map((card, idx) => (
               <Link
                 key={card.id}
                 href={card.href}
+                draggable={false}
                 onClick={(e) => {
-                  if (hasDragged) {
+                  if (hasDraggedRef.current) {
                     e.preventDefault();
+                    hasDraggedRef.current = false;
                   }
                 }}
-                className="relative w-[240px] sm:w-[270px] md:w-[280px] lg:w-[calc((100%-4*1rem)/5.35)] aspect-[3/4.2] shrink-0 snap-start rounded-2xl overflow-hidden transition-all duration-500 flex flex-col justify-between p-5 sm:p-6 group"
+                className="relative w-[240px] sm:w-[270px] md:w-[280px] lg:w-auto aspect-[3/4.2] lg:aspect-[4/4.6] shrink-0 snap-start rounded-2xl overflow-hidden transition-all duration-500 flex flex-col justify-between p-5 sm:p-6 group"
               >
                 {/* Full-Bleed Image Background */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-[#1A1A18] pointer-events-none">
                   <Image
                     src={card.image}
                     alt={card.title}
+                    draggable={false}
                     fill
                     priority={idx < 5}
                     loading={idx < 5 ? 'eager' : 'lazy'}
@@ -276,21 +273,25 @@ export default function OccasionGiftingCarousel() {
 
         </div>
 
-        {/* ─── 8 DOT SLIDE PAGINATION INDICATORS ─── */}
-        <div className="flex items-center justify-center gap-2 pt-2">
-          {OCCASION_CARDS.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => scrollToIndex(idx)}
-              className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
-                activeIndex === idx 
-                  ? 'w-7 bg-[#3c0b1e]' 
-                  : 'w-2 bg-[#D5CFBF] hover:bg-[#A39E93]'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
+        {/* ─── PAGE DOTS (one per screenful of cards) ─── */}
+        {pageCount > 1 && (
+          <div className="flex items-center justify-center gap-2 pt-5">
+            {Array.from({ length: pageCount }, (_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => scrollToPage(idx)}
+                className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
+                  activeIndex === idx
+                    ? 'w-7 bg-[#3c0b1e]'
+                    : 'w-2 bg-[#D5CFBF] hover:bg-[#A39E93]'
+                }`}
+                aria-label={`Go to page ${idx + 1} of ${pageCount}`}
+                aria-current={activeIndex === idx}
+              />
+            ))}
+          </div>
+        )}
 
       </div>
     </section>

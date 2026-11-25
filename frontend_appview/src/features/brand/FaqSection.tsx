@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowDown, ArrowUp } from 'lucide-react';
+import { ArrowDown, ArrowUp, ChevronDown } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { JsonLd } from '@/components/JsonLd';
 
@@ -88,22 +88,26 @@ export const faqSchema = {
 };
 
 export const FaqSection: React.FC = () => {
-  // Second item open by default as shown in reference image, or null
-  const [openId, setOpenId] = useState<number | null>(2);
+  // All questions start closed
+  const [openId, setOpenId] = useState<number | null>(null);
+  // Phones show the first few questions; the rest appear after "View all questions"
+  const MOBILE_VISIBLE = 5;
+  const [showAllMobile, setShowAllMobile] = useState(false);
 
   const toggleFaq = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
 
   return (
-    <section className="w-full bg-[#FAF8F5] py-16 sm:py-20 md:py-24 px-5 sm:px-8 lg:px-12 relative border-t border-[#EAE5DC]">
+    <section className="w-full bg-[#FAF8F5] pt-[var(--section-gap)] px-5 sm:px-8 lg:px-12 relative">
       {/* Schema.org FAQPage rich snippet for SEO without modifying existing site metadata */}
       <JsonLd data={faqSchema} />
 
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
+      <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-8 sm:gap-10 lg:gap-16 xl:gap-24 items-start">
+        {/* Left: intro, stays in view while the questions scroll */}
+        <div className="lg:sticky lg:top-28">
         <ScrollReveal animation="fadeUp">
-          <div className="text-center space-y-3 max-w-2xl mx-auto mb-10 sm:mb-14">
+          <div className="text-center lg:text-left space-y-3 max-w-2xl mx-auto lg:mx-0">
             <span className="text-[11px] font-mono tracking-[0.24em] text-[#8C6228] uppercase font-bold block">
               Frequently Asked Questions
             </span>
@@ -121,16 +125,18 @@ export const FaqSection: React.FC = () => {
             </p>
           </div>
         </ScrollReveal>
+        </div>
 
-        {/* Accordion List */}
+        {/* Right: Accordion List */}
         <div className="border-t border-[#E5E0D8]">
-          {CORPORATE_GIFTING_FAQS.map((faq) => {
+          {CORPORATE_GIFTING_FAQS.map((faq, idx) => {
             const isOpen = openId === faq.id;
+            const hiddenOnPhone = !showAllMobile && idx >= MOBILE_VISIBLE;
 
             return (
               <div
                 key={faq.id}
-                className="border-b border-[#E5E0D8] transition-colors"
+                className={`border-b border-[#E5E0D8] transition-colors ${hiddenOnPhone ? 'hidden lg:block' : ''}`}
               >
                 <button
                   type="button"
@@ -174,6 +180,19 @@ export const FaqSection: React.FC = () => {
             );
           })}
         </div>
+
+        {!showAllMobile && CORPORATE_GIFTING_FAQS.length > MOBILE_VISIBLE && (
+          <div className="lg:hidden flex justify-center pt-6">
+            <button
+              type="button"
+              onClick={() => setShowAllMobile(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#1A1A18]/20 text-[#1A1A18] text-[13px] font-semibold hover:border-[#3c0b1e] hover:text-[#3c0b1e] transition-colors cursor-pointer"
+            >
+              View all {CORPORATE_GIFTING_FAQS.length} questions
+              <ChevronDown className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

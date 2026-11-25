@@ -69,7 +69,7 @@ export const ROW_2_LOOP = [
   ...ROW_2_BOXES,
 ];
 
-export const PackagingExperienceSection: React.FC = () => {
+export const PackagingExperienceSection: React.FC<{ showHeader?: boolean }> = ({ showHeader = true }) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -108,9 +108,9 @@ export const PackagingExperienceSection: React.FC = () => {
     <div
       ref={ref}
       id="packaging"
-      className="pt-12 sm:pt-16 md:pt-20 pb-12 sm:pb-16 md:pb-20 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#FAF8F5] text-[#1A1A18] scroll-mt-20"
+      className="pt-[var(--section-gap)] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#FAF8F5] text-[#1A1A18] scroll-mt-20"
     >
-      <PackagingHeader />
+      {showHeader && <PackagingHeader />}
       
       <motion.div
         style={{

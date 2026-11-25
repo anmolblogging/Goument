@@ -184,75 +184,43 @@ const IndustryCard: React.FC<{ industry: IndustryItem }> = ({ industry }) => {
   );
 };
 
+const ALL_INDUSTRIES = [...INDUSTRIES_ROW_1, ...INDUSTRIES_ROW_2];
+
 export const IndustriesSection: React.FC = () => {
   return (
-    <section className="pt-6 sm:pt-10 md:pt-14 px-3.5 sm:px-6 lg:px-8 bg-[#FAF8F5] text-[#1A1A18] relative overflow-hidden">
-      <div className="max-w-[1480px] mx-auto">
+    <section className="pt-[var(--section-gap)] bg-[#FAF8F5] text-[#1A1A18] relative overflow-hidden">
+      {/* ─── SECTION TITLE ─── */}
+      <ScrollReveal animation="fadeUp">
+        <div className="text-center max-w-4xl mx-auto px-5 space-y-1.5 sm:space-y-2 mb-8 sm:mb-10 md:mb-12">
+          <h2
+            className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
+            style={{
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
+              fontWeight: 300,
+            }}
+          >
+            Gifting, built around your industry
+          </h2>
 
-        {/* ─── SECTION TITLE ─── */}
-        <ScrollReveal animation="fadeUp">
-          <div className="text-center max-w-4xl mx-auto px-2 space-y-1.5 sm:space-y-2 mb-8 sm:mb-10 md:mb-12">
-            <h2
-              className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
-              style={{
-                fontFamily: 'var(--font-cormorant), Georgia, serif',
-                fontWeight: 300,
-              }}
-            >
-              Gifting, built around your industry
-            </h2>
+          <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-3xl mx-auto leading-normal">
+            Gifting built around the audience, context, and scale of your industry.
+          </p>
+        </div>
+      </ScrollReveal>
 
-            <p className="text-xs sm:text-sm text-[#78746D] font-light max-w-3xl mx-auto leading-normal">
-              Gifting built around the audience, context, and scale of your industry.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        {/* ─── MOBILE VIEW: Smooth Horizontal Swipable Carousel ─── */}
-        <div className="flex sm:hidden overflow-x-auto gap-3.5 pb-2 -mx-3.5 px-3.5 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {[...INDUSTRIES_ROW_1, ...INDUSTRIES_ROW_2].map((industry) => (
+      {/* ─── MARQUEE: one continuous row, pauses on hover, fades at the edges ─── */}
+      <div className="industry-marquee group/marquee relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+        <div className="industry-marquee-track flex w-max py-3 -my-3">
+          {[...ALL_INDUSTRIES, ...ALL_INDUSTRIES].map((industry, idx) => (
             <div
-              key={industry.id}
-              className="w-[82vw] max-w-[310px] shrink-0 snap-center flex flex-col"
+              key={`${industry.id}-${idx}`}
+              aria-hidden={idx >= ALL_INDUSTRIES.length}
+              className="w-[260px] sm:w-[290px] shrink-0 pr-4 sm:pr-5 flex"
             >
               <IndustryCard industry={industry} />
             </div>
           ))}
         </div>
-
-        {/* ─── DESKTOP/TABLET VIEW: 2-Row Balanced Boxed Grid ─── */}
-        <div className="hidden sm:block space-y-4 sm:space-y-5 md:space-y-6 w-full">
-          
-          {/* Row 1: 4 Equal Boxed Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 w-full">
-            {INDUSTRIES_ROW_1.map((industry, index) => (
-              <ScrollReveal
-                key={industry.id}
-                animation="fadeUp"
-                delay={0.025 * (index + 1)}
-                className="h-full"
-              >
-                <IndustryCard industry={industry} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          {/* Row 2: 3 Equal Boxed Cards Centered */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 w-full max-w-[1110px] mx-auto">
-            {INDUSTRIES_ROW_2.map((industry, index) => (
-              <ScrollReveal
-                key={industry.id}
-                animation="fadeUp"
-                delay={0.025 * (index + 5)}
-                className="h-full"
-              >
-                <IndustryCard industry={industry} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-        </div>
-
       </div>
     </section>
   );

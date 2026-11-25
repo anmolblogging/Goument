@@ -478,3 +478,24 @@ body,
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ─── Industries marquee (homepage) ─── */
+@keyframes industry-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.industry-marquee-track {
+  animation: industry-marquee-scroll 55s linear infinite;
+}
+.industry-marquee:hover .industry-marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .industry-marquee { overflow-x: auto; }
+  .industry-marquee-track { animation: none; }
+}
+
+/* ─── One shared gap between homepage sections ─── */
+.home-sections { --section-gap: 48px; }
+@media (min-width: 768px) { .home-sections { --section-gap: 64px; } }
+@media (min-width: 1024px) { .home-sections { --section-gap: 80px; } }

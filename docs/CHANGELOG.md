@@ -1,3 +1,7 @@
+## 2026-11-25 — Homepage redesign
+
+New header layout, rounded hero card with brand capsule (phone: image card + text below), occasions 4×2 grid on desktop, industries marquee, FAQ two-column sticky layout after the process section, packaging gallery without heading, Contact button, equal section spacing, lower floating Enquire button.
+
 ## 2026-11-25 — Remove visitor location feature
 
 Removed GPS/IP location detection, the top location bar, /api/geo/detect and enquiry-form city auto-fill. City is entered manually. Server-side IP city on enquiries/telemetry unchanged.

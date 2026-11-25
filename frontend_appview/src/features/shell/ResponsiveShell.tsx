@@ -75,7 +75,6 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
     pathname.startsWith('/account') ||
     pathname.startsWith('/corporate');
 
-  const isTransparentHero = pathname === '/' && !isScrolled && !mobileMenuOpen;
   const currentNavLinks = GOURMET_NAV_LINKS;
 
   const scrollToHeroOrTop = (e: React.MouseEvent) => {
@@ -116,115 +115,73 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
       <header
         className="fixed top-0 left-0 right-0 z-50 w-full"
         style={{
-          backgroundColor: isTransparentHero ? 'transparent' : 'rgba(246, 244, 239, 0.96)',
-          borderBottom: isTransparentHero ? '1px solid transparent' : '1px solid var(--satra-border)',
-          backdropFilter: isTransparentHero ? 'none' : 'blur(20px)',
-          transition: 'background-color 400ms cubic-bezier(0.4,0,0.2,1), border-color 400ms cubic-bezier(0.4,0,0.2,1), backdrop-filter 400ms cubic-bezier(0.4,0,0.2,1)',
+          backgroundColor: pathname === '/' ? 'rgba(250, 248, 245, 0.96)' : 'rgba(246, 244, 239, 0.96)',
+          borderBottom: isScrolled ? '1px solid var(--satra-border)' : '1px solid transparent',
+          backdropFilter: 'blur(20px)',
+          transition: 'border-color 400ms cubic-bezier(0.4,0,0.2,1)',
         }}
       >
-        <nav className="max-w-[1440px] mx-auto flex items-center justify-between h-16 lg:h-[68px] px-3.5 sm:px-6 lg:px-10 gap-2 sm:gap-4">
-          
-          {/* ─── Left: Navigation Links (Desktop) ─── */}
-          <div className="hidden lg:flex items-center gap-7 xl:gap-8 flex-1">
-            {currentNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  if (link.href.includes('#')) {
-                    const [targetPath, hash] = link.href.split('#');
-                    if (pathname === targetPath || (pathname === '/' && (targetPath === '' || targetPath === '/'))) {
-                      e.preventDefault();
-                      const element = document.getElementById(hash);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
+        <nav className="max-w-[1440px] mx-auto flex items-center justify-between h-16 lg:h-[68px] px-4 sm:px-6 lg:px-10 gap-4">
+
+          {/* ─── Left: Logo ─── */}
+          <Link
+            href="/"
+            onClick={scrollToHeroOrTop}
+            className="relative w-10 h-10 sm:w-11 sm:h-11 shrink-0 cursor-pointer"
+            aria-label="The Gourmet Gifts Home"
+          >
+            <Image
+              src="/images/brand/LOGOs.svg"
+              alt="The Gourmet Gifts"
+              fill
+              className="object-contain"
+              priority
+            />
+          </Link>
+
+          {/* ─── Right: Navigation Links, Enquire, Mobile Menu ─── */}
+          <div className="flex items-center justify-end gap-4 sm:gap-5 lg:gap-9">
+            <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+              {currentNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    if (link.href.includes('#')) {
+                      const [targetPath, hash] = link.href.split('#');
+                      if (pathname === targetPath || (pathname === '/' && (targetPath === '' || targetPath === '/'))) {
+                        e.preventDefault();
+                        const element = document.getElementById(hash);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
                       }
                     }
-                  }
-                }}
-                className={`text-[11.5px] uppercase tracking-[0.16em] font-medium transition-all duration-200 cursor-pointer ${
-                  pathname === link.href
-                    ? isTransparentHero
-                      ? 'text-white font-semibold border-b border-white'
-                      : 'text-[var(--satra-charcoal)] font-semibold border-b border-[var(--satra-charcoal)]'
-                    : isTransparentHero
-                      ? 'text-white/85 hover:text-white'
-                      : 'text-[var(--satra-stone)] hover:text-[var(--satra-charcoal)]'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+                  }}
+                  className={`text-[12px] uppercase tracking-[0.2em] transition-colors duration-200 cursor-pointer ${
+                    pathname === link.href
+                      ? 'text-[#3c0b1e] font-semibold'
+                      : 'text-[var(--satra-charcoal)] font-medium hover:text-[#3c0b1e]'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-          {/* ─── Center / Left (Mobile): Brand Identity / Monogram ─── */}
-          <div className="flex-shrink-0 flex items-center justify-start lg:justify-center min-w-0">
-            <Link
-              href="/"
-              onClick={scrollToHeroOrTop}
-              className="flex items-center gap-2 sm:gap-3 group py-1 cursor-pointer min-w-0"
-              aria-label="The Gourmet Gifts Home"
-            >
-              <div className="relative flex items-center h-9 sm:h-10">
-                <AnimatePresence mode="wait">
-                  {!isScrolled ? (
-                    <motion.div
-                      key="nav-monogram-img"
-                      initial={{ opacity: 0, scale: 0.94 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.94 }}
-                      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                      className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0"
-                    >
-                      <Image
-                        src="/images/brand/LOGOs.svg"
-                        alt="The Gourmet Gifts"
-                        fill
-                        className="object-contain transition-all duration-300"
-                        priority
-                      />
-                    </motion.div>
-                  ) : (
-                    <motion.span
-                      key="nav-brand-text"
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                      className={`text-[13px] xs:text-[14px] sm:text-[18px] lg:text-[20px] uppercase tracking-[0.03em] sm:tracking-[0.04em] font-medium leading-none whitespace-nowrap transition-colors duration-300 ${
-                        isTransparentHero ? 'text-white' : 'text-[var(--satra-charcoal)]'
-                      }`}
-                      style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
-                    >
-                      The Gourmet Gifts
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </div>
-            </Link>
-          </div>
-
-          {/* ─── Right: Utilities + Mobile Menu (Quick Enquire, Menu) ─── */}
-          <div className="flex-1 flex items-center justify-end gap-2.5 sm:gap-4 lg:gap-5 shrink-0">
             {/* Quick Enquire Modal CTA */}
             <button
               type="button"
               onClick={() => openInquiryModal({ source: 'Navbar Enquire Button' })}
-              className={`inline-flex items-center px-2.5 sm:px-3.5 py-1.5 text-[9.5px] sm:text-[10.5px] font-mono font-semibold uppercase tracking-[0.12em] sm:tracking-[0.16em] transition-all rounded-sm cursor-pointer shrink-0 ${
-                isTransparentHero 
-                  ? 'bg-white text-[#1A1A18] hover:bg-white/90 shadow-xs' 
-                  : 'bg-[#3c0b1e] text-[#FAF8F5] hover:bg-[#4f1028]'
-              }`}
+              className="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] rounded-full bg-[#3c0b1e] text-[#FAF8F5] hover:bg-[#4f1028] transition-colors cursor-pointer shrink-0"
             >
-              ENQUIRE
+              Enquire
             </button>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`lg:hidden relative w-6 h-4 flex flex-col justify-between items-end cursor-pointer ml-1 ${
-                isTransparentHero ? 'text-white' : 'text-[var(--satra-charcoal)]'
-              }`}
+              className="lg:hidden relative w-6 h-4 flex flex-col justify-between items-end cursor-pointer text-[var(--satra-charcoal)]"
               aria-label="Toggle navigation menu"
             >
               <motion.span
