@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { ECOM_HAMPERS } from '@/data/hampersEcomData';
 
 const BASE = 'https://thegourmetgifts.co';
 
@@ -40,6 +41,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url,
       lastModified: now,
       changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    {
+      url: `${BASE}/hampers`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    ...ECOM_HAMPERS.map((h) => ({
+      url: `${BASE}/hampers/${h.slug}`,
+      lastModified: now,
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     })),
     {

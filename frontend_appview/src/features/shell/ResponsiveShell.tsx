@@ -127,7 +127,7 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
           <Link
             href="/"
             onClick={scrollToHeroOrTop}
-            className="relative w-[80px] h-[40px] sm:w-[92px] sm:h-[46px] lg:w-[104px] lg:h-[52px] shrink-0 cursor-pointer overflow-hidden"
+            className="relative w-[65px] h-[32px] sm:w-[75px] sm:h-[37px] lg:w-[85px] lg:h-[42px] shrink-0 cursor-pointer overflow-hidden"
             aria-label="The Gourmet Gifts Home"
           >
             <Image

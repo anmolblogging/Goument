@@ -1,3 +1,7 @@
+## 2026-11-26 — Hamper product pages
+
+Hamper pop-up replaced by individual product pages (/hampers/<slug>) with SEO metadata and structured data; sitemap updated; hampers page pill filters removed and count/Filters row made sticky on phones; smaller header logo.
+
 ## 2026-11-25 — Homepage fixes
 
 Hero text always visible and appears immediately; self-hosted fonts; builds fail on type errors; packaging images renamed; disabled pages return 404; larger header logo; smaller floating button on phones; footer heading spacing.

@@ -7,10 +7,9 @@ import {
   SlidersHorizontal,
   RotateCcw,
 } from 'lucide-react';
-import { ECOM_HAMPERS, EcomHamper, HAMPER_TIERS, HAMPER_OCCASIONS } from '@/data/hampersEcomData';
+import { ECOM_HAMPERS } from '@/data/hampersEcomData';
 import { HamperFilterSidebar, HamperFiltersState, SortOption } from './HamperFilterSidebar';
 import { HamperCard } from './HamperCard';
-import { HamperUnboxModal } from './HamperUnboxModal';
 
 const INITIAL_FILTERS: HamperFiltersState = {
   search: '',
@@ -25,7 +24,6 @@ const INITIAL_FILTERS: HamperFiltersState = {
 export default function HampersEcomView() {
   const [filters, setFilters] = useState<HamperFiltersState>(INITIAL_FILTERS);
   const [sortBy, setSortBy] = useState<SortOption>('featured');
-  const [selectedHamperForUnbox, setSelectedHamperForUnbox] = useState<EcomHamper | null>(null);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
 
   // Filter Logic
@@ -122,66 +120,6 @@ export default function HampersEcomView() {
         </div>
       </section>
 
-      {/* ─── MOBILE QUICK FILTER HORIZONTAL SCROLL STRIP ─── */}
-      <div className="lg:hidden w-full mb-4 py-1">
-        <div className="flex gap-2 overflow-x-auto px-4 py-1 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <button
-            onClick={() => setFilters((p) => ({ ...p, tier: 'all', occasion: 'all' }))}
-            className={`px-3 py-1.5 rounded-full text-xs shrink-0 font-medium transition-colors ${
-              filters.tier === 'all' && filters.occasion === 'all'
-                ? 'bg-[#1A1A18] text-[#DFC299]'
-                : 'bg-white text-[#423E39] border border-[#E0DDD6]'
-            }`}
-          >
-            All Hampers
-          </button>
-
-          {HAMPER_TIERS.filter((t) => t.id !== 'all').map((tier) => {
-            const isSelected = filters.tier === tier.id;
-            return (
-              <button
-                key={tier.id}
-                onClick={() =>
-                  setFilters((p) => ({
-                    ...p,
-                    tier: p.tier === tier.id ? 'all' : tier.id,
-                  }))
-                }
-                className={`px-3 py-1.5 rounded-full text-xs shrink-0 font-medium transition-colors ${
-                  isSelected
-                    ? 'bg-[#3C0B1E] text-[#DFC299]'
-                    : 'bg-white text-[#423E39] border border-[#E0DDD6]'
-                }`}
-              >
-                {tier.label}
-              </button>
-            );
-          })}
-
-          {HAMPER_OCCASIONS.filter((o) => o.id !== 'all').map((occ) => {
-            const isSelected = filters.occasion === occ.id;
-            return (
-              <button
-                key={occ.id}
-                onClick={() =>
-                  setFilters((p) => ({
-                    ...p,
-                    occasion: p.occasion === occ.id ? 'all' : occ.id,
-                  }))
-                }
-                className={`px-3 py-1.5 rounded-full text-xs shrink-0 font-medium transition-colors ${
-                  isSelected
-                    ? 'bg-[#1A1A18] text-[#DFC299]'
-                    : 'bg-white text-[#423E39] border border-[#E0DDD6]'
-                }`}
-              >
-                {occ.label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
       {/* ─── MAIN WORKSPACE: SIDEBAR ON DESKTOP & PRODUCT GRID ─── */}
       <main className="max-w-[1580px] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
@@ -201,8 +139,8 @@ export default function HampersEcomView() {
 
           {/* Right Product Grid: Aligned with the top of the sidebar container! */}
           <section className="lg:col-span-8 xl:col-span-9 w-full">
-            {/* Mobile Only Header Toolbar */}
-            <div className="lg:hidden flex items-center justify-between pb-3 mb-3 border-b border-[#ECE7DE]">
+            {/* Mobile Only Toolbar — sticks under the menu bar until the products end */}
+            <div className="lg:hidden sticky top-16 z-20 -mx-3 sm:-mx-6 px-3 sm:px-6 py-3 mb-3 flex items-center justify-between bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#ECE7DE]">
               <span className="text-xs font-semibold text-[#1A1A18] font-sans">
                 {sortedHampers.length} {sortedHampers.length === 1 ? 'Hamper' : 'Hampers'}
               </span>
@@ -219,11 +157,7 @@ export default function HampersEcomView() {
             {sortedHampers.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
                 {sortedHampers.map((hamper) => (
-                  <HamperCard
-                    key={hamper.id}
-                    hamper={hamper}
-                    onOpenUnboxModal={(h) => setSelectedHamperForUnbox(h)}
-                  />
+                  <HamperCard key={hamper.id} hamper={hamper} />
                 ))}
               </div>
             ) : (
@@ -281,11 +215,6 @@ export default function HampersEcomView() {
         </div>
       )}
 
-      {/* ─── INTERACTIVE UNBOXING INSPECT MODAL ─── */}
-      <HamperUnboxModal
-        hamper={selectedHamperForUnbox}
-        onClose={() => setSelectedHamperForUnbox(null)}
-      />
     </div>
   );
 }

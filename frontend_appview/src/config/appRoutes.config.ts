@@ -427,6 +427,11 @@ export function isPageRouteActive(pathname: string): boolean {
     return true;
   }
 
+  // Individual hamper product pages (/hampers/<slug>); unknown slugs 404 in the page itself
+  if (/^\/hampers\/[a-z0-9-]+$/.test(cleanPath)) {
+    return true;
+  }
+
   // All other pages are disabled (blocked and rewritten to 404)
   return false;
 }

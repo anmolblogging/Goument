@@ -1,16 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { EcomHamper } from '@/data/hampersEcomData';
 import { useCartStore } from '@/hooks/useCart';
 import toast from 'react-hot-toast';
 
 interface HamperCardProps {
   hamper: EcomHamper;
-  onOpenUnboxModal: (hamper: EcomHamper) => void;
 }
 
-export const HamperCard: React.FC<HamperCardProps> = ({ hamper, onOpenUnboxModal }) => {
+export const hamperHref = (hamper: EcomHamper) => `/hampers/${hamper.slug}`;
+
+export const HamperCard: React.FC<HamperCardProps> = ({ hamper }) => {
   const { addItem, items } = useCartStore();
   const [isAdding, setIsAdding] = useState(false);
 
@@ -24,6 +26,7 @@ export const HamperCard: React.FC<HamperCardProps> = ({ hamper, onOpenUnboxModal
       : null;
 
   const handleAddToCart = async (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     setIsAdding(true);
 
@@ -63,8 +66,7 @@ export const HamperCard: React.FC<HamperCardProps> = ({ hamper, onOpenUnboxModal
 
   return (
     <div
-      onClick={() => onOpenUnboxModal(hamper)}
-      className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D8] hover:border-[#DDD8CE] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col group cursor-pointer text-left"
+      className="relative bg-white rounded-2xl overflow-hidden border border-[#E5E0D8] hover:border-[#DDD8CE] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col group cursor-pointer text-left"
     >
       {/* ─── IMAGE CONTAINER (Taller & Elegant with Smooth Hover Crossfade) ─── */}
       <div className="w-full aspect-[4/4.5] bg-[#FAF6F0] relative overflow-hidden block">
@@ -98,7 +100,10 @@ export const HamperCard: React.FC<HamperCardProps> = ({ hamper, onOpenUnboxModal
             className="text-base sm:text-[17px] font-medium text-[#1A1A18] group-hover:text-[#8C7449] transition-colors line-clamp-1 leading-snug tracking-tight font-sans"
             style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
           >
-            {hamper.name}
+            {/* The link covers the whole card (::after), so a tap anywhere opens the product page */}
+            <Link href={hamperHref(hamper)} className="after:absolute after:inset-0 after:z-[1] after:content-['']">
+              {hamper.name}
+            </Link>
           </h3>
 
           <p
@@ -121,7 +126,7 @@ export const HamperCard: React.FC<HamperCardProps> = ({ hamper, onOpenUnboxModal
           {inCartQty > 0 ? (
             <button
               onClick={handleAddToCart}
-              className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#3C0B1E] text-[#DFC299] font-sans cursor-pointer"
+              className="relative z-[2] text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#3C0B1E] text-[#DFC299] font-sans cursor-pointer"
             >
               In Tray ({inCartQty})
             </button>
@@ -130,7 +135,7 @@ export const HamperCard: React.FC<HamperCardProps> = ({ hamper, onOpenUnboxModal
               onClick={handleAddToCart}
               disabled={isAdding}
               aria-label={`Add ${hamper.name} to tray`}
-              className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-xs font-semibold px-2.5 py-1 rounded-lg border border-[#DDD8CE] hover:border-[#1A1A18] hover:bg-[#1A1A18] hover:text-white bg-white text-[#1A1A18] font-sans cursor-pointer shadow-xs"
+              className="relative z-[2] opacity-0 group-hover:opacity-100 transition-all duration-200 text-xs font-semibold px-2.5 py-1 rounded-lg border border-[#DDD8CE] hover:border-[#1A1A18] hover:bg-[#1A1A18] hover:text-white bg-white text-[#1A1A18] font-sans cursor-pointer shadow-xs"
             >
               Add +
             </button>

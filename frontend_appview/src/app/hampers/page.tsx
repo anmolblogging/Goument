@@ -39,6 +39,7 @@ export default function HampersPage() {
       item: {
         '@type': 'Product',
         name: hamper.name,
+        url: `https://thegourmetgifts.co/hampers/${hamper.slug}`,
         description: hamper.subtitle,
         image: `https://thegourmetgifts.co${hamper.image}`,
         offers: {
