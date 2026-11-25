@@ -67,7 +67,25 @@ export const GiftingProcessSection: React.FC = () => {
         {/* ─────────────────────────────────────────
             DESKTOP VIEW — FULL-WIDTH EXPANDED STEPS
         ───────────────────────────────────────── */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex xl:hidden flex-wrap justify-center gap-y-8 border-y border-white/15 py-8">
+          {PROCESS_STEPS.map((step) => (
+            <div key={step.number} className="basis-1/2 lg:basis-1/3 flex items-start gap-4 px-5">
+              <div className="w-11 h-11 rounded-full border border-[#DFC299]/75 flex items-center justify-center shrink-0 font-sans text-base text-[#DFC299]">
+                {step.number.replace(/^0/, '')}
+              </div>
+              <div className="flex-1 min-w-0 text-left">
+                <h3 className="text-[13px] font-sans font-bold uppercase tracking-wider text-white leading-snug">
+                  {step.title}
+                </h3>
+                <p className="text-[12.5px] text-[#A6B2A3] font-light leading-relaxed mt-1">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden xl:block">
           <ScrollReveal animation="fadeUp" delay={0.08}>
             <div className="w-full mx-auto grid grid-cols-5 divide-x divide-white/15 border-y border-white/15 py-6 lg:py-7 items-center">
               {PROCESS_STEPS.map((step) => (

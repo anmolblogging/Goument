@@ -51,15 +51,15 @@ export default function KeepsakeEcommerceSection() {
 
         {/* ─── 12 ATELIER CATEGORIES (6x2 Desktop, 4x3 Tablet, 3x4 Mobile) ─── */}
         <div className="w-full">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-x-3 gap-y-6 sm:gap-x-4 sm:gap-y-8 md:gap-x-6 md:gap-y-10 justify-items-center">
+          <div className="flex flex-wrap justify-center gap-x-3 gap-y-6 sm:gap-x-4 sm:gap-y-8 md:gap-x-6 md:gap-y-10">
             {CATALOGUE_CATEGORIES.map((cat, idx) => {
               const mobileOrder = MOBILE_ORDER_CLASSES[idx] || 'order-none';
 
               return (
                 <Link
                   key={cat.id}
-                  href={`/collections?category=${cat.id}`}
-                  className={`flex flex-col items-center group cursor-pointer w-full max-w-[170px] focus:outline-none transition-all duration-300 ${mobileOrder}`}
+                  href={`/collections/${cat.id}`}
+                  className={`flex flex-col items-center group cursor-pointer basis-[calc((100%-1.5rem)/3)] sm:basis-[calc((100%-3rem)/4)] md:basis-[calc((100%-7.5rem)/6)] shrink-0 max-w-[170px] focus:outline-none transition-all duration-300 ${mobileOrder}`}
                 >
                   {/* Outer Prominent Rounded Squircle Frame (Bigger Size) */}
                   <div

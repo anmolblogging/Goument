@@ -20,6 +20,7 @@ const categorySlugs = [
   'beverages',
   'decor-spiritual',
   'infinity-beyond',
+  '3d-miniatures',
   'wellness-lifestyle',
   'office-travel-bags',
   'electronics-audio',
@@ -36,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1.0,
+    },
+    {
+      url: `${BASE}/occasions`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
     ...occasionUrls.map((url) => ({
       url,

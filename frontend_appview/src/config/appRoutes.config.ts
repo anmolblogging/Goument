@@ -395,6 +395,7 @@ export function isPageRouteActive(pathname: string): boolean {
     '/',
     '/hampers',
     '/collections',
+    '/occasions',
     '/contact',
     '/offline',
     '/employee-gifting',

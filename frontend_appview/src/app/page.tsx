@@ -33,8 +33,8 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════
           SECTION 1 — STATIC HERO BACKGROUND (Sticky / Fixed)
           ═══════════════════════════════════════════════ */}
-      <div id="hero" className="relative sm:sticky sm:top-0 left-0 w-full sm:h-[100svh] z-0 bg-[#FAF8F5] pt-[72px] lg:pt-[80px] px-2.5 sm:px-4 lg:px-6 pb-0 sm:pb-4 lg:pb-6">
-        <div className="relative w-full max-w-[1600px] mx-auto sm:h-full">
+      <div id="hero" className="relative lg:sticky lg:top-0 left-0 w-full lg:h-[100svh] z-0 bg-[#FAF8F5] pt-[72px] lg:pt-[80px] px-2.5 sm:px-4 lg:px-6 pb-0 sm:pb-4 lg:pb-6">
+        <div className="relative w-full max-w-[1600px] mx-auto sm:aspect-[4/3] lg:aspect-auto lg:h-full">
 
           {/* Image card — short and wide on phones, full-height on larger screens */}
           <div className="relative w-full aspect-[3/2] sm:aspect-auto sm:absolute sm:inset-0 overflow-hidden rounded-[22px] sm:rounded-[28px]">

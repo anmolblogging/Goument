@@ -160,7 +160,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Middle: 4 Compact Nav Columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 md:gap-8 py-6 sm:py-8 border-b border-black/10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8 py-6 sm:py-8 border-b border-black/10">
           {footerColumns.map((col) => (
             <div key={col.title} className="space-y-2 sm:space-y-2.5">
               <h4 className="text-[9.5px] sm:text-[11px] md:text-[12px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-[#000000] font-mono font-bold">

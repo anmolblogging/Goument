@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
 import { 
   Check,
   ChevronRight,
@@ -39,7 +38,7 @@ export function CataloguePresentation({
             Home
           </Link>
           <ChevronRight className="w-3 h-3 text-[#B5AFA6]" />
-          <Link href="/#catalogue" className="hover:text-[#1A1A18] transition-colors">
+          <Link href="/collections" className="hover:text-[#1A1A18] transition-colors">
             Catalogue
           </Link>
           <ChevronRight className="w-3 h-3 text-[#B5AFA6]" />
@@ -127,7 +126,7 @@ export function CataloguePresentation({
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1">
+            <div className="grid grid-cols-3 gap-x-2 gap-y-3 pt-1">
               {CATALOGUE_CATEGORIES.map((cat) => {
                 const isSelected = selectedCategory === cat.id;
 
@@ -137,16 +136,16 @@ export function CataloguePresentation({
                     href={`/collections/${cat.id}`}
                     scroll={false}
                     onClick={() => onSelectCategory?.(cat.id)}
-                    className="flex flex-col items-center py-2 px-1 rounded-xl transition-all duration-300 group cursor-pointer text-center relative focus:outline-none"
+                    className="flex flex-col items-center py-1.5 px-0.5 rounded-xl transition-all duration-300 group cursor-pointer text-center relative focus:outline-none"
                   >
                     <div
-                      className={`w-16 h-16 sm:w-18 sm:h-18 rounded-[18px] sm:rounded-[20px] p-[2.5px] shrink-0 transition-all duration-300 relative ${
+                      className={`w-14 h-14 xl:w-[60px] xl:h-[60px] rounded-[16px] p-[2px] shrink-0 transition-all duration-300 relative ${
                         isSelected 
-                          ? `${cat.pastelActive} scale-110 shadow-md ring-2 ring-[#DFC299]` 
+                          ? `${cat.pastelActive} scale-105 shadow-md ring-2 ring-[#DFC299]` 
                           : `bg-[#EAE5DC] ${cat.pastelHover} group-hover:scale-105 group-hover:shadow-xs`
                       }`}
                     >
-                      <div className="w-full h-full rounded-[15px] sm:rounded-[17px] bg-[#FAF8F5] overflow-hidden relative">
+                      <div className="w-full h-full rounded-[14px] bg-[#FAF8F5] overflow-hidden relative">
                         <img src={cat.image} alt={cat.label} className="w-full h-full object-cover" />
                       </div>
 
@@ -158,7 +157,7 @@ export function CataloguePresentation({
                     </div>
 
                     <span
-                      className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mt-2.5 line-clamp-2 leading-tight transition-colors w-full px-1 ${
+                      className={`text-[10px] xl:text-[10.5px] font-bold uppercase tracking-[0.06em] mt-2 line-clamp-2 leading-tight transition-colors w-full ${
                         isSelected ? 'text-[#1A1A18]' : 'text-[#6B655D] group-hover:text-[#1A1A18]'
                       }`}
                     >
@@ -185,7 +184,7 @@ export function CataloguePresentation({
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-2.5 sm:gap-5 md:gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-2.5 sm:gap-5 md:gap-6">
                 {filteredProducts.map((item) => {
                   return (
                     <div
@@ -241,35 +240,5 @@ export function CataloguePresentation({
       </main>
 
     </div>
-  );
-}
-
-function CollectionsCatalogueContent() {
-  const searchParams = useSearchParams();
-  const categoryParam = searchParams.get('category');
-  const [selectedCategory, setSelectedCategory] = useState<string>('gourmet-food');
-
-  useEffect(() => {
-    if (categoryParam) {
-      const exists = CATALOGUE_CATEGORIES.some((c) => c.id === categoryParam);
-      if (exists) {
-        setSelectedCategory(categoryParam);
-      }
-    }
-  }, [categoryParam]);
-
-  return (
-    <CataloguePresentation
-      selectedCategory={selectedCategory}
-      onSelectCategory={setSelectedCategory}
-    />
-  );
-}
-
-export function CollectionsClientView() {
-  return (
-    <Suspense fallback={<CataloguePresentation selectedCategory="gourmet-food" />}>
-      <CollectionsCatalogueContent />
-    </Suspense>
   );
 }

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { CollectionsClientView } from './CollectionsClientView';
+import { CatalogueIndexView } from './CatalogueIndexView';
 import { JsonLd } from '@/components/JsonLd';
 
 const PAGE_URL = 'https://thegourmetgifts.co/collections';
@@ -83,67 +83,67 @@ const collectionsSchema = {
           '@type': 'ListItem',
           position: 1,
           name: 'Gourmet Food',
-          url: 'https://thegourmetgifts.co/collections?category=gourmet-food',
+          url: 'https://thegourmetgifts.co/collections/gourmet-food',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Beverages',
-          url: 'https://thegourmetgifts.co/collections?category=beverages',
+          url: 'https://thegourmetgifts.co/collections/beverages',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Decor & Spiritual',
-          url: 'https://thegourmetgifts.co/collections?category=decor-spiritual',
+          url: 'https://thegourmetgifts.co/collections/decor-spiritual',
         },
         {
           '@type': 'ListItem',
           position: 4,
           name: 'Wellness & Lifestyle',
-          url: 'https://thegourmetgifts.co/collections?category=wellness-lifestyle',
+          url: 'https://thegourmetgifts.co/collections/wellness-lifestyle',
         },
         {
           '@type': 'ListItem',
           position: 5,
           name: 'Eternal Paper Co',
-          url: 'https://thegourmetgifts.co/collections?category=infinity-beyond',
+          url: 'https://thegourmetgifts.co/collections/infinity-beyond',
         },
         {
           '@type': 'ListItem',
           position: 6,
           name: '3D Miniatures',
-          url: 'https://thegourmetgifts.co/collections?category=3d-miniatures',
+          url: 'https://thegourmetgifts.co/collections/3d-miniatures',
         },
         {
           '@type': 'ListItem',
           position: 7,
           name: 'Office & Travel Bags',
-          url: 'https://thegourmetgifts.co/collections?category=office-travel-bags',
+          url: 'https://thegourmetgifts.co/collections/office-travel-bags',
         },
         {
           '@type': 'ListItem',
           position: 8,
           name: 'Electronics',
-          url: 'https://thegourmetgifts.co/collections?category=electronics-audio',
+          url: 'https://thegourmetgifts.co/collections/electronics-audio',
         },
         {
           '@type': 'ListItem',
           position: 9,
           name: 'Stationery & Desk',
-          url: 'https://thegourmetgifts.co/collections?category=stationery-desk',
+          url: 'https://thegourmetgifts.co/collections/stationery-desk',
         },
         {
           '@type': 'ListItem',
           position: 10,
           name: 'Corporate Apparel',
-          url: 'https://thegourmetgifts.co/collections?category=corporate-apparel',
+          url: 'https://thegourmetgifts.co/collections/corporate-apparel',
         },
         {
           '@type': 'ListItem',
           position: 11,
           name: 'Recognition & Trophies',
-          url: 'https://thegourmetgifts.co/collections?category=awards-recognition',
+          url: 'https://thegourmetgifts.co/collections/awards-recognition',
         },
       ],
     },
@@ -154,7 +154,7 @@ export default function CollectionsPage() {
   return (
     <>
       <JsonLd data={collectionsSchema} />
-      <CollectionsClientView />
+      <CatalogueIndexView />
     </>
   );
 }

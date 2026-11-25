@@ -1,3 +1,7 @@
+## 2026-11-26 — Catalogue & Occasions pages, tablet layout
+
+Menu links now open /collections (new catalogue overview) and /occasions (enabled). Occasion hero fits one screen; category sidebar fits without scrolling; tablet layouts fixed for homepage hero, process steps, curate tiles, product grids, hamper page and footer.
+
 ## 2026-11-26 — Hamper product pages
 
 Hamper pop-up replaced by individual product pages (/hampers/<slug>) with SEO metadata and structured data; sitemap updated; hampers page pill filters removed and count/Filters row made sticky on phones; smaller header logo.

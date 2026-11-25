@@ -240,7 +240,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
       {/* ══════════════════════════════════════════════════════════════════
     1. HERO SECTION
     ══════════════════════════════════════════════════════════════════ */}
-<section className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 md:pt-32 pb-6 sm:pb-10">
+<section className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-24 lg:pt-[108px] pb-6 sm:pb-10">
   <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center">
 
     {/* Left Column: Breadcrumb, Typography, CTAs & Trust Points */}
@@ -338,12 +338,13 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
     {/* Right Column: Premium Hero Image */}
     <div className="lg:col-span-5 relative">
       <ScrollReveal animation="fadeUp" delay={0.12}>
-        <div className="relative mx-auto w-full max-w-[560px]">
+        {/* On desktop the picture's height follows the screen (max 640px), so the hero fits in one view */}
+        <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none lg:w-auto lg:h-[clamp(420px,calc(100svh-150px),640px)] lg:aspect-[4/5] lg:mr-3">
 
           {/* Subtle Architectural Frame */}
           <div className="absolute -right-2.5 -bottom-2.5 sm:-right-3 sm:-bottom-3 w-full h-full border border-[#C8B28E]/45 rounded-[20px] pointer-events-none" />
 
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] sm:rounded-[20px] border border-[#E8E2D8] bg-[#FAF8F5] shadow-[0_10px_30px_rgba(0,0,0,0.055)]">
+          <div className="relative aspect-[4/5] w-full lg:h-full overflow-hidden rounded-[18px] sm:rounded-[20px] border border-[#E8E2D8] bg-[#FAF8F5] shadow-[0_10px_30px_rgba(0,0,0,0.055)]">
             <Image
               src={data.heroImage}
               alt={data.title}

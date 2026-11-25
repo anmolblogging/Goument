@@ -9,13 +9,13 @@ import { ScrollReveal } from '@/components/motion/ScrollReveal';
 
 export function OccasionsIndexView() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#1A1A18] pt-20 sm:pt-24 md:pt-28 pb-16">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#1A1A18] pt-18 sm:pt-24 pb-16">
       
       {/* ─── SECTION 1: BREADCRUMBS & HERO HEADER ─── */}
-      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 sm:mb-12">
+      <section className="max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-6">
         
         {/* Working Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-1.5 sm:gap-2 text-xs text-[#8C847B] mb-3 sm:mb-4">
+        <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[#8C847B] mb-2 sm:mb-3">
           <Link href="/" className="hover:text-[#1A1A18] transition-colors">
             Home
           </Link>
@@ -26,9 +26,9 @@ export function OccasionsIndexView() {
         </nav>
 
         {/* Hero Title & Subtitle */}
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3.5">
+        <div className="text-center max-w-4xl mx-auto py-1">
           <h1
-            className="text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04] whitespace-nowrap"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#1A1A18] tracking-[-0.02em] leading-[1.08] sm:leading-[1.04]"
             style={{
               fontFamily: 'var(--font-cormorant), Georgia, serif',
               fontWeight: 300,
@@ -36,7 +36,7 @@ export function OccasionsIndexView() {
           >
             For every occasion that matters
           </h1>
-          <p className="text-xs sm:text-sm md:text-base text-[#78746D] font-light max-w-2xl mx-auto leading-relaxed px-2">
+          <p className="text-xs sm:text-sm text-[#78746D] font-light mt-1 max-w-lg mx-auto leading-relaxed">
             Thoughtfully curated keepsakes designed for corporate milestones, celebrations, and lasting relationships.
           </p>
         </div>
@@ -44,7 +44,7 @@ export function OccasionsIndexView() {
       </section>
 
       {/* ─── SECTION 2: OCCASIONS PRESENTATION ─── */}
-      <main className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 mb-14 sm:mb-20">
+      <main className="max-w-[1580px] mx-auto px-3 sm:px-6 lg:px-8 mb-14 sm:mb-20">
         
         {/* ── MOBILE VIEW: LUXURY FULL-WIDTH EDITORIAL CARDS (SM:HIDDEN) ── */}
         <div className="sm:hidden space-y-4">

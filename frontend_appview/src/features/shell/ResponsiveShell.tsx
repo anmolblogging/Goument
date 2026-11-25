@@ -20,8 +20,8 @@ import { useSilentTelemetry } from '@/hooks/useSilentTelemetry';
 /* ── The Gourmet Gifts Nav Links (Single-Word Concise) ── */
 const GOURMET_NAV_LINKS = [
   { label: 'Hampers', href: '/hampers' },
-  { label: 'Catalogue', href: '/#catalogue' },
-  { label: 'Occasions', href: '/#occasions' },
+  { label: 'Catalogue', href: '/collections' },
+  { label: 'Occasions', href: '/occasions' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -159,7 +159,7 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
                     }
                   }}
                   className={`text-[12px] uppercase tracking-[0.2em] transition-colors duration-200 cursor-pointer ${
-                    pathname === link.href
+                    pathname === link.href || pathname?.startsWith(link.href + '/')
                       ? 'text-[#3c0b1e] font-semibold'
                       : 'text-[var(--satra-charcoal)] font-medium hover:text-[#3c0b1e]'
                   }`}

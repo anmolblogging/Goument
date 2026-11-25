@@ -73,9 +73,9 @@ export default function HamperDetailView({ hamper, related }: HamperDetailViewPr
           <span className="text-[#1A1A18] font-medium">{hamper.name}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 items-start">
           {/* ─── LEFT: GALLERY (stays in view on desktop) ─── */}
-          <div className="lg:sticky lg:top-24">
+          <div className="md:sticky md:top-24">
             <div className="w-full aspect-[4/3.6] rounded-2xl overflow-hidden relative border border-[#E0DDD6] bg-white">
               <img
                 src={selectedImage}

@@ -155,7 +155,7 @@ export default function HampersEcomView() {
 
             {/* Product Grid starts at the EXACT same vertical baseline as the filter sidebar */}
             {sortedHampers.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
                 {sortedHampers.map((hamper) => (
                   <HamperCard key={hamper.id} hamper={hamper} />
                 ))}

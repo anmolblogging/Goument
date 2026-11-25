@@ -157,7 +157,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
             {/* Bottom Bar */}
             <div className="p-3 bg-[#FAF8F5] border-t border-[#E0DDD6] text-center">
               <Link
-                href="/#catalogue"
+                href="/collections"
                 onClick={onClose}
                 className="text-xs font-semibold text-[#9E7B35] hover:underline inline-flex items-center gap-1"
               >
