@@ -1,3 +1,7 @@
+## 2026-11-25 — frontend_appview Next.js 16.4.6 security patch
+
+Upgraded Next.js and eslint-config-next 16.4.2 → 16.4.6 (published security advisory) and enabled `experimental.agentUpgrade: 'security'`. Build, typecheck, tests and local smoke checks pass; lint baseline unchanged.
+
 ## 2026-11-25 — Remove non-live apps from main
 
 Removed `B2C/`, `backend/`, `frontend_responsive/` and `scripts/` (not referenced by the live `frontend_appview`). Backup: branch `backup/full-site-2026-11-25`, tag `backup-full-site-2026-11-25`. Verified `frontend_appview` production build after removal. No deployment performed.

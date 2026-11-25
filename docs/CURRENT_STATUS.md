@@ -1,3 +1,7 @@
+## 2026-11-25 — Live site Next.js security patch 16.4.2 → 16.4.6
+
+CURRENT / IMPLEMENTED locally: `next upgrade --agent=security` selected 16.4.6 for frontend_appview because 16.4.2 has a published security advisory. next and eslint-config-next set to ^16.4.6 with lockfile; `experimental.agentUpgrade: 'security'` added to next.config.ts. React and all other config unchanged; no codemods (same major). VERIFIED locally: `next --version` 16.4.6, production build (50 pages, no advisory warning), `tsc --noEmit` clean, 7/7 node tests, lint unchanged at the existing 57 errors/108 warnings, local `next start` smoke of key pages and /api/geo/detect. Hosted verification follows deployment.
+
 ## 2026-11-25 — Repository reduced to the live static site
 
 CURRENT / IMPLEMENTED: user chose to keep thegourmetgifts.co as a static/enquiry website for now. `B2C/`, `backend/`, `frontend_responsive/` and `scripts/` were removed from `main`; the live app `frontend_appview` (Vercel, bom1) and root asset folders are unchanged. All removed source and full history are preserved on branch `backup/full-site-2026-11-25` and annotated tag `backup-full-site-2026-11-25` (restore with `git checkout backup-full-site-2026-11-25 -- B2C backend frontend_responsive scripts`). Older entries below that describe B2C/backend/alternate-frontend work are historical and refer to that backup. Dormant ecommerce pages inside frontend_appview remain gated as before. FUTURE / OPTIONAL: ecommerce conversion should start from the backed-up B2C app.

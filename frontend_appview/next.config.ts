@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    // Keep Next.js security-upgrade reminders on (set by `next upgrade --agent=security`).
+    agentUpgrade: 'security',
+  },
   images: {
     // Keep each resized image for 31 days and make fewer versions (one format,
     // fewer sizes). This keeps Vercel's free image limit (5,000 a month) low.
