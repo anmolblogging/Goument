@@ -1,3 +1,7 @@
+## 2026-11-26 — Occasions index: product-style cards
+
+CURRENT / IMPLEMENTED: /occasions cards now match HamperCard style (image top 4:4.5, title, 2-line tagline, Explore; stretched link), 2 per row below 1024px and 4 per row above; no fade-in animation on the cards. Supersedes the same-day picture-left layout. VERIFIED locally at 375/768/1440 and card click.
+
 ## 2026-11-26 — Occasions index redesign
 
 CURRENT / IMPLEMENTED: /occasions shows one card per occasion (2 per row ≥1024px, 1 per row below; picture left from 640px, stacked on phones) with number, title, tagline and up to 4 moments from occasionsData, plus a stretched Explore link. VERIFIED locally at 375/768/1440 and card click.

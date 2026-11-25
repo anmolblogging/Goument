@@ -1,3 +1,7 @@
+## 2026-11-26 — Occasions page product cards
+
+Occasions page switched to product-style cards (image top, details below), 4 per row on desktop.
+
 ## 2026-11-26 — Occasions page cards
 
 Occasions page redesigned to picture-left / details-right cards, two per row on desktop.

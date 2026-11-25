@@ -44,67 +44,45 @@ export function OccasionsIndexView() {
 
       </section>
 
-      {/* ─── SECTION 2: OCCASION CARDS — picture left, details right, 2 per row on desktop ─── */}
+      {/* ─── SECTION 2: OCCASION CARDS — product-card style (image top, details below) ─── */}
       <main className="max-w-[1580px] mx-auto px-3 sm:px-6 lg:px-8 mb-14 sm:mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6">
           {OCCASION_CARDS.map((card, idx) => {
             const data = getOccasionData(card.id);
-            const moments = (data.moments ?? []).slice(0, 4);
             return (
-              <ScrollReveal key={card.id} animation="fadeUp" delay={0.03 * (idx % 2)}>
-                <article className="group relative h-full flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden border border-[#E5E0D8] hover:border-[#D5CBB8] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.09)] transition-all duration-300">
-                  {/* Picture */}
-                  <div className="relative w-full sm:w-[44%] aspect-[16/10] sm:aspect-auto sm:min-h-[300px] shrink-0 overflow-hidden bg-[#1A1A18]">
+              <article key={card.id} className="group relative h-full bg-white rounded-2xl overflow-hidden border border-[#E5E0D8] hover:border-[#DDD8CE] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col">
+                  <div className="relative w-full aspect-[4/4.5] overflow-hidden bg-[#FAF6F0]">
                     <Image
                       src={card.image}
                       alt={data.title}
                       fill
-                      priority={idx < 2}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 44vw, 22vw"
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      priority={idx < 4}
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
 
-                  {/* Details */}
-                  <div className="flex-1 flex flex-col justify-between gap-5 p-5 sm:p-6 lg:p-7">
+                  <div className="p-4 sm:p-5 md:p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10.5px] font-mono font-semibold tracking-[0.2em] text-[#8C7449]">
-                        {String(idx + 1).padStart(2, '0')} / {String(OCCASION_CARDS.length).padStart(2, '0')}
-                      </span>
                       <h2
-                        className="mt-2 text-[26px] sm:text-[30px] font-normal text-[#1A1A18] leading-[1.1] tracking-[-0.01em]"
-                        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
+                        className="text-base sm:text-[17px] font-medium text-[#1A1A18] group-hover:text-[#8C7449] transition-colors leading-snug tracking-tight"
+                        style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
                       >
-                        {data.title}
+                        {/* The link covers the whole card (::after), so a tap anywhere opens the occasion */}
+                        <Link href={card.href} className="after:absolute after:inset-0 after:content-['']">
+                          {data.title}
+                        </Link>
                       </h2>
-                      <p className="mt-2 text-sm text-[#5C574F] leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#78746D] mt-1.5 leading-relaxed line-clamp-2">
                         {data.tagline}
                       </p>
-                      {moments.length > 0 && (
-                        <ul className="mt-4 flex flex-wrap gap-1.5">
-                          {moments.map((m) => (
-                            <li
-                              key={m.title}
-                              className="px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#ECE7DE] text-[11px] text-[#5C574F]"
-                            >
-                              {m.title}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
                     </div>
 
-                    {/* The link covers the whole card (::after), so a click anywhere opens the occasion */}
-                    <Link
-                      href={card.href}
-                      className="self-start inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#3c0b1e] group-hover:bg-[#4f1028] text-white text-[13px] font-semibold transition-colors after:absolute after:inset-0 after:content-['']"
-                    >
-                      Explore {data.title}
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                    </Link>
+                    <span className="mt-3.5 sm:mt-4 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#1A1A18] group-hover:text-[#3c0b1e]">
+                      Explore <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5" />
+                    </span>
                   </div>
                 </article>
-              </ScrollReveal>
             );
           })}
         </div>
