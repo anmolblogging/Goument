@@ -140,17 +140,16 @@ export const Footer: React.FC = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: '-60px' }}
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[-0.01em] uppercase font-light leading-tight text-[#000000] transition-colors group-hover:text-[#8C6228] flex flex-wrap gap-x-2 sm:gap-x-3.5"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[-0.01em] uppercase font-light leading-tight text-[#000000] transition-colors group-hover:text-[#8C6228]"
               style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontWeight: 500 }}
             >
               {GOURMET_TITLE_WORDS.map((word, i) => (
-                <motion.span
-                  key={i}
-                  variants={footerTitleWord}
-                  className="inline-block"
-                >
-                  {word}
-                </motion.span>
+                <React.Fragment key={i}>
+                  {i > 0 && ' '}
+                  <motion.span variants={footerTitleWord} className="inline-block">
+                    {word}
+                  </motion.span>
+                </React.Fragment>
               ))}
             </motion.h2>
           </Link>

@@ -550,8 +550,7 @@ export const OccasionPageTemplate: React.FC<{ data: OccasionPageData }> = ({ dat
                   Not sure what to gift? That’s where we come in.
                 </h2>
                 <p className="text-xs sm:text-sm md:text-base text-[#EDE6DC]/90 font-light leading-relaxed">
-                  Tell us who you’re gifting, the occasion, quantity and budget.
-                  <br className="hidden sm:inline" /> We’ll come back with 3 thoughtfully curated concepts {conceptsAudienceTarget}
+                  Tell us who you’re gifting, the occasion, quantity and budget. We’ll come back with 3 thoughtfully curated concepts {conceptsAudienceTarget}
                 </p>
               </div>
 
