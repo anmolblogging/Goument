@@ -16,8 +16,6 @@ import { InquiryModal } from '@/components/modals/InquiryModal';
 import { useInquiryModal } from '@/hooks/useInquiryModal';
 import { FloatingStickyInquireButton } from '@/components/brand/FloatingStickyInquireButton';
 import { useSilentTelemetry } from '@/hooks/useSilentTelemetry';
-import { useUserLocation } from '@/hooks/useUserLocation';
-import { LocationPromptBar } from '@/components/brand/LocationPromptBar';
 
 /* ── The Gourmet Gifts Nav Links (Single-Word Concise) ── */
 const GOURMET_NAV_LINKS = [
@@ -30,7 +28,6 @@ const GOURMET_NAV_LINKS = [
 export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pathname = usePathname();
   useSilentTelemetry();
-  useUserLocation();
   const { openInquiryModal } = useInquiryModal();
   const [showReconnectedToast, setShowReconnectedToast] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -125,7 +122,6 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
           transition: 'background-color 400ms cubic-bezier(0.4,0,0.2,1), border-color 400ms cubic-bezier(0.4,0,0.2,1), backdrop-filter 400ms cubic-bezier(0.4,0,0.2,1)',
         }}
       >
-        <LocationPromptBar />
         <nav className="max-w-[1440px] mx-auto flex items-center justify-between h-16 lg:h-[68px] px-3.5 sm:px-6 lg:px-10 gap-2 sm:gap-4">
           
           {/* ─── Left: Navigation Links (Desktop) ─── */}

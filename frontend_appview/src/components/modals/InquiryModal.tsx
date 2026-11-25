@@ -6,7 +6,6 @@ import { X, Send } from 'lucide-react';
 import { useInquiryModal } from '@/hooks/useInquiryModal';
 import { openWhatsAppInquiry } from '@/lib/whatsapp';
 import toast from 'react-hot-toast';
-import { useUserLocation } from '@/hooks/useUserLocation';
 
 export const BUDGET_OPTIONS = [
   '₹500 – ₹999',
@@ -27,7 +26,6 @@ export const QUANTITY_OPTIONS = [
 
 export const InquiryModal: React.FC = () => {
   const { isOpen, options, closeInquiryModal } = useInquiryModal();
-  const userLoc = useUserLocation();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -40,17 +38,16 @@ export const InquiryModal: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Sync default options and location when modal opens
+  // Sync default options when modal opens
   React.useEffect(() => {
     if (isOpen) {
       setFormData((prev) => ({
         ...prev,
-        city: prev.city || userLoc.fullLocation || '',
         budget: options.defaultBudget || prev.budget || '₹1,000 – ₹1,499',
         quantity: options.defaultQuantity || prev.quantity || '50 - 100',
       }));
     }
-  }, [isOpen, options, userLoc.fullLocation]);
+  }, [isOpen, options]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -239,11 +236,6 @@ export const InquiryModal: React.FC = () => {
                   <label className="text-[10px] font-bold text-[#7A8B6F] uppercase tracking-wider block">
                     Delivery Location / City
                   </label>
-                  {userLoc.isAutoDetected && formData.city && (
-                    <span className="text-[9.5px] text-[#8C7449] font-medium">
-                      📍 Auto-detected
-                    </span>
-                  )}
                 </div>
                 <div className="relative">
                   <input
@@ -253,19 +245,7 @@ export const InquiryModal: React.FC = () => {
                     placeholder="e.g. Mumbai, Delhi, Bengaluru"
                     className="w-full bg-transparent border-0 border-b border-[#D0CBC0] focus:border-[#1A1A18] rounded-none px-0 py-1.5 text-xs sm:text-sm text-[#1A1A18] placeholder-[#A09A90] focus:outline-none transition-colors pr-14"
                   />
-                  {formData.city && (
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, city: '' })}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] text-[#8C867D] hover:text-[#1A1A18] px-1 py-0.5 underline cursor-pointer"
-                    >
-                      Change
-                    </button>
-                  )}
                 </div>
-                <span className="text-[10px] text-[#8C867D] block pt-0.5">
-                  Pre-filled from your location. Edit if delivering to another city.
-                </span>
               </div>
 
               {/* Row 3: Submit Button */}

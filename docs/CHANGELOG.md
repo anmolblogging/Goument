@@ -1,3 +1,7 @@
+## 2026-11-25 — Remove visitor location feature
+
+Removed GPS/IP location detection, the top location bar, /api/geo/detect and enquiry-form city auto-fill. City is entered manually. Server-side IP city on enquiries/telemetry unchanged.
+
 ## 2026-11-25 — frontend_appview Next.js 16.4.6 security patch
 
 Upgraded Next.js and eslint-config-next 16.4.2 → 16.4.6 (published security advisory) and enabled `experimental.agentUpgrade: 'security'`. Build, typecheck, tests and local smoke checks pass; lint baseline unchanged.
