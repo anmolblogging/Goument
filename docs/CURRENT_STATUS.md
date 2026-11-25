@@ -1,3 +1,7 @@
+## 2026-11-26 — Occasions index redesign
+
+CURRENT / IMPLEMENTED: /occasions shows one card per occasion (2 per row ≥1024px, 1 per row below; picture left from 640px, stacked on phones) with number, title, tagline and up to 4 moments from occasionsData, plus a stretched Explore link. VERIFIED locally at 375/768/1440 and card click.
+
 ## 2026-11-26 — Catalogue & Occasions pages, occasion hero, tablet layout
 
 CURRENT / IMPLEMENTED (frontend_appview): menu Catalogue → /collections (new CatalogueIndexView: category cards with item counts; old auto-select-first-category wrapper removed) and Occasions → /occasions (now whitelisted; header aligned to hampers page). Category breadcrumb, search link and homepage curate tiles link to /collections/<id>. Sitemap adds /occasions and 3d-miniatures. Occasion template hero: desktop image height clamp(420px, 100svh−150px, 640px), lg:pt-[108px], text vertically centred. Category sidebar 3 columns (fits 11 without scroll at ≥768px tall). Tablet (640–1023px): homepage hero is a non-sticky 4:3 card (sticky full-height from 1024px); process steps use a centred 2/3-column grid below 1280px; curate tiles centre the last row; hampers/category grids 3 columns at md; hamper detail two columns from md; footer 2 columns until lg. VERIFIED locally: tsc, build (64 pages), 7/7 tests, overflow audit at 375/768/1024/1440, screenshots at each.

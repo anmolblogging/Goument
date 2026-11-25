@@ -1,3 +1,7 @@
+## 2026-11-26 — Occasions page cards
+
+Occasions page redesigned to picture-left / details-right cards, two per row on desktop.
+
 ## 2026-11-26 — Catalogue & Occasions pages, tablet layout
 
 Menu links now open /collections (new catalogue overview) and /occasions (enabled). Occasion hero fits one screen; category sidebar fits without scrolling; tablet layouts fixed for homepage hero, process steps, curate tiles, product grids, hamper page and footer.
