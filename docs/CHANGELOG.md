@@ -1,3 +1,7 @@
+## 2026-11-25 — Remove non-live apps from main
+
+Removed `B2C/`, `backend/`, `frontend_responsive/` and `scripts/` (not referenced by the live `frontend_appview`). Backup: branch `backup/full-site-2026-11-25`, tag `backup-full-site-2026-11-25`. Verified `frontend_appview` production build after removal. No deployment performed.
+
 ## 2026-10-23 — B2C Next.js security upgrade (R287)
 
 CURRENT / IMPLEMENTED locally: execute requested security-upgrade handoff, patch Next/eslint-config-next16.4.0→16.4.2 with matching locks/framework packages, persist security reminder policy. Existing Shop changes, React, webpack, assets/theme and commerce source retained.96 frontend tests, lint/typecheck, isolated production builds, zero-production-advisory audit, repeat security selector and mobile/navigation/image checks pass. Local preview automatically restarts into16.4.2; Shop200. Narrow upgrade commit lives on a separate local branch; applied working-folder changes remain reviewable alongside existing work. No push/PR/deployment; hosted patch verification remains open.
