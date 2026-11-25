@@ -19,7 +19,8 @@ export function proxy(request: NextRequest) {
     if (!isPageRouteActive(pathname)) {
       const url = request.nextUrl.clone();
       url.pathname = '/_not-found';
-      return NextResponse.rewrite(url);
+      // Send a real 404 status so search engines don't index disabled pages
+      return NextResponse.rewrite(url, { status: 404 });
     }
   }
 

@@ -6,7 +6,8 @@ const nextConfig: NextConfig = {
     root: path.resolve(__dirname),
   },
   typescript: {
-    ignoreBuildErrors: true,
+    // Fail the build on type errors so mistakes can't reach the live site
+    ignoreBuildErrors: false,
   },
   experimental: {
     // Keep Next.js security-upgrade reminders on (set by `next upgrade --agent=security`).

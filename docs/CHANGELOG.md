@@ -1,3 +1,7 @@
+## 2026-11-25 — Homepage fixes
+
+Hero text always visible and appears immediately; self-hosted fonts; builds fail on type errors; packaging images renamed; disabled pages return 404; larger header logo; smaller floating button on phones; footer heading spacing.
+
 ## 2026-11-25 — Homepage redesign
 
 New header layout, rounded hero card with brand capsule (phone: image card + text below), occasions 4×2 grid on desktop, industries marquee, FAQ two-column sticky layout after the process section, packaging gallery without heading, Contact button, equal section spacing, lower floating Enquire button.

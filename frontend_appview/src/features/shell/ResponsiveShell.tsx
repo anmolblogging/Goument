@@ -127,14 +127,14 @@ export const ResponsiveShell: React.FC<{ children: React.ReactNode }> = ({ child
           <Link
             href="/"
             onClick={scrollToHeroOrTop}
-            className="relative w-10 h-10 sm:w-11 sm:h-11 shrink-0 cursor-pointer"
+            className="relative w-[80px] h-[40px] sm:w-[92px] sm:h-[46px] lg:w-[104px] lg:h-[52px] shrink-0 cursor-pointer overflow-hidden"
             aria-label="The Gourmet Gifts Home"
           >
             <Image
               src="/images/brand/LOGOs.svg"
               alt="The Gourmet Gifts"
               fill
-              className="object-contain"
+              className="object-cover object-center"
               priority
             />
           </Link>

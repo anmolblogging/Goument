@@ -76,8 +76,8 @@
 @layer base {
   :root {
     /* ── Core Typography Variables ── */
-    --font-cormorant: 'Cormorant Garamond', Georgia, serif;
-    --font-jakarta: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-cormorant: var(--font-cormorant-src), 'Cormorant Garamond', Georgia, serif;
+    --font-jakarta: var(--font-jakarta-src), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-geist: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
     /* ── House of Satra — Sovereign Palette ── */
@@ -499,3 +499,16 @@ body,
 .home-sections { --section-gap: 48px; }
 @media (min-width: 768px) { .home-sections { --section-gap: 64px; } }
 @media (min-width: 1024px) { .home-sections { --section-gap: 80px; } }
+
+/* ─── Homepage hero text: CSS fade-up that starts on first paint ─── */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-rise { animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+.hero-rise-2 { animation-delay: 0.22s; }
+.hero-rise-3 { animation-delay: 0.34s; }
+.hero-rise-4 { animation-delay: 0.46s; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}

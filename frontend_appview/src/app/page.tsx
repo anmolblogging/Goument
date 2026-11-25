@@ -1,10 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowDown, ArrowRight } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { TextReveal } from '@/components/motion/TextReveal';
 import Image from 'next/image';
@@ -20,42 +18,13 @@ import CustomGiftBoxesSection from '@/features/ecommerce/CustomGiftBoxesSection'
 import CuratedInquirySection from '@/features/inquiry/CuratedInquirySection';
 import { useInquiryModal } from '@/hooks/useInquiryModal';
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
   const { openInquiryModal } = useInquiryModal();
-  const heroImageRef = useRef<HTMLImageElement>(null);
-  const heroTextRef = useRef<HTMLDivElement>(null);
 
-  /* ─── Hero Animations & Scroll Reset ─── */
+  /* ─── Scroll Reset ─── */
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo(0, 0);
-    }
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    const ctx = gsap.context(() => {
-      // Staggered hero text entrance
-      if (heroTextRef.current) {
-        const children = heroTextRef.current.children;
-        gsap.fromTo(
-          children,
-          { y: 35, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.1,
-            stagger: 0.18,
-            ease: 'power3.out',
-            delay: 0.2,
-          }
-        );
-      }
-    });
-
-    return () => ctx.revert();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -84,10 +53,10 @@ export default function HomePage() {
 
           {/* Hero Content — below the image on phones, over the image on larger screens */}
           <div className="relative z-10 sm:h-full flex flex-col justify-center px-0 pt-7 pb-0 sm:px-12 lg:px-20 sm:py-0">
-            <div ref={heroTextRef} className="max-w-4xl space-y-4 sm:space-y-5 flex flex-col items-center sm:items-start text-center sm:text-left">
+            <div className="max-w-4xl space-y-4 sm:space-y-5 flex flex-col items-center sm:items-start text-center sm:text-left">
 
               {/* Brand capsule */}
-              <span className="opacity-0 inline-flex items-center gap-2 rounded-full border border-[#3c0b1e]/15 bg-white sm:border-white/35 sm:bg-white/10 sm:backdrop-blur-md pl-1.5 pr-4 py-1.5 text-[#3c0b1e] sm:text-white">
+              <span className="hero-rise inline-flex items-center gap-2 rounded-full border border-[#3c0b1e]/15 bg-white sm:border-white/35 sm:bg-white/10 sm:backdrop-blur-md pl-1.5 pr-4 py-1.5 text-[#3c0b1e] sm:text-white">
                 <span className="relative w-6 h-6 rounded-full bg-[#FAF8F5] shrink-0">
                   <Image src="/images/brand/LOGOs.svg" alt="" fill className="object-contain p-[3px]" />
                 </span>
@@ -98,7 +67,7 @@ export default function HomePage() {
 
               {/* Title */}
               <h1
-                className="text-[#1A1A18] sm:text-white leading-[1.1] sm:leading-[1.02] tracking-[-0.025em] sm:tracking-[-0.02em] opacity-0 text-[31px] max-[349px]:text-[27px] sm:text-5xl md:text-6xl lg:text-[72px] text-center sm:text-left"
+                className="text-[#1A1A18] sm:text-white leading-[1.1] sm:leading-[1.02] tracking-[-0.025em] sm:tracking-[-0.02em] hero-rise hero-rise-2 text-[31px] max-[349px]:text-[27px] sm:text-5xl md:text-6xl lg:text-[72px] text-center sm:text-left"
                 style={{
                   fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontWeight: 400,
@@ -111,14 +80,14 @@ export default function HomePage() {
 
               {/* Subtitle */}
               <p
-                className="text-[#5C574F] sm:text-white/90 opacity-0 text-[15px] sm:text-lg lg:text-xl font-normal leading-relaxed max-w-xl text-center sm:text-left"
+                className="text-[#5C574F] sm:text-white/90 hero-rise hero-rise-3 text-[15px] sm:text-lg lg:text-xl font-normal leading-relaxed max-w-xl text-center sm:text-left"
                 style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
               >
                 We don’t start with a catalogue. We start with who you&apos;re gifting to.
               </p>
 
               {/* Buttons */}
-              <div className="opacity-0 flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
+              <div className="hero-rise hero-rise-4 flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
                 <button
                   type="button"
                   onClick={() => openInquiryModal({ source: 'Hero Section (Get 3 Concepts)' })}
